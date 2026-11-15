@@ -19,6 +19,16 @@
 
 **Technical constraints (stack / hosting / browser / performance):**
 
+**Reading audience and priority:** Who scans? Who reads deeply? Which fact should be comprehensible first?
+
+**Actual text samples (headlines, paragraphs, longest names/terms, numerals):**
+
+**Languages and glyphs (including punctuation/diacritics):**
+
+**Desired typographic voice, grounded in client identity (not font name):**
+
+**Font licensing / existing brand type assets:**
+
 **Accessibility and languages:**
 
 **Site personality in 3 useful words (not 'modern premium elegant'):**
