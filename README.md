@@ -17,6 +17,9 @@ Most AI-generated websites fail through **structural sameness** as well as visua
 8. [Project brief](templates/PROJECT_BRIEF.md) → [decisions record](templates/DESIGN_DECISIONS.md).
 9. [Panduan penggunaan Bahasa Indonesia](docs/GETTING_STARTED_ID.md) — cara menerapkan sistem ke proyek klien.
 
+## Seven Visual Directions — actual concept explorer
+**[View the interactive seven-concept prototype](concepts/)** — seven distinct page anatomies, typography systems, media treatments and navigational ideas for the SAME fictional architecture client (ATELIER SERA). Use [the concept rationale](concepts/README.md) to understand the decisions. This is a speculative study, **not seven client websites**. For GitHub Pages, enable root/branch publishing first; expected URL: https://azrielchoerulhakim.github.io/lazarus-design-os/concepts/ .
+
 ## Website catalogue
 Open [index.html](index.html), or serve locally:
 ```sh
