@@ -9,6 +9,7 @@ Browser and device tooling available:
 |---|---|---|---|
 | 320×568 | | | |
 | 390×844 | | | |
+| 640×900 | | | |
 | 768×1024 | | | |
 | 1024×768 | | | |
 | 1440×900 | | | |
@@ -21,8 +22,23 @@ Touch:
 Zoom to 200%:
 Reduced motion:
 Core links/CTAs:
-Contrast:
+Contrast (computed applicable WCAG threshold):
+200% text resizing:
+320px-equivalent reflow:
+WCAG text-spacing override:
+Custom-font failure / fallback:
+Actual names, paragraphs, numbers and language coverage:
 Loading/empty/error states:
+
+## Typography sign-off
+Client TYPE_SPEC link and same-copy specimens:
+Chosen/rejected type grammar and reason:
+Font license and language coverage:
+Sample computed body/heading/caption/control sizes:
+Reading measure, line-height and tracking observation:
+Long real names and headlines at 320px:
+Screenshot-to-source commit SHA match:
+Typography QA blockers and exact affected text:
 
 ## Anti-generic critique
 Identity swap:
