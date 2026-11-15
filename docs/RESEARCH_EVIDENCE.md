@@ -21,7 +21,7 @@ None of these prove AI authorship. The problem is **indiscriminate repetition wi
 
 ## Hypotheses to test at Lazarus
 H1. Client-evidence-based creative theses produce higher identity specificity than style-only prompts.
-H2. Three structurally divergent explorations decrease same-layout repetition compared with three cosmetic variants.
+H2. Seven structurally divergent concept proposals may reduce same-layout repetition compared with seven cosmetic variants. This numerical choice is a Lazarus working standard, **not an evidence-based optimal count**.
 H3. Browser-based visual inspection reveals issues that build/tests miss.
 H4. Remembering design corrections as explicit decisions reduces repeat rejection.
 
