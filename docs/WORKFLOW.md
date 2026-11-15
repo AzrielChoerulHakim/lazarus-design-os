@@ -7,7 +7,7 @@ Read CV, authentic photos, work samples, client's audience, client goals and exi
 Write the identity thesis: `This website takes the form of ____ because the client uniquely ____ and their audience needs ____.` Define the one main job of the homepage, necessary secondary tasks and content density.
 
 ## 2 — Diverge before decorating
-Explore 3 genuinely different **information architectures**. For each: rough structure, type strategy, image strategy, primary interaction, and major tradeoff. No superficial palette-only concepts. Choose one with reasons.
+Explore **seven genuinely different concept directions** based on the client's evidence and audience. For each: a distinct information architecture, rough layout, typography strategy, image strategy, main interaction and major tradeoff. These are seven developed concept proposals (text/wireframes), **not seven production implementations** and **not a mandatory 1:1 mapping to the seven Reference Atlas studies**. Avoid superficial color-only variations. Compare all seven, choose one for implementation with reasons, and document why alternatives were rejected.
 
 ## 3 — Reference only when needed
 Read [Reference Atlas](REFERENCE_ATLAS.md) for relevant mechanisms. Read the appropriate note and the original source only **if available and authorized**. Record mechanism, transformation and protected visual carryovers to avoid.
