@@ -9,7 +9,7 @@ Buka `index.html` (katalog HTML statis), lalu pilih studi berdasarkan **masalah 
 1. Pastikan coding agent punya akses aktual ke repository ini.
 2. Salin `templates/CLIENT_AGENT.md` ke root repository proyek klien dengan nama `AGENTS.md`.
 3. Isi `templates/PROJECT_BRIEF.md` berdasarkan CV, foto, karya dan kebutuhan audiens.
-4. Beri instruksi: "Baca Lazarus Design OS, gunakan `lazarus-anti-generic`, `lazarus-apple-craft`, dan `lazarus-reference-atlas` jika tersedia. Lakukan eksplorasi tiga struktur, pilih satu berdasarkan bukti, kemudian bangun, inspeksi, dan audit."
+4. Beri instruksi: "Baca Lazarus Design OS, gunakan `lazarus-anti-generic`, `lazarus-apple-craft`, dan `lazarus-reference-atlas` jika tersedia. Eksplorasi tujuh konsep yang benar-benar berbeda secara struktur (bukan tujuh warna dan bukan menyalin tujuh referensi), pilih satu berdasarkan bukti, kemudian bangun, inspeksi, dan audit."
 5. Simpan `DESIGN_DECISIONS.md` serta laporan QA final; jangan menyerahkan hanya screenshot atau build sukses.
 
 ## C. Skills
