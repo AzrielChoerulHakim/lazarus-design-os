@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="Lazarus Typography Proofing Lab — compare three content-led typographic grammars with the same authentic text before building a client site.">
+  <title>Typography Proofing Lab — Lazarus Design OS</title>
+  <link rel="stylesheet" href="./type-lab.css">
+  <script defer src="./type-lab.js"></script>
+</head>
+<body>
+  <a class="skip" href="#proofs">Skip to specimens</a>
+  <header class="masthead">
+    <a class="brand" href="../">LAZARUS <span>DESIGN OS</span></a>
+    <span class="project-id">INSTRUMENT / 01 — TYPE</span>
+    <a class="standard-link" href="../docs/TYPOGRAPHY_SYSTEM.md">Read the type standard <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main>
+    <div class="intro">
+      <span class="chapter">DESIGN SYSTEM / TEST BEFORE BUILD</span>
+      <h1>Typeset the evidence.<br><em>Not the aesthetic.</em></h1>
+      <p>This instrument shows three different reading structures with exactly the same words. Replace the sample copy with verified client text and inspect hierarchy, line breaks, readability and content density. Nothing entered here is saved or transmitted by this page.</p>
+    </div>
+
+    <div class="workbench">
+      <form id="controls" class="controls" aria-label="Typography specimen inputs">
+        <div class="control-heading">
+          <span>01 / THE SOURCE</span>
+          <h2>Real words first.</h2>
+          <p>Sample content is from Lazarus Design OS documentation. For actual client work, paste text you have permission to use.</p>
+        </div>
+        <label for="input-title">Authentic headline</label>
+        <textarea id="input-title" rows="2" maxlength="220" spellcheck="true">Typography is information architecture.</textarea>
+        <label for="input-body">Authentic paragraph</label>
+        <textarea id="input-body" rows="6" maxlength="2500" spellcheck="true">The signature of Lazarus is the quality of the thinking, not a signature palette. A lawyer, ceramicist and machine-learning researcher must not get the same hero and card grid with different typefaces. Evidence is the design material. Choose the shape of the experience according to the reader’s task and test the actual content rather than a perfect mockup.</textarea>
+        <label for="input-meta">Source / context label</label>
+        <input id="input-meta" type="text" maxlength="160" value="LAZARUS DESIGN OS — DESIGN CONSTITUTION">
+        <div class="controls-divider"></div>
+        <div class="control-heading small">
+          <span>02 / PROOF SETTINGS</span>
+          <p>These adjust proofing conditions, not the client’s final design tokens.</p>
+        </div>
+        <fieldset class="width-fieldset">
+          <legend>Preview column</legend>
+          <div class="choice-row" aria-label="Preview width">
+            <button type="button" class="choice" data-width="390" aria-pressed="false">390</button>
+            <button type="button" class="choice" data-width="768" aria-pressed="false">768</button>
+            <button type="button" class="choice" data-width="1040" aria-pressed="true">Wide</button>
+          </div>
+        </fieldset>
+        <div class="slider-heading"><label for="body-size">Reading size</label><output for="body-size" id="size-output">17 px</output></div>
+        <input id="body-size" type="range" min="14" max="22" step="1" value="17">
+        <div class="slider-heading"><label for="line-measure">Reading measure</label><output for="line-measure" id="measure-output">64 ch</output></div>
+        <input id="line-measure" type="range" min="42" max="78" step="2" value="64">
+        <label for="proof-lang">Text language</label>
+        <select id="proof-lang"><option value="en" selected>English</option><option value="id">Bahasa Indonesia</option></select>
+        <div class="tool-notice">
+          <strong>This is a proofing bench, not automated sign-off.</strong>
+          <p>Check actual client screenshots at 320–1440 CSS px, browser zoom 200%, reflow, text spacing overrides, contrast, font loading and real devices. Type choices need client-specific reasons.</p>
+        </div>
+        <button id="reset" type="button" class="reset">Restore example</button>
+      </form>
+
+      <section id="proofs" class="proofs" aria-label="Three typography specimens">
+        <div class="proof-heading">
+          <div><span>03 / SAME COPY — THREE GRAMMARS</span><h2>Compare the reading, not the font name.</h2></div>
+          <p id="width-status" role="status" aria-live="polite">Proof width: up to 1040 CSS px</p>
+        </div>
+
+        <article class="proof">
+          <div class="proof-caption"><div><b>A</b><span>Evidence / dossier</span></div><p>A quick scan path. Metadata is attached to a verifiable statement; the body remains subordinate but readable.</p></div>
+          <div class="proof-surface" style="--proof-width:1040px">
+            <div class="specimen specimen-dossier">
+              <div class="dossier-header"><span>DOCUMENT / TEXT STUDY</span><span>01 — EVIDENCE</span></div>
+              <div class="dossier-grid">
+                <aside><span class="specimen-meta" data-proof-meta></span><div class="dossier-seal" aria-hidden="true">L/D</div></aside>
+                <div class="dossier-main"><h3 data-proof-title></h3><p data-proof-body></p><div class="dossier-end"><span>Source-grounded type</span><span>Reading path A</span></div></div>
+              </div>
+            </div>
+          </div>
+          <p class="proof-limitation">Risk: formal framing can overstate authority or make informal work feel institutional.</p>
+        </article>
+
+        <article class="proof">
+          <div class="proof-caption"><div><b>B</b><span>Reading / monograph</span></div><p>Continuous reading takes priority. Serif type is a functional hypothesis here, not a universal signifier of luxury.</p></div>
+          <div class="proof-surface" style="--proof-width:1040px">
+            <div class="specimen specimen-reading">
+              <div class="reading-small" data-proof-meta></div>
+              <div class="reading-content"><h3 data-proof-title></h3><div class="reading-rule"></div><p data-proof-body></p></div>
+              <div class="reading-end">A READING STUDY <span>02 / 03</span></div>
+            </div>
+          </div>
+          <p class="proof-limitation">Risk: long-form comfort may hide important scanning clues or slow urgent readers.</p>
+        </article>
+
+        <article class="proof">
+          <div class="proof-caption"><div><b>C</b><span>Index / working interface</span></div><p>The headline behaves like a field value and the paragraph like a record. This is for finding and comparing, not spectacle.</p></div>
+          <div class="proof-surface" style="--proof-width:1040px">
+            <div class="specimen specimen-index">
+              <div class="index-headline">TYPOGRAPHIC INDEX <span>NO. 03</span></div>
+              <div class="index-row"><span>01 / SUBJECT</span><h3 data-proof-title></h3></div>
+              <div class="index-row"><span>02 / SOURCE</span><div class="index-context specimen-meta" data-proof-meta></div></div>
+              <div class="index-row"><span>03 / READING</span><p data-proof-body></p></div>
+              <div class="index-end">THREE GRAMMARS / ONE SOURCE</div>
+            </div>
+          </div>
+          <p class="proof-limitation">Risk: information density can become tiring for long essays or narrative work.</p>
+        </article>
+        <div class="proof-footer">Proofing does not imply that these three structures are the right options for every client. Rebuild them around the verified reading task; reject any direction that is interchangeable with another.</div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer"><span>LAZARUS DESIGN OS · TYPOGRAPHY LAB</span><a href="../templates/TYPE_SPEC.md">Type Spec template ↗</a><a href="../docs/TYPOGRAPHY_QA.md">QA protocol ↗</a></footer>
+</body>
+</html>
