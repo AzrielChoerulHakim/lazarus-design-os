@@ -77,10 +77,24 @@ try {
     }
     await page.close();
   }
+
+  // The Design OS catalogue was typeset in this revision too: audit its actual viewport.
+  for(const width of [320,390,640,768,1024,1440]){
+    const page=await browser.newPage({viewport:{width,height:900},deviceScaleFactor:1});
+    page.on('pageerror',error=>errors.push('catalogue '+width+' JS exception: '+error.message));
+    await page.goto(base+'/',{waitUntil:'load'});
+    if(!(await page.locator('#page-title').isVisible())) errors.push('catalogue '+width+' missing heading');
+    if((await page.locator('a[href="./type-lab/"]').count())<1) errors.push('catalogue '+width+' missing Type Lab link');
+    const overflow=await page.evaluate(()=>document.documentElement.scrollWidth > window.innerWidth + 2);
+    if(overflow) errors.push('catalogue '+width+' horizontal document overflow');
+    if([320,390,1440].includes(width)) await page.screenshot({path:path.join(shotDir,'catalogue-'+width+'.png'),fullPage:true});
+    report.push({width,catalogueOverflow:overflow});
+    await page.close();
+  }
 } finally {
   await browser.close();
   server.close();
 }
 fs.writeFileSync(path.join(shotDir,'proofing-report.json'),JSON.stringify(report,null,2));
 if (errors.length) { console.error('Type Lab browser verification FAILED\n' + errors.map(x=>' - '+x).join('\n')); process.exitCode = 1; }
-else console.log('PASS: 3 same-copy reading structures × 6 browser widths; text safety, inputs, language, column width, scale and resets; six screenshots. This does NOT certify optical typography or WCAG.');
+else console.log('PASS: Type Lab 3 same-copy structures × 6 widths, controls and safe local text; Design OS catalogue × 6 widths; nine screenshots. This does NOT certify optical typography or WCAG.');
