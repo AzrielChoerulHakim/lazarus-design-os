@@ -56,7 +56,7 @@ a{color:inherit}
 .proof-caption b{display:grid;place-items:center;width:33px;height:33px;border:1px solid #b07d6e;color:#8b4531}
 .proof-caption span{font-weight:700;font-size:15px;letter-spacing:-.025em}
 .proof-caption p{font-size:12px;line-height:1.55;color:#57685c;margin:0}
-.proof-surface{width:min(100%,var(--proof-width));container:proof/inline-size;transition:width .24s ease;box-shadow:0 6px 22px #202e2712;border:1px solid #d5d8d1;background:#fff}
+.proof-surface{width:min(100%,var(--proof-width));container:proof/inline-size;box-shadow:0 6px 22px #202e2712;border:1px solid #d5d8d1;background:#fff}
 .specimen{min-height:385px}
 .specimen h3,.specimen p{overflow-wrap:break-word}
 .specimen p[data-proof-body]{font-size:var(--proof-body-size);max-inline-size:min(100%,var(--proof-measure))}
