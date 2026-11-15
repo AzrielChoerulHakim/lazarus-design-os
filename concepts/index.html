@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#e8e6df">
+<meta name="description" content="Seven distinct architecture portfolio concepts — Lazarus Design OS exploration.">
+<title>Seven Directions — Lazarus Design OS</title>
+<link rel="stylesheet" href="./styles.css">
+<script defer src="./app.js"></script>
+</head>
+<body>
+<a href="#stage" class="skip">Lewati navigasi</a>
+<header class="lab-header">
+  <a class="lab-logo" href="https://github.com/AzrielChoerulHakim/lazarus-design-os" title="Lazarus Design OS repository"><span class="mark">L<span>∕</span>D</span><span>LAZARUS<br>DESIGN OS</span></a>
+  <div class="lab-identity"><span class="live-dot"></span> DESIGN EXPLORATIONS <span class="sep">/</span> CLIENT HYPOTHESIS</div>
+  <div class="lab-meta">ISSUE NO. 001 <span>·</span> 15 NOV 2026</div>
+</header>
+<section class="intro">
+ <div class="intro-side"><span>DESIGN LAB / 001</span><span>NOT A TEMPLATE LIBRARY</span></div>
+ <div class="intro-content"><h1>Seven directions.<br><em>One client.</em></h1>
+ <p>Bukan tujuh versi warna yang berbeda. Ini tujuh cara menyusun cerita, informasi, dan pengalaman dari <strong>brief fiktif yang sama</strong>.</p>
+ <p class="intro-note"><span>STUDY SUBJECT</span> ATELIER SERA — studio arsitektur independen fiktif. Nama, proyek, data, dan visual hanya demonstrasi; bukan portofolio klien asli.</p></div>
+</section>
+<div class="explorer" id="explorer">
+ <div class="explorer-head">
+  <div class="explorer-title"><span class="tinycaps">SELECT DIRECTION</span><strong id="selected-title">01 — The Monograph</strong></div>
+  <div class="explorer-utility">
+   <span id="selected-counter">01 / 07</span>
+   <button class="nav-arrow" id="prev" aria-label="Konsep sebelumnya">←</button>
+   <button class="nav-arrow" id="next" aria-label="Konsep berikutnya">→</button>
+  </div>
+ </div>
+ <div class="choice-strip" id="choices" role="group" aria-label="Pilih salah satu dari tujuh konsep">
+  <button data-id="1" aria-pressed="true"><span>01</span> Monograph</button>
+  <button data-id="2" aria-pressed="false"><span>02</span> Cartography</button>
+  <button data-id="3" aria-pressed="false"><span>03</span> Film Sequence</button>
+  <button data-id="4" aria-pressed="false"><span>04</span> Blueprint</button>
+  <button data-id="5" aria-pressed="false"><span>05</span> Public Index</button>
+  <button data-id="6" aria-pressed="false"><span>06</span> Object Gallery</button>
+  <button data-id="7" aria-pressed="false"><span>07</span> Material Journal</button>
+ </div>
+ <div class="stage-wrap"><div id="stage" class="stage" aria-live="polite" aria-atomic="true"></div></div>
+ <div class="rationale">
+  <div class="rationale-block"><span>CORE QUESTION</span><h2 id="concept-question"></h2></div>
+  <div class="rationale-block"><span>INFORMATION ARCHITECTURE</span><p id="concept-structure"></p></div>
+  <div class="rationale-block"><span>PRIMARY INTERACTION</span><p id="concept-interaction"></p></div>
+  <div class="rationale-block"><span>THE TRADEOFF</span><p id="concept-tradeoff"></p></div>
+ </div>
+</div>
+<section class="footer-explainer">
+ <div class="end-index">07 ≠ 07</div>
+ <div><span class="tinycaps">IMPORTANT DISTINCTION</span><h2>These are directions.<br><em>Not seven Atlas clones.</em></h2>
+ <p>Ketujuh konsep ini lahir dari satu brief hipotetis yang sama. Atlas adalah kumpulan teknik implementasi. Arah visual akhir harus dipilih setelah melihat CV, karya, foto, kebutuhan audiens, dan batas teknis klien sungguhan.</p>
+ <a href="https://github.com/AzrielChoerulHakim/lazarus-design-os/blob/main/docs/WORKFLOW.md">READ THE DESIGN PROCESS ↗</a></div>
+</section>
+<footer class="lab-footer"><span>LAZARUS DESIGN OS / EXPERIMENT 001</span><span>EVERY DESIGN NEEDS A REASON.</span><span>© 2026 — CONCEPT DEMONSTRATION</span></footer>
+
+<!-- Each artboard is a different, self-contained page anatomy rather than a palette variation. -->
+<template id="view-1">
+<section class="concept con-mono" aria-label="The Monograph — editorial book">
+ <header class="mono-header"><span class="mono-name">ATELIER<br>SERA<span>®</span></span><span class="mono-head-right">SELECTED ARCHITECTURE<br>2019—2026</span><span class="mono-page">VOL. 01 / 2026</span></header>
+ <div class="mono-layout"><div class="mono-left"><div class="mono-tiny">AN INDEPENDENT PRACTICE IN SPACE & LIGHT</div><h2>Spaces<br>that hold<br><i>the day.</i></h2><div class="mono-bottom"><span class="mono-issue">01/04 <span>PROJECTS IN THIS VOLUME</span></span><p>Architecture shaped by climate, everyday rituals, and the quiet geometry of ordinary places.</p></div></div>
+ <div class="mono-right"><div class="mono-photo"><div class="mono-sun"></div><div class="mono-building"><span></span><span></span><span></span></div><div class="mono-ground"></div></div><div class="mono-caption"><span>FIG. 01</span><span>RUMAH SORE · STUDY, 2024</span><span>06° 13′ S</span></div></div></div>
+ <div class="mono-toc"><span>01 — SELECTED WORK</span><span>02 — THE PRACTICE</span><span>03 — NOTES</span><span>04 — CONTACT</span></div>
+</section>
+</template>
+
+<template id="view-2">
+<section class="concept con-map" aria-label="Cartographic portfolio — spatial project explorer">
+ <header class="map-head"><div class="map-brand">SERA <small>/ SITE ATLAS</small></div><div class="map-coordinates">LAT 6.2048° S&nbsp;&nbsp; LONG 106.8456° E</div><div class="map-edition">INDEX: 04 SITES</div></header>
+ <div class="map-layout"><aside class="map-directory"><div class="map-small">GEOGRAPHICAL INDEX / VOL. 01</div><h2>Where the<br>work <i>lives.</i></h2><p>Explore architecture through place, climate and the people who occupy it.</p><div class="map-list">
+  <button class="map-place active" data-map="a"><span>01</span><strong>Rumah Sore</strong><small>URBAN / 2024</small></button>
+  <button class="map-place" data-map="b"><span>02</span><strong>Paviliun Utara</strong><small>PUBLIC / 2025</small></button>
+  <button class="map-place" data-map="c"><span>03</span><strong>Ruang Pantai</strong><small>COASTAL / 2023</small></button>
+  <button class="map-place" data-map="d"><span>04</span><strong>Studio Tanah</strong><small>WORKSHOP / 2026</small></button>
+ </div><div class="map-bottom"><b id="map-readout">SELECTED: RUMAH SORE</b><span>↗ VIEW LOCATION DOSSIER</span></div></aside>
+ <div class="map-canvas"><div class="map-overlay"><span>ILLUSTRATIVE SPATIAL FIELD</span><span>1:25000</span></div>
+ <svg viewBox="0 0 760 610" role="img" aria-label="Abstract topographic field with four selectable project locations"><defs><pattern id="map-grid" width="44" height="44" patternUnits="userSpaceOnUse"><path d="M 44 0 L 0 0 0 44" fill="none" stroke="#a7bbb7" stroke-width=".7"/></pattern></defs><rect width="760" height="610" fill="url(#map-grid)"/>
+ <g fill="none" stroke="#90aea4" stroke-width="1.4" opacity=".9"><path d="M-40 110 C200 -20 350 220 800 70"/><path d="M-50 140 C200 10 350 250 800 100"/><path d="M-40 170 C200 40 350 280 800 130"/><path d="M-40 205 C200 75 350 315 800 165"/><path d="M-40 240 C200 110 350 350 800 200"/><path d="M-40 275 C200 145 350 385 800 235"/><path d="M-40 310 C200 180 350 420 800 270"/><path d="M-40 345 C200 215 350 455 800 305"/><path d="M-40 380 C200 250 350 490 800 340"/><path d="M-40 415 C200 285 350 525 800 375"/><path d="M-40 450 C200 320 350 560 800 410"/><path d="M-40 485 C200 355 350 595 800 445"/><path d="M-40 520 C200 390 350 630 800 480"/></g>
+ <g fill="none" stroke="#7c9990" stroke-width="10" opacity=".32"><path d="M-30 550 C230 390 360 260 800 40"/><path d="M110 -20 C270 140 330 430 510 650"/></g>
+ <g class="pin pin-a active" data-pin="a" transform="translate(318 262)"><circle r="32" fill="#e45024" opacity=".17"/><circle r="15" fill="#e45024"/><circle r="4" fill="#fff"/><text x="24" y="-18">01 · RUMAH SORE</text></g>
+ <g class="pin pin-b" data-pin="b" transform="translate(530 143)"><circle r="18" fill="#f6f7ea" stroke="#1d5849" stroke-width="2"/><circle r="5" fill="#1d5849"/><text x="25" y="-15">02 · PAVILIUN</text></g>
+ <g class="pin pin-c" data-pin="c" transform="translate(566 435)"><circle r="18" fill="#f6f7ea" stroke="#1d5849" stroke-width="2"/><circle r="5" fill="#1d5849"/><text x="25" y="-15">03 · PANTAI</text></g>
+ <g class="pin pin-d" data-pin="d" transform="translate(185 420)"><circle r="18" fill="#f6f7ea" stroke="#1d5849" stroke-width="2"/><circle r="5" fill="#1d5849"/><text x="25" y="-15">04 · STUDIO</text></g></svg>
+ <div class="map-scale"><span>0</span><div></div><span>1 KM</span></div></div></div>
+</section>
+</template>
+
+<template id="view-3">
+<section class="concept con-film" aria-label="Film Sequence — cinematic project-driven portfolio">
+ <div class="film-scene"><div class="film-noise"></div><div class="film-horizon"></div><div class="film-structure"><div class="film-structure-roof"></div><div class="film-structure-front"></div><div class="film-structure-side"></div><div class="film-opening"></div></div></div>
+ <header class="film-nav"><span>SERA / CINEMATIC STUDIES</span><span>CHAPTER <b id="film-part">01</b> OF 03</span><span>● SOUND OFF</span></header>
+ <div class="film-content"><span class="film-eyebrow">PROJECT NO. 001 / A STUDY OF TWILIGHT</span><h2 id="film-title">The hour<br><em>between.</em></h2><p id="film-description">A house that belongs as much to its shadows as to its walls.</p></div>
+ <div class="film-controls"><button data-film="0" class="active">01 <span>TWILIGHT</span></button><button data-film="1">02 <span>THRESHOLD</span></button><button data-film="2">03 <span>AFTERLIGHT</span></button><span class="film-status">SELECT A CHAPTER →</span></div>
+</section>
+</template>
+
+<template id="view-4">
+<section class="concept con-blue" aria-label="Blueprint — project documentation workspace">
+ <div class="blue-top"><span class="blue-brand">SERA/ARCHIVE<span>_</span></span><span>DESIGN DOCUMENTATION INTERFACE / 2026</span><span class="blue-login">FIELD OFFICE ● ONLINE</span></div>
+ <div class="blue-work"><aside class="blue-files"><div class="blue-files-header">PROJECT DIRECTORY <span>▦</span></div><div class="blue-tree"><span>▾ PROJECTS [04]</span><button class="active" data-blue="0">↳ RS_024 / RUMAH SORE</button><button data-blue="1">↳ PU_025 / PAVILIUN UTARA</button><button data-blue="2">↳ RP_023 / RUANG PANTAI</button><button data-blue="3">↳ ST_026 / STUDIO TANAH</button><span>▸ NOTES [12]</span><span>▸ MATERIALS [08]</span><span>▸ PEOPLE [02]</span></div><div class="blue-file-bottom">ALL FILES / HYPOTHETICAL DATASET<br>LATENCY: 00ms · LOCAL PREVIEW</div></aside>
+ <div class="blue-drawing"><div class="blue-drawing-head"><span id="blue-file-label">RS_024 / SECTION A—A</span><span>PLATE 01 / 04</span></div>
+ <svg viewBox="0 0 700 510" role="img" aria-label="Illustrative architectural elevation and measurements"><defs><pattern id="blue-grid" width="30" height="30" patternUnits="userSpaceOnUse"><path d="M30 0H0V30" fill="none" stroke="#74a2ba" stroke-width=".4"/></pattern></defs><rect width="700" height="510" fill="url(#blue-grid)"/>
+ <g stroke="#bbd9e8" stroke-width="2" fill="none"><path d="M100 363H610M128 360V178L385 111 573 181V360"/><path d="M135 184L386 119 569 185M155 190V355M550 195V355M155 210H550M155 334H550"/><rect x="183" y="232" width="110" height="125"/><rect x="306" y="232" width="104" height="125"/><rect x="424" y="232" width="103" height="125"/><path d="M225 232V357M349 232V357M471 232V357M180 281H526M120 170V390M580 170V390M85 175H123M85 357H123"/></g>
+ <g stroke="#f5bc48" stroke-width="1" fill="none"><path d="M85 176V360M78 176h14M78 360h14M124 405H578M124 397v16M578 397v16M180 442h349M180 435v13M529 435v13"/></g>
+ <g fill="#f5bc48" font-size="15" font-family="monospace"><text x="40" y="266" transform="rotate(-90 40 266)">+ 4.20 m</text><text x="318" y="428">12,400</text><text x="317" y="465">ELEVATION · 1:100</text></g>
+ <g stroke="#bbd9e8" stroke-width="1" opacity=".45"><path d="M128 170H30M128 360H30M578 360H670M578 170H670"/></g></svg>
+ <div class="blue-drawing-bottom"><span>ISSUED FOR DESIGN DEVELOPMENT</span><span>DRAWN BY SERA · SCALE NOT TO PRINT</span></div></div>
+ <aside class="blue-panel"><div class="blue-panel-title">DOCUMENT METADATA</div><dl><dt>PROJECT</dt><dd id="blue-project">RUMAH SORE</dd><dt>DRAWING NO.</dt><dd id="blue-number">RS-024/A</dd><dt>STATUS</dt><dd>CONCEPTUAL / DEMO</dd><dt>REVISION</dt><dd>00.4</dd><dt>MATERIAL</dt><dd id="blue-material">CAST CONCRETE, TIMBER</dd></dl><div class="blue-stamp">NOT FOR CONSTRUCTION<br><span>DESIGN DEMO ONLY</span></div></aside></div>
+</section>
+</template>
+
+<template id="view-5">
+<section class="concept con-public" aria-label="Public Index — typographic civic works directory">
+ <header class="public-nav"><span class="public-name">SERA<span>◼</span></span><span class="public-nav-right">PUBLIC SPACE / PRIVATE PRACTICE<br>INDEX OF THE BUILT ENVIRONMENT</span><span>MENU [ + ]</span></header>
+ <div class="public-kicker">NOT A GALLERY OF BEAUTIFUL BUILDINGS. AN INDEX OF SPACES IN USE.</div>
+ <div class="public-headline"><h2>MAKE<br>ROOM<span>!</span></h2><p>Buildings become meaningful when people take them over. Architecture is what happens next.</p></div>
+ <div class="public-list-header"><span>SELECTED BUILT WORK</span><span>TYPE</span><span>YEAR</span><span>NO.</span></div>
+ <div class="public-rows"><button class="public-row active" data-public="0"><b>RUMAH SORE</b><span>RESIDENTIAL</span><span>2024</span><strong>01 ↗</strong></button><button class="public-row" data-public="1"><b>PAVILIUN UTARA</b><span>PUBLIC</span><span>2025</span><strong>02 ↗</strong></button><button class="public-row" data-public="2"><b>RUANG PANTAI</b><span>COASTAL</span><span>2023</span><strong>03 ↗</strong></button><button class="public-row" data-public="3"><b>STUDIO TANAH</b><span>WORKPLACE</span><span>2026</span><strong>04 ↗</strong></button></div>
+ <div class="public-bottom"><div><span>SELECTED / 01</span><b id="public-readout">RUMAH SORE — RESIDENTIAL</b></div><span>BASED ON AN IMAGINARY BRIEF</span><div class="public-arrow">↗</div></div>
+</section>
+</template>
+
+<template id="view-6">
+<section class="concept con-object" aria-label="Object Gallery — architectural model gallery">
+ <header class="object-header"><span>SERA<br>OBJECT STUDIES</span><span>INDEX / 003</span><span class="object-circle">✳</span></header>
+ <div class="object-main"><aside class="object-vertical"><span>ARCHITECTURE AS AN OBJECT OF ATTENTION</span></aside>
+ <div class="object-showcase"><div class="object-halo"></div><svg viewBox="0 0 700 620" class="object-svg" role="img" aria-label="Illustrative isometric architectural model">
+ <defs><linearGradient id="o-front" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e1dacb"/><stop offset="1" stop-color="#b1ac9f"/></linearGradient><linearGradient id="o-side" x1="0" y1="0" x2=".4" y2="1"><stop stop-color="#887f72"/><stop offset="1" stop-color="#b9b0a3"/></linearGradient><filter id="o-shadow"><feGaussianBlur stdDeviation="15"/></filter></defs>
+ <ellipse cx="360" cy="505" rx="235" ry="35" fill="#504936" opacity=".19" filter="url(#o-shadow)"/>
+ <polygon points="133,347 371,218 589,315 349,448" fill="#b0a998"/><polygon points="150,272 373,165 555,242 330,351" fill="#efe7d6"/><polygon points="150,272 330,351 330,478 150,396" fill="url(#o-front)"/><polygon points="330,351 555,242 555,368 330,478" fill="url(#o-side)"/>
+ <polygon points="202,305 303,351 303,454 202,408" fill="#746958"/><polygon points="221,324 285,353 285,423 221,394" fill="#242d2b"/><polygon points="357,366 513,291 513,365 357,439" fill="#8d8980"/><polygon points="375,376 492,321 492,353 375,409" fill="#293431"/>
+ <polygon points="172,264 375,166 390,171 183,274" fill="#fffaf0" opacity=".8"/><path d="M150 272L330 351M330 351L555 242" stroke="#fff9ec" stroke-width="2" fill="none"/>
+ <path d="M179 403L348 479L585 363" stroke="#6d735e" stroke-width="2" fill="none" opacity=".6"/>
+ <g fill="none" stroke="#89907b" opacity=".65"><path d="M102 510L260 433"/><path d="M475 498L615 432"/></g></svg>
+ <div class="object-guide"><span>OBJECT 001</span><span>VIEW / ISOMETRIC</span></div></div>
+ <aside class="object-caption"><span class="object-caption-label">ON VIEW / 01</span><h2 id="object-title">House of<br><i>afternoon.</i></h2><p id="object-desc">A model study on the relationship between shadow, threshold and domestic time.</p>
+ <div class="object-index"><button data-object="0" class="active">01</button><button data-object="1">02</button><button data-object="2">03</button></div>
+ <div class="object-material"><span>MATERIAL STUDY</span><span>CONCRETE / TIMBER / LIGHT</span></div>
+ </aside></div>
+</section>
+</template>
+
+<template id="view-7">
+<section class="concept con-journal" aria-label="Material Journal — process-first portfolio">
+ <header class="journal-head"><span>THE SERA JOURNAL <i>✱</i></span><span>OBSERVATIONS IN MATTER & SPACE</span><span>ENTRY NO. 008</span></header>
+ <div class="journal-title"><span class="journal-small">ISSUE 08 / A PRACTICE NOTE</span><h2>Before a wall,<br><em>there is a material.</em></h2><span class="journal-edge">2026<br>FIELD NOTES</span></div>
+ <div class="journal-board"><div class="journal-note"><div class="jn-head"><span>01 / MATTER</span><span>↗ MATERIAL SAMPLE</span></div><div class="sample sample-clay"><div class="sample-shape"></div></div><div class="jn-foot"><b>EARTH</b><span>Warmth, mass, repetition.</span></div></div>
+ <div class="journal-note mid"><div class="jn-head"><span>02 / EXAMINATION</span><span>→</span></div><div class="journal-sketch"><svg viewBox="0 0 300 235" aria-label="Illustrative pencil-style building sketch"><g fill="none" stroke="#77776b" stroke-width="1.3"><path d="M30 153L150 61L262 117L142 213Z"/><path d="M30 153V193L142 242V213M142 213V240L262 148V117"/><path d="M80 178L80 126L142 86M199 87V163M30 173L142 224L262 136"/></g><path d="M0 195L300 195" stroke="#a7a99c" stroke-width=".8"/></svg></div><div class="jn-foot"><b>FORM</b><span>A sketch becomes a question.</span></div></div>
+ <div class="journal-note end"><div class="jn-head"><span>03 / LIGHT</span><span>◌</span></div><div class="sample sample-light"><div class="light-window"></div></div><div class="jn-foot"><b>AFTERNOON</b><span>The sun completes the drawing.</span></div></div></div>
+ <footer class="journal-foot"><p>Making is thinking. The portfolio is organized not by finished objects, but by decisions and experiments that made them possible.</p><span>READ THE PROCESS NOTE &nbsp; ↗</span></footer>
+</section>
+</template>
+</body></html>
