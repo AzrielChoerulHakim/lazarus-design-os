@@ -6,7 +6,7 @@
 - Final screenshots at 320, 390, 768, 1024 and 1440 CSS px, plus short viewport.
 - Actual project content and client source mapping.
 - Navigation, keyboard, touch, focus, escape, text zoom 200%, reduced motion.
-- Side-by-side comparison of at least three structurally different directions and recent Lazarus client work (when available).
+- Side-by-side comparison of all seven structurally different concept directions, plus recent Lazarus client work (when available).
 
 ## Seven dimensions: editorial rubric
 Give each a descriptive assessment (**strong / needs work / critical**) and cite an observed element. The assessment is qualitative, not a scientifically calibrated score.
