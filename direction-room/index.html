@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#e4ebf3">
+  <meta name="description" content="Ruang kerja Lazarus untuk menghubungkan bukti klien, struktur website, dan keputusan desain.">
+  <title>Direction Room · Lazarus Design OS</title>
+  <link rel="stylesheet" href="room.css"><script type="module" src="room.mjs"></script>
+</head>
+<body>
+  <a class="skip" href="#workspace">Lewati navigasi</a>
+  <header class="masthead"><a class="brand" href="../">Lazarus <span>Design OS / 04</span></a><nav aria-label="Peralatan desain"><a href="../type-lab/">Type Lab</a><a href="../concepts/">Studi konsep</a><a href="../">Atlas</a></nav></header>
+  <main>
+    <div class="intro"><div><p class="eyebrow">Dari bukti ke bentuk</p><h1>Direction Room<span aria-hidden="true">.</span></h1></div><p class="intro-copy">Karakter website dimulai dari keputusan yang spesifik. Susun brief, bedakan tujuh arah, lalu pilih bentuk yang paling membantu pembacanya.</p></div>
+    <div class="toolbar"><div class="file-actions"><button id="new-project" type="button">Brief baru</button><button id="load-example" type="button">Lihat contoh terisi</button><button id="import-project" type="button">Buka JSON</button><input id="import-file" type="file" accept=".json,application/json" hidden></div><button id="export-project" class="primary" type="button">Simpan brief</button></div>
+    <p id="notice" role="status" aria-live="polite">Belum disimpan. Isian hanya ada di tab ini; unduh JSON untuk melanjutkan nanti.</p>
+    <noscript><p>Editor membutuhkan JavaScript. Template JSON dan pemeriksaan CLI tersedia di repository.</p></noscript>
+    <div class="workspace" id="workspace">
+      <div class="editor">
+        <nav class="steps" aria-label="Tahap penyusunan"><button type="button" data-panel="brief" aria-current="step"><span>01</span> Brief & bukti</button><button type="button" data-panel="concepts"><span>02</span> Tujuh arah</button><button type="button" data-panel="selection"><span>03</span> Pilihan & alasan</button></nav>
+        <section id="panel-brief" class="panel" aria-labelledby="brief-heading">
+          <div class="section-heading"><h2 id="brief-heading">Kenali yang tidak bisa ditukar.</h2><p>Mulai dari pekerjaan nyata dan kebutuhan pembaca. Tandai informasi yang belum pasti.</p></div>
+          <div id="project-fields"></div>
+          <div class="subheading"><h3>Bukti klien</h3><button type="button" id="add-fact">Tambah bukti +</button></div><p class="hint">ID bukti menghubungkan fakta dengan keputusan. “Terverifikasi” memerlukan sumber yang bisa diperiksa.</p><div id="facts"></div>
+          <button class="next" data-next="concepts" type="button">Lanjut ke tujuh arah</button>
+        </section>
+        <section id="panel-concepts" class="panel" aria-labelledby="concepts-heading" hidden>
+          <div class="section-heading"><h2 id="concepts-heading">Tujuh struktur. Satu brief.</h2><p>Ubah cara orang memahami isinya: urutan informasi, cara membaca, dan tindakan utamanya.</p></div>
+          <div class="concept-tabs" role="tablist" aria-label="Arah konsep" id="concept-tabs"></div>
+          <div id="concept-editor" role="tabpanel" tabindex="0"></div>
+          <details class="comparison"><summary>Bandingkan seluruh struktur</summary><div class="table-scroll" tabindex="0" role="region" aria-label="Perbandingan tujuh arah"><table><thead><tr><th scope="col">Arah</th><th scope="col">Urutan isi</th><th scope="col">Cara membaca</th><th scope="col">Interaksi</th></tr></thead><tbody id="concept-matrix"></tbody></table></div></details>
+          <button class="next" data-next="selection" type="button">Pilih dan pertanggungjawabkan</button>
+        </section>
+        <section id="panel-selection" class="panel" aria-labelledby="selection-heading" hidden>
+          <div class="section-heading"><h2 id="selection-heading">Pilih dengan alasan.</h2><p>Catat manfaat, konsekuensi, dan satu keputusan yang membuat proyek ini milik kliennya.</p></div>
+          <div id="selection-fields"></div><h3 class="division">Keputusan khas proyek</h3><div id="signature-fields"></div>
+          <div class="subheading"><h3>Keputusan dominan</h3><button type="button" id="add-decision">Tambah +</button></div><div id="decisions"></div>
+          <div class="subheading"><h3>Pola yang perlu dihindari</h3><button type="button" id="add-avoid">Tambah +</button></div><p class="hint">Jelaskan alasannya untuk proyek ini. Kartu, serif, atau animasi bukan larangan universal.</p><div id="avoid"></div>
+          <div class="subheading"><h3>Perbandingan proyek sebelumnya</h3><button type="button" id="add-prior">Tambah +</button></div><div id="prior-projects"></div><div id="comparison-fields"></div>
+          <div class="handoff"><h3>Bawa keputusan ini ke implementasi.</h3><p>Unduh JSON, buat tiga spesimen dengan teks yang sama, lalu isi bagian <code>typography</code> dan <code>qa</code> di file itu. Bukti tetap berada di repo klien.</p><code class="command">node scripts/design-gate.mjs check /path/to/client/design-contract.json --stage design</code><a href="https://github.com/AzrielChoerulHakim/lazarus-design-os/blob/main/docs/DESIGN_CONTRACT.md">Panduan pemeriksaan dan rilis</a></div>
+        </section>
+      </div>
+      <aside class="review" aria-labelledby="review-heading"><div class="review-top"><svg class="review-mark" aria-hidden="true" viewBox="0 0 32 32" width="32" height="32"><path d="M5 3v18h21m-7-7 7 7-7 7" fill="none" stroke="currentColor" stroke-width="2"/></svg><p>Pemeriksaan brief<br><strong id="project-label">Proyek belum diberi nama</strong></p></div><h2 id="review-heading">Alasan sebelum tampilan.</h2><p id="review-summary" aria-live="polite"></p><p class="review-scope">Yang diperiksa: kelengkapan keputusan dan duplikasi struktur persis. Penilaian orisinalitas tetap dilakukan pada website yang dirender.</p><dl class="ledger"><div><dt>Bukti terverifikasi</dt><dd id="fact-count">0</dd></div><div><dt>Arah ditulis</dt><dd id="concept-count">0 / 7</dd></div><div><dt>Pilihan</dt><dd id="chosen-label">Belum dipilih</dd></div></dl><ul id="issues"></ul><button type="button" id="all-issues">Tampilkan semua catatan</button><p class="review-footer">Warna bukan arah.<br>Font bukan konsep.<br>Efek bukan identitas.</p></aside>
+    </div>
+  </main>
+  <footer><p>Keputusan yang dapat ditelusuri. Hasil yang tetap harus dilihat.</p><a href="https://github.com/AzrielChoerulHakim/lazarus-design-os">Kode & metode</a></footer>
+</body></html>

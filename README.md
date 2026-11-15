@@ -7,6 +7,7 @@
 Most AI-generated websites fail through **structural sameness** as well as visual sameness: identical hero → cards → CTA sequences, default typography, decorative scroll effects, interchangeable copy, and no evidence of the client's identity. Different colors are not different creative directions. This repository turns research, design principles, technique references, and QA into a repeatable workflow.
 
 ## Start here
+0. **[Direction Room](direction-room/)** — write a real brief, compare seven structures, trace decisions to client evidence, import/export the project record. Follow the **[Originality Protocol](docs/ORIGINALITY_PROTOCOL.md)** and **[executable design contract](docs/DESIGN_CONTRACT.md)**.
 1. [AGENTS.md](AGENTS.md) — mandatory instructions for coding agents.
 2. [DESIGN.md](DESIGN.md) — philosophy and decision hierarchy.
 3. [Research evidence](docs/RESEARCH_EVIDENCE.md) — what is demonstrated versus hypothesized.
@@ -57,7 +58,10 @@ These project skills follow [GitHub Copilot's documented `.github/skills/<skill>
 ## Verification
 ```sh
 node scripts/check-atlas.mjs
+node --test tests/design-contract.test.mjs
+node scripts/design-gate.mjs init /path/to/client/design-contract.json
+node scripts/design-gate.mjs check /path/to/client/design-contract.json --stage brief
 ```
-CI uses the same dependency-free check.
+CI runs the static checks, contract regression tests and browser checks for the tools. `brief`, `design` and `release` are separate gates; each checks recorded evidence, not originality or accessibility certification. See [the contract guide](docs/DESIGN_CONTRACT.md) for artifacts, source provenance and client CI use.
 
-**Status:** version 3 · typography-first revision 2026-11-15. Rules are a starting hypothesis, not a guarantee of originality. Judge against real client content and independent user feedback.
+**Status:** version 4 · evidence-to-decision workflow, 2026-11-15. Includes the existing typography system and seven studies. Rules and completeness checks are not a guarantee of originality. Judge the actual work against real client content and independent feedback.

@@ -1,7 +1,7 @@
-name: Verify atlas
+name: Verify Design OS
 on:
   push:
-    branches: [main]
+    branches: [main, 'codex/**']
   pull_request:
 jobs:
   check:
@@ -12,14 +12,16 @@ jobs:
         with:
           node-version: '22'
       - run: node scripts/check-atlas.mjs
+      - run: node --test tests/design-contract.test.mjs
       - run: node --check scripts/check-type-lab-browser.mjs
       - run: npm install --no-save --no-audit --no-fund playwright@1.56.1
       - run: npx playwright install --with-deps chromium
       - run: node scripts/check-type-lab-browser.mjs
+      - run: node scripts/check-direction-room-browser.mjs
       - name: Save typography preview screenshots
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: typography-proofing-screenshots
-          path: screenshots/type-lab/
+          name: design-os-browser-evidence
+          path: screenshots/
           if-no-files-found: ignore

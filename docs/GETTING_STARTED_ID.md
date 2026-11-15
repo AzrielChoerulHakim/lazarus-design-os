@@ -1,3 +1,7 @@
+# Alur kerja v4 yang bisa dijalankan
+
+Buka [Direction Room](../direction-room/) untuk menyusun bukti, tujuh struktur dan alasan pilihan. Simpan JSON ke repo klien; lanjutkan dengan [panduan kontrak desain](DESIGN_CONTRACT.md). Pemeriksaan `brief` dilakukan sebelum UI, `design` setelah spesimen tipografi, dan `release` setelah QA. Status lengkap berarti catatannya lengkap; hasil desain tetap harus dilihat dan dinilai. Baca [protokol orisinalitas](ORIGINALITY_PROTOCOL.md) untuk standar copy, aset, interaksi, perbandingan dan koreksi.
+
 # Cara memakai Lazarus Design OS di GitHub
 
 Repository: https://github.com/AzrielChoerulHakim/lazarus-design-os

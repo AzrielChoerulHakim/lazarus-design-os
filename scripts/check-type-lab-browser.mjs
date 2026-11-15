@@ -1,31 +1,17 @@
 import fs from 'node:fs';
-import http from 'node:http';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright';
+import { browserServer } from './browser-server.mjs';
 
 // A real-browser smoke test for the proofing tool, not a claim of WCAG conformance.
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const shotDir = path.join(root, 'screenshots', 'type-lab');
 fs.mkdirSync(shotDir, { recursive: true });
-const mime = { '.html':'text/html; charset=utf-8', '.css':'text/css; charset=utf-8', '.js':'text/javascript; charset=utf-8', '.svg':'image/svg+xml' };
-const server = http.createServer((req,res) => {
-  let pathname;
-  try { pathname = decodeURIComponent(new URL(req.url,'http://localhost').pathname); }
-  catch { res.writeHead(400); res.end(); return; }
-  if (pathname.endsWith('/')) pathname += 'index.html';
-  const target = path.resolve(root,'.' + pathname);
-  if (!target.startsWith(root + path.sep)) { res.writeHead(403); res.end(); return; }
-  fs.readFile(target,(error,data) => {
-    if(error){ res.writeHead(404); res.end(); return; }
-    res.writeHead(200, {'content-type': mime[path.extname(target)] || 'application/octet-stream'});
-    res.end(data);
-  });
-});
-await new Promise(resolve => server.listen(0,'127.0.0.1',resolve));
-const base = 'http://127.0.0.1:' + server.address().port;
+const server = await browserServer(root);
+const base = server.base;
 const errors = [];
-const browser = await chromium.launch({ headless: true });
+const browser = await chromium.launch({ headless: true, ...(process.env.LAZARUS_CHROMIUM_PATH ? { executablePath: process.env.LAZARUS_CHROMIUM_PATH } : {}) });
 const report = [];
 try {
   for (const width of [320,390,640,768,1024,1440]) {

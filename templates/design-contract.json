@@ -1,0 +1,125 @@
+{
+  "schemaVersion": 1,
+  "project": {
+    "name": "",
+    "audience": "",
+    "primaryTask": "",
+    "thesis": ""
+  },
+  "facts": [
+    {
+      "id": "F1",
+      "claim": "",
+      "source": "",
+      "status": "uncertain"
+    }
+  ],
+  "concepts": [
+    {
+      "id": "A",
+      "name": "",
+      "contentOrder": [],
+      "readingGrammar": "",
+      "media": "",
+      "interaction": "",
+      "evidenceIds": [],
+      "tradeoff": ""
+    },
+    {
+      "id": "B",
+      "name": "",
+      "contentOrder": [],
+      "readingGrammar": "",
+      "media": "",
+      "interaction": "",
+      "evidenceIds": [],
+      "tradeoff": ""
+    },
+    {
+      "id": "C",
+      "name": "",
+      "contentOrder": [],
+      "readingGrammar": "",
+      "media": "",
+      "interaction": "",
+      "evidenceIds": [],
+      "tradeoff": ""
+    },
+    {
+      "id": "D",
+      "name": "",
+      "contentOrder": [],
+      "readingGrammar": "",
+      "media": "",
+      "interaction": "",
+      "evidenceIds": [],
+      "tradeoff": ""
+    },
+    {
+      "id": "E",
+      "name": "",
+      "contentOrder": [],
+      "readingGrammar": "",
+      "media": "",
+      "interaction": "",
+      "evidenceIds": [],
+      "tradeoff": ""
+    },
+    {
+      "id": "F",
+      "name": "",
+      "contentOrder": [],
+      "readingGrammar": "",
+      "media": "",
+      "interaction": "",
+      "evidenceIds": [],
+      "tradeoff": ""
+    },
+    {
+      "id": "G",
+      "name": "",
+      "contentOrder": [],
+      "readingGrammar": "",
+      "media": "",
+      "interaction": "",
+      "evidenceIds": [],
+      "tradeoff": ""
+    }
+  ],
+  "selection": {
+    "conceptId": "",
+    "reason": ""
+  },
+  "signature": {
+    "description": "",
+    "evidenceIds": [],
+    "benefit": "",
+    "fallback": ""
+  },
+  "decisions": [],
+  "avoid": [],
+  "comparison": {
+    "projects": [],
+    "note": ""
+  },
+  "typography": {
+    "spec": "",
+    "contentSource": "",
+    "specimens": [],
+    "chosenId": "",
+    "reason": "",
+    "fontRights": "",
+    "fallback": ""
+  },
+  "qa": {
+    "commit": "",
+    "environment": "",
+    "screenshots": [],
+    "checks": [],
+    "reviews": [],
+    "independentReview": {
+      "status": "not-tested",
+      "notes": ""
+    }
+  }
+}

@@ -1,5 +1,7 @@
 # Client website production workflow
 
+Use the [originality protocol](ORIGINALITY_PROTOCOL.md) throughout. Record decisions in the executable [design contract](DESIGN_CONTRACT.md); the command-line checks enforce completeness without pretending to judge aesthetic quality.
+
 ## 0 — Intake / evidence
 Read CV, authentic photos, work samples, client's audience, client goals and existing site. Build a fact ledger separating **verified / ambiguous / absent** details. Do not hallucinate missing work.
 
@@ -13,13 +15,19 @@ Explore **seven genuinely different concept directions** based on the client's e
 Read [Typography Direction System](TYPOGRAPHY_SYSTEM.md) and use the internal `lazarus-type-director` skill if available. Write a **typographic thesis for every one of the seven directions**: role hierarchy, reading mode, actual-copy arrangement and failure mode. For the selected direction, make **three monochrome typography-only specimens using the same real content**, compare their scan paths, long-name behavior and legibility. Complete [TYPE_SPEC](../templates/TYPE_SPEC.md), including font licenses, optical/number features, language coverage, fallback and responsive behavior. Choose based on audience task — do not start by selecting a font pair, Apple UI kit or display size. **No full UI implementation until this gate is completed.**
 
 ## 3 — Reference only when needed
+Before proceeding, run the contract's `brief` and `design` stages. Define the project's signature, source evidence, audience benefit and fallback. A duplicate-structure warning requires comparison, not renaming the concept.
+
 Read [Reference Atlas](REFERENCE_ATLAS.md) for relevant mechanisms. Read the appropriate note and the original source only **if available and authorized**. Record mechanism, transformation and protected visual carryovers to avoid.
 
 ## 4 — Design system and implementation
 Specify tokens suitable for that client, not Apple/Anthropic/Lazarus defaults. Typography tokens must implement approved **semantic text roles**, not decorative pixel classes; scale/reflow after testing actual names, job titles, dense paragraphs and data. Implement semantic structure and truthful content first; responsive CSS and usable navigation second; a small number of meaningful interactions third. Animations must honor reduced-motion. All actions functional.
 
 ## 5 — Critique rendered output
+Do an early critique after the opening and one substantial evidence section, before filling the entire page. Review the hierarchy without brand color or custom fonts and inspect the actual mobile reading path. Repair structural problems now.
+
 Use [Anti-Generic Audit](ANTI_GENERIC_AUDIT.md). Compare to rejected alternatives and recent sites. Inspect screen heights, 320/390/640/768/1024/1440 CSS px, focus, motion and network failure scenarios. **Separately execute [Typography QA](TYPOGRAPHY_QA.md)**: 200% resize, 320px-equivalent reflow, WCAG text-spacing override, contrast per state, actual content, missing-font fallback, and language/numeric tests. Record exact screenshots and commit SHA; flag untested devices rather than claiming pass. Correct layout-level issues before cosmetic polishing.
 
 ## 6 — Document and deliver
+Run the `release` gate against the actual client contract and the reviewed source commit. Resolve all blockers and disclose review warnings. Keep actual claims, copy, asset rights, functional behavior and any backend/data flows in the human review; a record checker cannot validate them.
+
 Create `DESIGN_DECISIONS.md` using [template](../templates/DESIGN_DECISIONS.md), a completed [TYPE_SPEC.md](../templates/TYPE_SPEC.md) and a [review report](../templates/REVIEW_REPORT.md), and report only tests actually run. Deployment/production publication only when rights and access allow.

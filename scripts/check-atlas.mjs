@@ -1,10 +1,13 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import vm from 'node:vm';
+import { execFileSync } from 'node:child_process';
+import { createContract } from '../lib/design-contract.mjs';
 const root = path.resolve(import.meta.dirname, '..');
 const errors = [];
 function has(p) { return fs.existsSync(path.join(root, p)); }
 const required = ['README.md','AGENTS.md','DESIGN.md','index.html','styles.css','app.js','data/atlas-data.js','docs/APPLE_CRAFT_STANDARD.md','docs/ANTI_GENERIC_AUDIT.md','docs/REFERENCE_ATLAS.md','docs/RESEARCH_EVIDENCE.md','docs/SKILL_REGISTRY.md','docs/SOURCE_POLICY.md','docs/WORKFLOW.md','docs/TYPOGRAPHY_SYSTEM.md','docs/TYPOGRAPHY_QA.md','templates/CLIENT_AGENT.md','templates/TYPE_SPEC.md','.github/copilot-instructions.md','.github/skills/lazarus-type-director/SKILL.md','type-lab/index.html','type-lab/type-lab.css','type-lab/type-lab.js','type-lab/README.md'];
+required.push('docs/ORIGINALITY_PROTOCOL.md','docs/DESIGN_CONTRACT.md','docs/V4_DESIGN_DECISIONS.md','docs/v4-type-specimens.html','templates/design-contract.json','direction-room/index.html','direction-room/room.css','direction-room/room.mjs','direction-room/example.mjs','lib/design-contract.mjs','scripts/design-gate.mjs','tests/design-contract.test.mjs','scripts/check-direction-room-browser.mjs');
 required.forEach(p => { if (!has(p)) errors.push('Missing: ' + p); });
 let studies = [];
 if (has('data/atlas-data.js')) {
@@ -57,5 +60,19 @@ if (has('index.html') && !fs.readFileSync(path.join(root,'index.html'),'utf8').i
 if (has('AGENTS.md') && !fs.readFileSync(path.join(root,'AGENTS.md'),'utf8').includes('TYPOGRAPHY_SYSTEM.md')) errors.push('Agent rules missing mandatory typography reading');
 if (has('.github/skills/lazarus-anti-generic/SKILL.md') && fs.readFileSync(path.join(root,'.github/skills/lazarus-anti-generic/SKILL.md'),'utf8').includes('record the other two')) errors.push('Outdated three-option wording in anti-generic skill');
 
+for (const module of ['lib/design-contract.mjs','direction-room/room.mjs','direction-room/example.mjs','scripts/design-gate.mjs','scripts/browser-server.mjs','scripts/check-direction-room-browser.mjs']) {
+  try { execFileSync(process.execPath, ['--check', path.join(root, module)], { stdio: 'pipe' }); }
+  catch { errors.push('Missing or invalid module: ' + module); }
+}
+if (has('templates/design-contract.json')) {
+  try { if (JSON.stringify(JSON.parse(fs.readFileSync(path.join(root,'templates/design-contract.json'),'utf8'))) !== JSON.stringify(createContract())) errors.push('Contract template differs from CLI defaults'); }
+  catch { errors.push('Invalid contract template JSON'); }
+}
+if (has('direction-room/room.mjs')) {
+  const js = fs.readFileSync(path.join(root,'direction-room/room.mjs'),'utf8');
+  if (/(?:fetch\s*\(|XMLHttpRequest|localStorage|sessionStorage|navigator\.sendBeacon|\.innerHTML\s*=)/.test(js)) errors.push('Direction Room must keep input local and render it as text');
+}
+if (has('index.html') && !fs.readFileSync(path.join(root,'index.html'),'utf8').includes('./direction-room/')) errors.push('Catalogue does not link Direction Room');
+
 if(errors.length){ console.error('Lazarus Atlas verification FAILED\n' + errors.map(s=>' - '+s).join('\n')); process.exit(1); }
-console.log('PASS: atlas data, catalogue assets and syntax, mandatory type docs/skill, local-only three-way Type Lab and integration guards. Browser typography QA still required.');
+console.log('PASS: atlas, typography tools, Direction Room modules, contract template and integration guards. Browser and editorial QA still required.');

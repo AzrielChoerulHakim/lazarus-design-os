@@ -15,6 +15,11 @@ If a source or project asset is inaccessible, say so. **Never claim to have exam
 ## Decision hierarchy
 User intent and factual content > audience needs > identity-specific structure > accessibility and usability > coherent craft > meaningful motion > decoration.
 
+## Executable decision record (v4)
+Read [docs/ORIGINALITY_PROTOCOL.md](docs/ORIGINALITY_PROTOCOL.md) and [docs/DESIGN_CONTRACT.md](docs/DESIGN_CONTRACT.md). Keep `design-contract.json` in the client repository. Use `scripts/design-gate.mjs` to initialize and check it at `brief`, `design` and `release` stages. Brief validation comes before UI; design adds actual type artifacts; release adds source-bound QA evidence. Follow the same process manually if Node is unavailable and record that limitation. Never interpret a complete contract as proof of originality or accessibility.
+
+Trace dominant decisions to verified fact IDs. Define one client-specific signature decision, its audience benefit and fallback. Compare content order, reading grammar and interaction against alternatives and available previous work. Fix structural sameness before polishing. Keep the studio's own surrealist branding separate from client art direction. At the first substantial rendered section, critique desktop/mobile before extending the whole page.
+
 ## Mandatory design process
 - Identify **verified client truths** (names/dates/projects/claims only when supported by the source).
 - Write a **one-sentence identity thesis** that makes an unusually specific site concept defensible.
