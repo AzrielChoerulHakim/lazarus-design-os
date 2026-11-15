@@ -17,6 +17,8 @@ async function checkPage(page, label) {
   assert.equal(result.overflow, false, `${label} document overflows: ${JSON.stringify(result)}`);
   const clipped = await page.locator('button').evaluateAll(elements => elements.filter(el => el.checkVisibility() && (el.scrollWidth > el.clientWidth + 3 || el.scrollHeight > el.clientHeight + 3)).map(el => el.textContent));
   assert.deepEqual(clipped, [], `${label} clipped controls`);
+  const clippedText = await page.locator('textarea').evaluateAll(elements => elements.filter(el => el.checkVisibility() && CSS.supports('field-sizing', 'content') && el.scrollHeight > el.clientHeight + 3).map(el => el.id));
+  assert.deepEqual(clippedText, [], `${label} long text needs to remain visible`);
 }
 try {
   for (const [width, height] of [[320, 900], [390, 844], [640, 900], [768, 1024], [1024, 768], [1440, 900], [844, 390]]) {

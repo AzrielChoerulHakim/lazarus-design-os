@@ -44,7 +44,7 @@ function renderFacts() {
     heading.append(node('strong', fact.id), removeRow(`Hapus bukti ${fact.id}`, () => { data.facts.splice(i, 1); renderFacts(); changed(); $('#add-fact').focus(); }));
     entry.append(heading);
     field(entry, `fact-${i}-claim`, 'Fakta atau hal yang perlu dipastikan', fact.claim, value => { fact.claim = value; }, { multiline: true });
-    field(entry, `fact-${i}-source`, 'Sumber', fact.source, value => { fact.source = value; }, { hint: 'File, tautan, atau keterangan yang bisa ditelusuri.' });
+    field(entry, `fact-${i}-source`, 'Sumber', fact.source, value => { fact.source = value; }, { multiline: true, hint: 'File, tautan, atau keterangan yang bisa ditelusuri.' });
     field(entry, `fact-${i}-status`, 'Status bukti', fact.status, value => { fact.status = value; }, { options: [['uncertain', 'Belum pasti'], ['verified', 'Terverifikasi']] });
     $('#facts').append(entry);
   });
