@@ -11,9 +11,13 @@ These are **third-party instructions**, not dependencies, not official Apple sof
 | Learn Taste · Emil Kowalski | https://github.com/emilkowalski/skills/tree/main/skills/learn-taste | Capture confirmed user corrections into DESIGN.md or check | Overgeneralizing one client's preference |
 | Prototype · Emil Kowalski | https://github.com/emilkowalski/skills/tree/main/skills/prototype | Three divergent options based on actual decision axes | Three cosmetic variants masquerading as exploration |
 
+## Original Lazarus type direction skill (mandatory, not a third-party link)
+
+**[lazarus-type-director](../.github/skills/lazarus-type-director/SKILL.md)** — first-party skill for verified-content typesetting, Apple-inspired hierarchy without copying fonts, three same-copy grayscale type specimens, font licensing, multilingual text, responsive reflow, font fallback and WCAG-type QA. It must be applied before frontend implementation; read [Typography System](TYPOGRAPHY_SYSTEM.md) and [Typography QA](TYPOGRAPHY_QA.md).
+
 ## Routing
-- **Before composition:** client evidence + Anthropic frontend-design; avoid forced aesthetics.
-- **When establishing typography & precision:** original Apple HIG plus Kanishk's examples as implementation references.
+- **Before composition:** client evidence + **first-party Lazarus Type Director** + Anthropic frontend-design (optional external research); avoid forced aesthetics and default font pairs.
+- **When establishing typography & precision:** **Lazarus Typography System and its specimen/QA gates first**; official Apple Typography and W3C WCAG are evidence sources; Kanishk's community examples are optional and must not override client evidence.
 - **When adding gesture/tactility:** Emil's apple-design, only if the interaction genuinely needs physics.
 - **At QA:** HIG review for platform-appropriate elements, plus Lazarus Anti-Generic Audit.
 - **After revision:** learn-taste to capture only approved, reusable corrections.
