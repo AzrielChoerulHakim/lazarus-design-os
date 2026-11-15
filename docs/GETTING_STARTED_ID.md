@@ -16,6 +16,9 @@ Buka `index.html` (katalog HTML statis), lalu pilih studi berdasarkan **masalah 
 ## C. Skills
 File skill internal ada di `.github/skills/<nama>/SKILL.md`. Beberapa coding agent mampu mendeteksi skills dari folder tersebut; agent lain perlu diberi path atau isi instruksinya secara eksplisit. Tautan skill komunitas Apple dan Anthropic ada di `docs/SKILL_REGISTRY.md`, **tidak otomatis terinstal**.
 
+## D. Typography Proofing Lab
+Buka `type-lab/` melalui GitHub Pages atau local HTTP server. Tempel teks klien asli untuk membandingkan tiga tata baca dengan kata-kata yang identik. Konten diketik hanya di browser dan tidak disimpan/dikirim oleh lab. Kontrol ukuran/lebar hanyalah **pratinjau**; audit rilis tetap dilakukan dengan browser viewport nyata, zoom, kontras dan override spacing sesuai `docs/TYPOGRAPHY_QA.md`.
+
 ## D. Menjalankan katalog lokal
 Jalankan `python3 -m http.server 8000` di folder repository, kemudian buka http://localhost:8000. Katalog juga memakai JS lokal dan tidak perlu `npm install`.
 
