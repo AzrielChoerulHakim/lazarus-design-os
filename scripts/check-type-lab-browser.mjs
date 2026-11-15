@@ -45,6 +45,12 @@ try {
     if(overflow)errors.push(width+' horizontal document overflow');
     const rect = await page.locator('.proof-surface').first().boundingBox();
     report.push({width,visibleColumnWidth:rect?.width,overflow});
+    // On mobile the proof specimens appear first and editing is an accessible disclosure.
+    if(width<=760){
+      if(await page.locator('#controls').isVisible()) errors.push(width+' mobile editor should start collapsed');
+      await page.locator('#controls-toggle').click();
+      if((await page.locator('#controls-toggle').getAttribute('aria-expanded'))!=='true') errors.push(width+' mobile editor disclosure state missing');
+    }
     // One interaction path per viewport; text is treated as text, never HTML.
     await page.locator('#input-title').fill('Verified heading <script>not code</script>');
     const newTitles = await page.locator('[data-proof-title]').allTextContents();
@@ -64,6 +70,11 @@ try {
     await page.locator('#reset').click();
     if(!(await page.locator('#input-title').inputValue()).includes('Typography is information architecture')) errors.push(width+' reset failed');
     if((await page.locator('[data-width="1040"]').getAttribute('aria-pressed')) !== 'true') errors.push(width+' reset width state failed');
+    if(width<=760){
+      await page.locator('#controls-done').click();
+      if((await page.locator('#controls-toggle').getAttribute('aria-expanded'))!=='false') errors.push(width+' mobile editor did not close');
+      if(await page.locator('#controls').isVisible()) errors.push(width+' mobile editor should hide when done');
+    }
     await page.close();
   }
 } finally {
