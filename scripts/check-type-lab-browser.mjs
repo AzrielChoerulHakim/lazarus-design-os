@@ -84,6 +84,8 @@ try {
     page.on('pageerror',error=>errors.push('catalogue '+width+' JS exception: '+error.message));
     await page.goto(base+'/',{waitUntil:'load'});
     if(!(await page.locator('#page-title').isVisible())) errors.push('catalogue '+width+' missing heading');
+    const mark=await page.locator('.monogram').evaluate(el=>({display:getComputedStyle(el).display,overflow:el.scrollWidth>el.clientWidth+1}));
+    if(mark.display!=='inline-flex' || mark.overflow) errors.push('catalogue '+width+' monogram glyph layout regression');
     if((await page.locator('a[href="./type-lab/"]').count())<1) errors.push('catalogue '+width+' missing Type Lab link');
     const overflow=await page.evaluate(()=>document.documentElement.scrollWidth > window.innerWidth + 2);
     if(overflow) errors.push('catalogue '+width+' horizontal document overflow');
