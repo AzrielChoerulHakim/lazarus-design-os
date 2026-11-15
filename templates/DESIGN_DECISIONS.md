@@ -12,6 +12,12 @@ This website takes the form of ___ because ___.
 | A | | | | |
 | B | | | | |
 | C | | | | |
+| D | | | | |
+| E | | | | |
+| F | | | | |
+| G | | | | |
+
+Seven directions must differ in **narrative and page structure**, not merely palette or styling. They are not one-to-one adaptations of the seven Atlas studies.
 
 ## Chosen direction and why
 Explain audience benefit, not just aesthetics.
