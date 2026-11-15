@@ -19,9 +19,10 @@ a{color:inherit}
 .intro{padding:65px clamp(18px,5vw,85px) 63px;max-width:1360px;margin:auto}
 .chapter,.control-heading>span,.proof-heading span,.proof-caption b,.proof-footer{font-size:12px;letter-spacing:.045em;font-weight:700;color:var(--accent)}
 .intro h1{font-size:clamp(39px,6.3vw,91px);font-weight:670;letter-spacing:-.062em;line-height:1.025;margin:18px 0 24px;max-width:1020px}
-.intro h1 em{font-family:Georgia,serif;font-weight:400;color:#576c60;letter-spacing:-.055em}
+.intro h1 span{font-family:inherit;font-size:.82em;font-weight:450;color:#52685c;letter-spacing:-.04em}
 .intro>p{max-width:70ch;font-size:16px;line-height:1.73;color:#46594d;margin:0}
 .workbench{display:grid;grid-template-columns:minmax(270px,340px) minmax(0,1fr);align-items:start;border-top:1px solid var(--line)}
+.mobile-edit,.mobile-done{display:none}
 .controls{position:sticky;top:0;max-height:100vh;overflow-y:auto;border-right:1px solid #bac7bd;background:#e9ede8;padding:31px 24px 34px;display:flex;flex-direction:column;gap:10px}
 .control-heading{margin-bottom:14px}
 .control-heading h2{font:650 28px/1.15 system-ui,sans-serif;letter-spacing:-.045em;margin:13px 0 11px}
@@ -126,6 +127,9 @@ a{color:inherit}
  .intro h1{font-size:clamp(40px,9.5vw,66px)}
  .workbench{display:flex;flex-direction:column}
  .controls{position:static;max-height:none;width:100%;border-right:0;border-bottom:1px solid #bac7bd;padding:22px 19px}
+ .mobile-edit{display:block;width:calc(100% - 38px);margin:15px 19px;padding:13px 16px;min-height:48px;border:1px solid #315b43;border-radius:6px;background:#254d39;color:#fff;font-weight:700;text-align:center}
+ .controls:not(.is-open){display:none}
+ .controls.is-open .mobile-done{display:block;width:100%;min-height:48px;padding:12px 16px;border:0;border-radius:6px;background:#254d39;color:#fff;font-weight:700}
  .proofs{width:100%;padding:29px 16px 60px}
  .proof-caption{gap:9px}
  .proof-caption p{font-size:13px}
