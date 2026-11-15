@@ -13,6 +13,9 @@
   const widths = Array.from(document.querySelectorAll('[data-width]'));
   const status = document.getElementById('width-status');
   const reset = document.getElementById('reset');
+  const editorToggle = document.getElementById('controls-toggle');
+  const editorDone = document.getElementById('controls-done');
+  const compactView = window.matchMedia('(max-width: 760px)');
 
   const defaults = {
     title: titleInput.value,
@@ -51,6 +54,12 @@
     status.textContent = 'Proof width: up to ' + width + ' CSS px';
   }
 
+  function setEditorOpen(open) {
+    form.classList.toggle('is-open', open);
+    editorToggle.setAttribute('aria-expanded', String(open));
+    editorToggle.textContent = open ? 'Hide proof settings' : 'Edit copy and proof settings';
+  }
+
   function restore() {
     titleInput.value = defaults.title;
     bodyInput.value = defaults.body;
@@ -68,9 +77,16 @@
   [sizeInput, measureInput].forEach(node => node.addEventListener('input', renderScale));
   widths.forEach(button => button.addEventListener('click', () => chooseWidth(button.dataset.width)));
   reset.addEventListener('click', restore);
+  editorToggle.addEventListener('click', () => setEditorOpen(!form.classList.contains('is-open')));
+  editorDone.addEventListener('click', () => {
+    setEditorOpen(false);
+    document.getElementById('proofs').scrollIntoView({block:'start',behavior:'instant'});
+  });
+  compactView.addEventListener('change', event => setEditorOpen(!event.matches));
   form.addEventListener('submit', event => event.preventDefault());
 
   renderText();
   renderScale();
   chooseWidth(1040);
+  setEditorOpen(!compactView.matches);
 })();
