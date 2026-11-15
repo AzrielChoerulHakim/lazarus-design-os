@@ -10,7 +10,7 @@ Read repo root `AGENTS.md`, `DESIGN.md`, `docs/WORKFLOW.md`, and `docs/ANTI_GENE
 ## Before coding
 1. List verified client-specific facts and intended audience.
 2. Write a concrete identity thesis.
-3. Explore three *structurally distinct* approaches: content order, composition, type behavior, image treatment and interaction. Changing palette alone is not divergence.
+3. Explore **seven structurally distinct concept proposals**: each differs in content order, narrative, composition, type treatment, image strategy, and interaction. These are seven original proposals from the client brief, **not seven coded sites** and **not seven one-to-one atlas replicas**. Changing palette alone is not divergence.
 4. Select one and record the other two with tradeoffs.
 5. Name at least two commonly recurring AI defaults that this project intentionally avoids **and why**; don't ban them universally.
 
