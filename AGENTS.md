@@ -18,7 +18,7 @@ User intent and factual content > audience needs > identity-specific structure >
 ## Mandatory design process
 - Identify **verified client truths** (names/dates/projects/claims only when supported by the source).
 - Write a **one-sentence identity thesis** that makes an unusually specific site concept defensible.
-- Propose **three genuinely different structures**, not three colorways. Compare information architecture, composition, type strategy, imagery treatment, and interaction model.
+- Develop **seven genuinely different client-specific concept directions** before implementation. Each must have its own information architecture, narrative/composition, type strategy, imagery treatment, interaction model and documented tradeoff. These are seven design proposals, **not seven copied Atlas looks**, not seven colorways, and not seven full coded websites. Select one based on the client's evidence and intended users.
 - Choose one with evidence. Record the discarded alternatives and why in `DESIGN_DECISIONS.md`.
 - Study 1–2 relevant reference **mechanisms**. If original code is not available, use the technical notes as conceptual pointers only; don't pretend to have studied the code.
 - Define typography as a system: actual font licensing, display/body, line length, responsive breaks, legibility, language support.
