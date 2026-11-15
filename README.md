@@ -26,7 +26,7 @@ python3 -m http.server 8000
 Static HTML/CSS/JS, no build step. Search seven studies, filter by interaction family, and open their technical notes.
 
 ## Required workflow
-**Evidence → three structural directions → rationale → build → visual/browser audit → iterate → ship**. A build passing is not a design review passing. Never invent material from a CV. Distinctiveness has to remain after removing the brand name and portrait.
+**Evidence → seven structurally distinct concept directions → select one with rationale → build → visual/browser audit → iterate → ship**. A build passing is not a design review passing. Never invent material from a CV. Distinctiveness has to remain after removing the brand name and portrait.
 
 ## Important: public repository and source rights
 This repository is currently **PUBLIC**. Seven historical source studies were supplied during the project, but **their original source files and bundled assets are intentionally NOT published here** until redistribution rights are checked. The atlas contains descriptions, technique notes, and identifiers only. The external Apple/Anthropic/Emil/community skills remain linked rather than copied. See [source policy](docs/SOURCE_POLICY.md).
