@@ -67,14 +67,17 @@ try {
   assert.equal(await page.locator('#project-name').inputValue(), '');
   exported.qa.environment = 'Preserved QA from import'; exported.typography.fontRights = 'Preserved rights record';
   await page.locator('#import-file').setInputFiles({ name: 'round-trip.json', mimeType: 'application/json', buffer: Buffer.from(JSON.stringify(exported)) });
+  await page.waitForFunction(() => document.querySelector('#notice').textContent.startsWith('Dibuka:'));
   assert.equal(await page.locator('#project-name').inputValue(), exported.project.name);
   const [second] = await Promise.all([page.waitForEvent('download'), page.locator('#export-project').click()]);
   const roundTrip = JSON.parse(fs.readFileSync(await second.path(), 'utf8'));
   assert.deepEqual(roundTrip, exported);
   await page.locator('#import-file').setInputFiles({ name: 'bad.json', mimeType: 'application/json', buffer: Buffer.from('{invalid') });
+  await page.waitForFunction(() => document.querySelector('#notice').textContent.startsWith('File tidak dibuka:'));
   assert.match(await page.locator('#notice').innerText(), /File tidak dibuka/);
   assert.equal(await page.locator('#project-name').inputValue(), exported.project.name);
   await page.locator('#import-file').setInputFiles({ name: 'wrong-shape.json', mimeType: 'application/json', buffer: Buffer.from('{"schemaVersion":99}') });
+  await page.waitForFunction(() => document.querySelector('#notice').textContent.includes('schemaVersion'));
   assert.match(await page.locator('#notice').innerText(), /File tidak dibuka/);
   assert.equal(await page.locator('#project-name').inputValue(), exported.project.name);
   await page.locator('#project-name').fill('Keep unsaved work');
