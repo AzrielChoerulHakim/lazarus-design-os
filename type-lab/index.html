@@ -20,11 +20,12 @@
   <main>
     <div class="intro">
       <span class="chapter">DESIGN SYSTEM / TEST BEFORE BUILD</span>
-      <h1>Typeset the evidence.<br><em>Not the aesthetic.</em></h1>
+      <h1>Typeset the evidence.<br><span>Then test the reading.</span></h1>
       <p>This instrument shows three different reading structures with exactly the same words. Replace the sample copy with verified client text and inspect hierarchy, line breaks, readability and content density. Nothing entered here is saved or transmitted by this page.</p>
     </div>
 
     <div class="workbench">
+      <button type="button" id="controls-toggle" class="mobile-edit" aria-controls="controls" aria-expanded="false">Edit copy and proof settings</button>
       <form id="controls" class="controls" aria-label="Typography specimen inputs">
         <div class="control-heading">
           <span>01 / THE SOURCE</span>
@@ -61,6 +62,7 @@
           <p>Check actual client screenshots at 320–1440 CSS px, browser zoom 200%, reflow, text spacing overrides, contrast, font loading and real devices. Type choices need client-specific reasons.</p>
         </div>
         <button id="reset" type="button" class="reset">Restore example</button>
+        <button id="controls-done" type="button" class="mobile-done">View the specimens</button>
       </form>
 
       <section id="proofs" class="proofs" aria-label="Three typography specimens">
