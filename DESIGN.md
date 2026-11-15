@@ -8,8 +8,11 @@ Rank primary sources: verified portfolio work, CV, photography and context; then
 ## 2. Structural originality precedes visual novelty
 A unique font on the same hero → services → cards → contact skeleton is cosmetic variation. Choose the shape of the experience by the user's job: dossier, archive, index, interactive map, exhibition, chronology, casebook, workspace, or a single carefully edited narrative. These are possible *forms*, not a compulsory pattern menu.
 
-## 3. Typography is information architecture
-Decide the primary typographic gesture. Define type families with licensing, variable axes, lengths and leading; check wrapping at actual breakpoints. Prefer 45–75 characters for long reading, adjusted to script and context. Avoid decorative all-caps micro-labels as default.
+## 3. Typography is information architecture — and our highest-risk craft discipline
+Before images, colors or animation, decide **what the reader must recognize, scan, compare and read**. Develop text hierarchy from real content. Choose fonts only after defining reading tasks, content density, multilingual coverage and the information architecture. Create **three grayscale, same-copy typographic specimens** for the chosen direction; defend the winning composition against rejected alternatives. Text roles include display, section, reading body, labels, caption, controls and aligned data only when actually needed. Control line length, leading, font weight, optical behavior, rag, tracking, punctuation and responsive wrapping; check fallbacks and rights. Apple demonstrates discipline in text styles, optical sizing and adaptive hierarchy — **not a universal SF Pro prescription**. Use [Typography Direction System](docs/TYPOGRAPHY_SYSTEM.md) and pass the separate [Typography QA](docs/TYPOGRAPHY_QA.md). The 45–75 character measure is a context-dependent reading heuristic, not a law. Avoid decorative all-caps micro-labels, huge serif headlines, random italics or negative tracking as defaults.
+
+### Type decisions must stand without styling
+An expressive font cannot rescue generic composition. Strip brand colors/photos from a proposed page and check whether the text hierarchy remains client-specific. The same font can serve very different clients through different measures and rhythms; conversely changing font names alone is not a new concept. Never shrink authentic text to protect a screenshot.
 
 ## 4. Apple's craft, not Apple's costume
 Purpose, feedback, consistency, touch ergonomics, optical alignment, responsiveness and reduced motion are useful standards. Do **not** reuse Apple.com's page anatomy, white/gray palette, glass everywhere, imitation devices, SF font files, blue CTAs or product-shot choreography without a project reason.

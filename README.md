@@ -11,11 +11,19 @@ Most AI-generated websites fail through **structural sameness** as well as visua
 2. [DESIGN.md](DESIGN.md) — philosophy and decision hierarchy.
 3. [Research evidence](docs/RESEARCH_EVIDENCE.md) — what is demonstrated versus hypothesized.
 4. [Apple craft standard](docs/APPLE_CRAFT_STANDARD.md) — adopt purpose, feedback, typography and care; **do not copy Apple's look**.
-5. [Seven-study Reference Atlas](docs/REFERENCE_ATLAS.md) — *mechanisms*, selection criteria and source analyses.
-6. [Anti-generic audit](docs/ANTI_GENERIC_AUDIT.md) — structured review of the actual rendered website.
-7. [Skill registry](docs/SKILL_REGISTRY.md) — links to external agent skills; **not vendored code**.
-8. [Project brief](templates/PROJECT_BRIEF.md) → [decisions record](templates/DESIGN_DECISIONS.md).
-9. [Panduan penggunaan Bahasa Indonesia](docs/GETTING_STARTED_ID.md) — cara menerapkan sistem ke proyek klien.
+5. **[Typography Direction System](docs/TYPOGRAPHY_SYSTEM.md)** — content-first type hierarchy, optical craft, client-specific typography, font rights and three same-copy design specimens.
+6. **[Typography QA](docs/TYPOGRAPHY_QA.md)** — test real words, responsiveness, resize/reflow, user spacing override, fallback and contrast.
+7. [Seven-study Reference Atlas](docs/REFERENCE_ATLAS.md) — *mechanisms*, selection criteria and source analyses.
+8. [Anti-generic audit](docs/ANTI_GENERIC_AUDIT.md) — structured review of the actual rendered website.
+9. [Skill registry](docs/SKILL_REGISTRY.md) — external skill links plus original internal skills.
+10. [Project brief](templates/PROJECT_BRIEF.md) → [type spec](templates/TYPE_SPEC.md) → [decisions record](templates/DESIGN_DECISIONS.md).
+11. [Panduan penggunaan Bahasa Indonesia](docs/GETTING_STARTED_ID.md) — cara menerapkan sistem ke proyek klien.
+
+## New mandatory typography workflow
+**Real client reading tasks → seven distinct typographic grammars → select a concept → three monochrome same-copy type specimens → [TYPE_SPEC](templates/TYPE_SPEC.md) → code → [Typography QA](docs/TYPOGRAPHY_QA.md) + visual audit.** Apple typography is a craft model, **not** a San Francisco font or Apple.com layout preset. No release claim without tested screenshots and font rights.
+
+## Try the Typography Proofing Lab
+**[Open the interactive Type Lab](type-lab/)** — paste verified client headlines, paragraphs and context; compare **the same words** across dossier, reading and index grammars, then check mobile-sized preview columns and reading measure. It uses no external font downloads and stores no typed content. This is a concept-proofing instrument, **not a browser accessibility certification or a house style**. See [Type Lab README](type-lab/README.md).
 
 ## Seven Visual Directions — actual concept explorer
 **[View the interactive seven-concept prototype](concepts/)** — seven distinct page anatomies, typography systems, media treatments and navigational ideas for the SAME fictional architecture client (ATELIER SERA). Use [the concept rationale](concepts/README.md) to understand the decisions. This is a speculative study, **not seven client websites**. For GitHub Pages, enable root/branch publishing first; expected URL: https://azrielchoerulhakim.github.io/lazarus-design-os/concepts/ .
@@ -29,7 +37,7 @@ python3 -m http.server 8000
 Static HTML/CSS/JS, no build step. Search seven studies, filter by interaction family, and open their technical notes.
 
 ## Required workflow
-**Evidence → seven structurally distinct concept directions → select one with rationale → build → visual/browser audit → iterate → ship**. A build passing is not a design review passing. Never invent material from a CV. Distinctiveness has to remain after removing the brand name and portrait.
+**Evidence → seven structurally distinct concept directions and their reading grammars → choose one → three type specimens + TYPE_SPEC → build → typography/visual/browser audit → iterate → ship**. A build passing is not a design review passing. Never invent material from a CV. Distinctiveness has to remain after removing the brand name and portrait.
 
 ## Important: public repository and source rights
 This repository is currently **PUBLIC**. Seven historical source studies were supplied during the project, but **their original source files and bundled assets are intentionally NOT published here** until redistribution rights are checked. The atlas contains descriptions, technique notes, and identifiers only. The external Apple/Anthropic/Emil/community skills remain linked rather than copied. See [source policy](docs/SOURCE_POLICY.md).
@@ -40,6 +48,7 @@ Make this repository readable to the agent (a link without access is not enough)
 ## Project agent skills
 Original, project-local skills live in [`.github/skills/`](.github/skills/):
 - [`lazarus-anti-generic`](.github/skills/lazarus-anti-generic/SKILL.md) — evidence-led structural divergence and critique.
+- **[`lazarus-type-director`](.github/skills/lazarus-type-director/SKILL.md)** — primary typography art direction, apples-to-web craft adaptation, same-copy specimens and QA gates.
 - [`lazarus-apple-craft`](.github/skills/lazarus-apple-craft/SKILL.md) — Apple-level interaction, hierarchy and quality without visual imitation.
 - [`lazarus-reference-atlas`](.github/skills/lazarus-reference-atlas/SKILL.md) — choose implementation techniques by use case and limitations.
 
@@ -51,4 +60,4 @@ node scripts/check-atlas.mjs
 ```
 CI uses the same dependency-free check.
 
-**Status:** version 2 · foundation built 2026-11-15. Rules are a starting hypothesis, not a guarantee of originality. Judge against real client content and independent user feedback.
+**Status:** version 3 · typography-first revision 2026-11-15. Rules are a starting hypothesis, not a guarantee of originality. Judge against real client content and independent user feedback.

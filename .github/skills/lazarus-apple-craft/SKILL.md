@@ -5,17 +5,18 @@ description: Use for deliberate, precise web interface and animation review info
 
 # Apple craft for original web work
 
-Load `docs/APPLE_CRAFT_STANDARD.md` and `DESIGN.md`. Treat Apple's official Human Interface Guidelines at https://developer.apple.com/design/human-interface-guidelines/ as platform guidance; do not pretend native iOS patterns are universal web rules.
+Load `docs/APPLE_CRAFT_STANDARD.md`, **`docs/TYPOGRAPHY_SYSTEM.md`, `docs/TYPOGRAPHY_QA.md`**, and `DESIGN.md`. Coordinate with `lazarus-type-director` if available. Treat Apple's official Human Interface Guidelines at https://developer.apple.com/design/human-interface-guidelines/ as platform guidance; do not pretend native iOS patterns are universal web rules.
 
 ## Craft questions
 - What is this page's primary purpose? Which visual element makes that purpose easiest to understand?
-- Is the typographic hierarchy precise in actual content and at 320px width?
+- Is the **typographic hierarchy built from real client content** rather than a recurring font-pair preset? Did three grayscale same-copy specimens reveal a clearly better reader experience?
+- Are type styles semantic and coherent (role, weight, measure, leading, tracking, optical behavior, numerals) in actual content and at 320px width?
 - Do interactions respond directly, and do transitions preserve spatial continuity rather than interrupt users?
-- Can keyboard, touch, zoom and reduced-motion users complete the same jobs?
+- Do typography and layout survive 200% text resize, 320px-equivalent reflow, spacing override, high contrast, font failure and long names? Can keyboard, touch, zoom and reduced-motion users complete the same jobs?
 - Could a decoration be deleted without damaging comprehension? Delete it.
 - Does the client's own brand and evidence remain intact rather than yielding to Apple's white/gray/blue marketing style?
 
 ## Stop conditions
-If an element has no client/context justification, ask whether it should exist. If a motion interaction is not interruptible or has no static/reduced-motion path, improve or remove it. If Apple font binaries/assets are not licensed, never distribute them.
+If meaningful text is tiny, clipped, low-contrast, unlicensed or loses information when enlarged, **stop delivery and repair it**; do not make text smaller to preserve an art-directed mockup. If an element has no client/context justification, ask whether it should exist. If a motion interaction is not interruptible or has no static/reduced-motion path, improve or remove it. If Apple font binaries/assets are not licensed, never distribute them.
 
 External context (not vendored): https://github.com/emilkowalski/skills/tree/main/skills/apple-design and https://github.com/KanishkRanjan/apple-design-skill .

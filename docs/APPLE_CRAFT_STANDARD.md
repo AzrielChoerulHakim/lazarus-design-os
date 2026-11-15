@@ -26,12 +26,20 @@
 - Is a reduced-motion alternative legible and complete?
 - Is the animation meaningful for this *client*? If not, remove it.
 
-## Typography review
-- Have fonts been chosen for identity and legibility rather than resemblance?
-- Do headlines wrap gracefully on small screens?
-- Are letter-spacing and line-height correct at each scale?
-- Are long-form reading widths appropriate?
-- Do the language and diacritics render correctly?
+## Typography review — required type direction, not an afterthought
+Follow **[Lazarus Typography Direction System](TYPOGRAPHY_SYSTEM.md)** and **[Typography QA](TYPOGRAPHY_QA.md)**. Apple's design system uses typographic **text styles**, optical treatments and scaling to produce hierarchy. The transferable lesson is deliberate roles and adaptive composition; Apple system typefaces and their point-size values are **not** default CSS tokens.
+- Has the client-specific reading task been documented before selecting a font?
+- Did we compare three grayscale, same-copy type specimens for the selected design concept?
+- Are heading, reading body, evidence/caption, navigation and numerical text roles justified?
+- Have measure, weight, tracking, leading, optical alignment, and punctuation been inspected in real browser rendering?
+- Do long names and headings wrap without awkward forced breaks at 320px and under enlargement?
+- Are body text, dates, captions and labels readable without microscopic all-caps?
+- Are language glyphs, diacritics, numeric alignment, genuine italics, font licensing and fallback confirmed?
+- Do we have observed evidence of 200% text resize, 320px reflow, WCAG spacing override and appropriate text contrast?
+- Did we identify anything that looks like the **same typography preset** across unrelated clients? If so, revisit content structure first.
+
+## Separate Apple-platform tips from web requirements
+Apple's [UI design tips](https://developer.apple.com/design/tips/) discuss 11-point text and 44-point hit targets in Apple interfaces. **Those are platform points, not web CSS pixels.** Web delivery must be tested against W3C WCAG 2.2 for contrast, text resize, reflow and spacing override. Project starting sizes (such as 16–18 CSS px for body text) are design heuristics, not Apple mandates. See [Apple fonts](https://developer.apple.com/fonts/), [WCAG contrast](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum), [resize](https://www.w3.org/WAI/WCAG22/Understanding/resize-text), [reflow](https://www.w3.org/WAI/WCAG22/Understanding/reflow), [text spacing](https://www.w3.org/WAI/WCAG22/Understanding/text-spacing).
 
 ## Licensing
 **Do not ship Apple's San Francisco / New York font files or Apple product imagery as website assets without the appropriate license.** A CSS system-font stack uses installed platform fonts without distributing them, but still isn't a reason to impose that typography on every client.
@@ -39,5 +47,7 @@
 ## Primary resources
 - Apple HIG: https://developer.apple.com/design/human-interface-guidelines/
 - Apple design resources: https://developer.apple.com/design/resources/
+- Apple Typography: https://developer.apple.com/design/human-interface-guidelines/typography
+- Apple Fonts: https://developer.apple.com/fonts/
 - Web animation adaptation (community skill): https://github.com/emilkowalski/skills/tree/main/skills/apple-design
 - Apple-inspired web design corpus (community): https://github.com/KanishkRanjan/apple-design-skill
