@@ -20,6 +20,9 @@ Use [Tone of Voice System](TONE_OF_VOICE_SYSTEM.md). Choose formal/conversationa
 ## 2.7 — Mobile Visual Integrity plan (mandatory, before UI)
 Use [Mobile Visual Integrity](MOBILE_VISUAL_INTEGRITY.md) and [MOBILE_VISUAL_QA](../templates/MOBILE_VISUAL_QA.md). List real sections, risks of illustration/text/fixed-header collision, mobile reading order and reduced-motion fallback in `mobile`. Plan intentional recomposition, not proportional desktop shrinking.
 
+## 2.8 — Visual family exploration (optional)
+If a creative director selects one of Lazarus's seven *visual families*, treat it as an art-direction hypothesis **after** diagnosing the client's needs. For **01 / Surrealist Digital Editorial**, use the exploratory [Surrealist Field Lab](../visual-lab/surrealist/) and its [experiment report](../visual-lab/surrealist/EXPERIMENT_REPORT.md). Compare its three demonstrated compositions against real client information density, project evidence and available media. They are neither a substitute for the seven client-specific structural proposals nor another set of Reference Atlas source mechanisms. **Never** infer tone of voice from the visual family. Do not reuse the fictional SERA identity, copy or portfolio evidence. Selection is optional and must be rejected if its atmosphere compromises readability, source integrity or mobile usability.
+
 ## 3 — Reference only when needed
 Before proceeding, run the contract's `brief` and `design` stages. Define the project's signature, source evidence, audience benefit and fallback. A duplicate-structure warning requires comparison, not renaming the concept.
 
