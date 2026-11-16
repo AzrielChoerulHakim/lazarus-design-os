@@ -1,0 +1,40 @@
+name: Surrealist Field Lab
+
+on:
+  push:
+    branches:
+      - experiment/surrealist-direction-lab-01
+    paths:
+      - "visual-lab/surrealist/**"
+      - "tests/surrealist-lab.test.mjs"
+      - "scripts/check-surrealist-lab-browser.mjs"
+      - ".github/workflows/surrealist-lab.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  inspect:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Static structure and source checks
+        run: node --test tests/surrealist-lab.test.mjs
+      - name: Install browser runner
+        run: |
+          npm install --no-save --no-audit --no-fund playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Browser interactions and responsive screenshots
+        run: node scripts/check-surrealist-lab-browser.mjs
+      - name: Upload screenshots and test report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: surrealist-field-lab-proof
+          path: screenshots/surrealist-lab/
+          if-no-files-found: warn
