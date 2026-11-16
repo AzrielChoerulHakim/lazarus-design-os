@@ -111,18 +111,6 @@
     "fontRights": "",
     "fallback": ""
   },
-  "qa": {
-    "commit": "",
-    "environment": "",
-    "screenshots": [],
-    "checks": [],
-    "reviews": [],
-    "independentReview": {
-      "status": "not-tested",
-      "notes": ""
-    },
-    "mobileInspections": []
-  },
   "voice": {
     "spec": "",
     "language": "",
@@ -144,5 +132,17 @@
     "motionFallback": "",
     "riskAreas": [],
     "sections": []
+  },
+  "qa": {
+    "commit": "",
+    "environment": "",
+    "screenshots": [],
+    "mobileInspections": [],
+    "checks": [],
+    "reviews": [],
+    "independentReview": {
+      "status": "not-tested",
+      "notes": ""
+    }
   }
 }

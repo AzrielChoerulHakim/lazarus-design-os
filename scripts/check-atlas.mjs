@@ -7,6 +7,7 @@ const root = path.resolve(import.meta.dirname, '..');
 const errors = [];
 function has(p) { return fs.existsSync(path.join(root, p)); }
 const required = ['README.md','AGENTS.md','DESIGN.md','index.html','styles.css','app.js','data/atlas-data.js','docs/APPLE_CRAFT_STANDARD.md','docs/ANTI_GENERIC_AUDIT.md','docs/REFERENCE_ATLAS.md','docs/RESEARCH_EVIDENCE.md','docs/SKILL_REGISTRY.md','docs/SOURCE_POLICY.md','docs/WORKFLOW.md','docs/TYPOGRAPHY_SYSTEM.md','docs/TYPOGRAPHY_QA.md','templates/CLIENT_AGENT.md','templates/TYPE_SPEC.md','.github/copilot-instructions.md','.github/skills/lazarus-type-director/SKILL.md','type-lab/index.html','type-lab/type-lab.css','type-lab/type-lab.js','type-lab/README.md'];
+required.push('docs/TONE_OF_VOICE_SYSTEM.md','docs/MOBILE_VISUAL_INTEGRITY.md','templates/TONE_OF_VOICE.md','templates/MOBILE_VISUAL_QA.md','scripts/mobile-visual-audit.mjs','tests/mobile-visual-audit.test.mjs','.github/skills/lazarus-voice-director/SKILL.md','.github/skills/lazarus-mobile-integrity/SKILL.md');
 required.push('docs/ORIGINALITY_PROTOCOL.md','docs/DESIGN_CONTRACT.md','docs/V4_DESIGN_DECISIONS.md','docs/v4-type-specimens.html','templates/design-contract.json','direction-room/index.html','direction-room/room.css','direction-room/room.mjs','direction-room/example.mjs','lib/design-contract.mjs','scripts/design-gate.mjs','tests/design-contract.test.mjs','scripts/check-direction-room-browser.mjs');
 required.forEach(p => { if (!has(p)) errors.push('Missing: ' + p); });
 let studies = [];
