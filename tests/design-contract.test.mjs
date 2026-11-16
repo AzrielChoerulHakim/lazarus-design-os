@@ -101,20 +101,27 @@ test('CLI protects existing work, rejects missing artifacts and symlinks, valida
     assert.equal(run('check', file, '--stage', 'nonsense').status, 2);
   } finally { fs.rmSync(root, { recursive: true, force: true }); }
 });
-test('release CLI rejects stale tracked and new untracked source', () => {
+test('release CLI handles nested records and rejects source disguised as evidence', () => {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'lazarus-release-'));
   try {
     const git = (...args) => execFileSync('git', ['-C', root, ...args], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] }).trim();
     git('init'); git('config', 'user.name', 'Test'); git('config', 'user.email', 'test@example.invalid');
-    fs.writeFileSync(path.join(root, 'index.html'), '<h1>Source</h1>'); git('add', 'index.html'); git('commit', '-m', 'Test source');
-    const sha = git('rev-parse', 'HEAD'); const data = release(sha);
-    fs.mkdirSync(path.join(root, 'proof'));
+    const records = path.join(root, 'design'); fs.mkdirSync(records);
+    fs.writeFileSync(path.join(root, 'index.html'), '<h1>Source</h1>');
+    const data = release();
+    fs.mkdirSync(path.join(records, 'proof'));
+    for (const specimen of data.typography.specimens) fs.writeFileSync(path.join(records, specimen.path), 'Fixture only');
+    git('add', 'index.html', 'design/proof'); git('commit', '-m', 'Test source and type specimens');
+    data.qa.commit = git('rev-parse', 'HEAD');
     const paths = [data.typography.spec, ...data.typography.specimens.map(s => s.path), ...data.qa.screenshots.map(s => s.path), 'proof/test-report.txt'];
-    paths.forEach(p => fs.writeFileSync(path.join(root, p), 'Fixture only'));
-    const file = path.join(root, 'design-contract.json'); fs.writeFileSync(file, JSON.stringify(data));
+    paths.forEach(p => fs.writeFileSync(path.join(records, p), 'Fixture only'));
+    const file = path.join(records, 'design-contract.json'); fs.writeFileSync(file, JSON.stringify(data));
     const run = () => spawnSync(process.execPath, [cli, 'check', file, '--stage', 'release'], { encoding: 'utf8' });
     assert.equal(run().status, 0);
     fs.writeFileSync(path.join(root, 'index.html'), '<h1>Changed</h1>'); assert.equal(run().status, 2);
+    data.qa.checks[0].evidence = '../index.html'; fs.writeFileSync(file, JSON.stringify(data));
+    assert.equal(run().status, 2, 'Application HTML is still source even when cited as evidence');
+    data.qa.checks[0].evidence = 'proof/test-report.txt'; fs.writeFileSync(file, JSON.stringify(data));
     git('restore', 'index.html'); fs.writeFileSync(path.join(root, 'new.js'), 'newSource()'); assert.equal(run().status, 2);
   } finally { fs.rmSync(root, { recursive: true, force: true }); }
 });

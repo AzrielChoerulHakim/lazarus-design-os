@@ -37,17 +37,21 @@ try {
   const root = fs.realpathSync(options.root);
   let expectedCommit = options.commit;
   if (options.stage === 'release') {
-    const git = (...params) => execFileSync('git', ['-C', root, ...params], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] }).trim();
+    const gitAt = (directory, ...params) => execFileSync('git', ['-C', directory, ...params], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] }).trim();
+    const repoRoot = fs.realpathSync(gitAt(root, 'rev-parse', '--show-toplevel'));
+    const git = (...params) => gitAt(repoRoot, ...params);
     expectedCommit ||= git('rev-parse', 'HEAD');
     if (!/^[a-f\d]{40}$/i.test(expectedCommit)) throw new Error('--commit must be a full commit SHA.');
     if (git('rev-parse', `${expectedCommit}^{commit}`) !== expectedCommit) throw new Error('The reviewed commit is not available in this checkout.');
     // Evidence/report-only changes may follow capture; source changes invalidate it.
     const source = /\.(?:html?|css|[cm]?[jt]sx?|vue|svelte|astro|json|ya?ml|svg|png|jpe?g|webp|woff2?)$/i;
     // A report cannot exempt an application script from source provenance checks.
-    const artifacts = new Set(artifactPaths(data, options.stage).filter(p => /\.(?:png|jpe?g|webp|pdf|md|txt|log|html?)$/i.test(p)));
+    const artifacts = new Set(artifactPaths(data, options.stage)
+      .filter(p => /\.(?:png|jpe?g|webp|pdf|md|txt|log|json)$/i.test(p))
+      .map(p => path.relative(repoRoot, path.resolve(root, p)).split(path.sep).join('/')));
     const changed = git('diff', '--name-only', expectedCommit).split('\n').filter(Boolean);
     const untracked = git('ls-files', '--others', '--exclude-standard').split('\n').filter(Boolean);
-    const contractRelative = path.relative(root, path.resolve(file)).split(path.sep).join('/');
+    const contractRelative = path.relative(repoRoot, path.resolve(file)).split(path.sep).join('/');
     const dirty = [...changed, ...untracked].filter(p => source.test(p) && p !== contractRelative && !artifacts.has(p));
     if (dirty.length) throw new Error(`Source changed since the reviewed commit: ${dirty.join(', ')}. Commit the implementation and recapture QA.`);
   }
