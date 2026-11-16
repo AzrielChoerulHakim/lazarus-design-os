@@ -62,6 +62,6 @@ node --test tests/design-contract.test.mjs
 node scripts/design-gate.mjs init /path/to/client/design-contract.json
 node scripts/design-gate.mjs check /path/to/client/design-contract.json --stage brief
 ```
-CI runs the static checks, contract regression tests and browser checks for the tools. `brief`, `design` and `release` are separate gates; each checks recorded evidence, not originality or accessibility certification. See [the contract guide](docs/DESIGN_CONTRACT.md) for artifacts, source provenance and client CI use.
+CI runs the static checks, contract regression tests and browser checks for the tools. `brief`, `design` and `release` are separate gates; each checks recorded evidence, not originality or accessibility certification. See [the contract guide](docs/DESIGN_CONTRACT.md) for artifacts, source provenance and client CI use. The [v4 review](docs/V4_REVIEW.md) records the tested commit, actual screenshots, results and outstanding checks.
 
-**Status:** version 4 · evidence-to-decision workflow, 2026-11-15. Includes the existing typography system and seven studies. Rules and completeness checks are not a guarantee of originality. Judge the actual work against real client content and independent feedback.
+**Status:** version 4 · evidence-to-decision workflow, 2026-11-16. Includes the existing typography system and seven studies. Rules and completeness checks are not a guarantee of originality. Judge the actual work against real client content and independent feedback.

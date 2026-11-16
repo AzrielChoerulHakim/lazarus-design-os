@@ -1,0 +1,85 @@
+{
+  "browser": "141.0.7390.37",
+  "viewports": [
+    {
+      "width": 320,
+      "height": 900,
+      "panels": 3,
+      "overflow": false,
+      "spacingOverride": "pass",
+      "longContent": "pass",
+      "reducedMotion": "pass"
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "panels": 3,
+      "overflow": false,
+      "spacingOverride": "pass",
+      "longContent": "pass",
+      "reducedMotion": "pass"
+    },
+    {
+      "width": 640,
+      "height": 900,
+      "panels": 3,
+      "overflow": false,
+      "spacingOverride": "pass",
+      "longContent": "pass",
+      "reducedMotion": "pass"
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "panels": 3,
+      "overflow": false,
+      "spacingOverride": "pass",
+      "longContent": "pass",
+      "reducedMotion": "pass"
+    },
+    {
+      "width": 1024,
+      "height": 768,
+      "panels": 3,
+      "overflow": false,
+      "spacingOverride": "pass",
+      "longContent": "pass",
+      "reducedMotion": "pass"
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "panels": 3,
+      "overflow": false,
+      "spacingOverride": "pass",
+      "longContent": "pass",
+      "reducedMotion": "pass"
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "panels": 3,
+      "overflow": false,
+      "spacingOverride": "pass",
+      "longContent": "pass",
+      "reducedMotion": "pass"
+    }
+  ],
+  "interactions": [
+    "touch edit",
+    "seven tab keyboard navigation",
+    "selection",
+    "add/remove rows",
+    "safe literal text",
+    "lossless JSON round trip",
+    "invalid import preserves work",
+    "unsaved replacement cancellation",
+    "no hidden persistence",
+    "200% synthetic text enlargement, brief panel"
+  ],
+  "limitations": [
+    "Browser text doubling is a stress test, not native browser zoom.",
+    "Touch uses Chromium emulation, not a physical phone.",
+    "No independent perception study or full accessibility certification."
+  ]
+}
