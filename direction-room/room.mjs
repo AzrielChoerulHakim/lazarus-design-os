@@ -78,10 +78,50 @@ function renderConcept() {
   for (const [key, label, type] of fields) field($('#concept-editor'), 'concept-' + key, label, Array.isArray(current[key]) ? current[key].join(type === 'lines' ? '\n' : ', ') : current[key], value => { current[key] = type === 'lines' ? lines(value) : type === 'ids' ? ids(value) : value; }, { multiline: type === 'long' || type === 'lines', hint: type === 'lines' ? 'Satu bagian per baris, dari awal hingga akhir.' : type === 'ids' ? 'Pisahkan dengan koma, misalnya F1, F2.' : '' });
 }
 function renderSelection() {
-  $('#selection-fields').replaceChildren(); $('#signature-fields').replaceChildren(); $('#comparison-fields').replaceChildren();
+  $('#selection-fields').replaceChildren(); $('#signature-fields').replaceChildren(); $('#comparison-fields').replaceChildren(); $('#voice-fields').replaceChildren(); $('#mobile-fields').replaceChildren();
   field($('#selection-fields'), 'selection-concept', 'Arah yang dipilih', data.selection.conceptId, value => { data.selection.conceptId = value; }, { options: [['', 'Belum dipilih'], ...data.concepts.map(c => [c.id, `${c.id} · ${c.name || 'Belum diberi nama'}`])] });
   field($('#selection-fields'), 'selection-reason', 'Mengapa arah ini lebih sesuai?', data.selection.reason, value => { data.selection.reason = value; }, { multiline: true });
   for (const [key, label] of [['description', 'Apa keputusan khasnya?'], ['benefit', 'Apa manfaatnya bagi pembaca?'], ['fallback', 'Bagaimana jika efek atau interaksi tidak tersedia?'], ['evidenceIds', 'ID bukti pendukung']]) field($('#signature-fields'), 'signature-' + key, label, key === 'evidenceIds' ? data.signature[key].join(', ') : data.signature[key], value => { data.signature[key] = key === 'evidenceIds' ? ids(value) : value; }, { multiline: key !== 'evidenceIds' });
+  const voiceFields = [
+    ['language', 'Bahasa dan locale (mis. id-ID)', ''],
+    ['tone', 'Tone of voice', 'select'],
+    ['audience', 'Pembaca dan konteks', 'long'],
+    ['pronouns', 'Kata ganti dan sudut pandang', 'long'],
+    ['rationale', 'Alasan pilihan bahasa', 'long'],
+    ['source', 'Sumber konteks bahasa', 'long'],
+    ['evidenceIds', 'ID bukti pendukung', 'ids'],
+    ['preferred', 'Kosakata yang diutamakan (satu per baris)', 'lines'],
+    ['avoid', 'Kosakata / klise yang dihindari (satu per baris)', 'lines'],
+    ['approval', 'Status persetujuan gaya bahasa', 'approval'],
+    ['spec', 'Path catatan tone-of-voice (di repo klien)', '']
+  ];
+  const toneOptions = [
+    ['','Pilih tone'],['casual-friendly','Casual & Friendly'],
+    ['professional-conversational','Professional Conversational'],
+    ['editorial-intellectual','Editorial & Intellectual'],
+    ['playful-expressive','Playful & Expressive'],
+    ['formal-authoritative','Formal & Authoritative'],
+    ['custom','Custom dengan alasan yang jelas']
+  ];
+  for (const [key,label,type] of voiceFields) {
+    const value = Array.isArray(data.voice[key]) ? data.voice[key].join(type === 'lines' ? '\n' : ', ') : data.voice[key];
+    field($('#voice-fields'), 'voice-'+key, label, value, next => { data.voice[key] = type === 'ids' ? ids(next) : type === 'lines' ? lines(next) : next; }, { multiline: type === 'long' || type === 'lines', options: type === 'select' ? toneOptions : type === 'approval' ? [['editorial-draft','Draf editorial, belum dikonfirmasi'], ['client-confirmed','Dikonfirmasi klien']] : undefined });
+  }
+  for (const [key,label] of [['opening','Opening nyata'], ['evidence','Penjelasan bukti / pengalaman'], ['action','Ajakan tindakan']]) {
+    const existing = data.voice.samples.find(item => item.id === key);
+    field($('#voice-fields'), 'voice-sample-'+key, label, existing?.copy || '', value => {
+      const row = data.voice.samples.find(item => item.id === key);
+      if (row) row.copy = value; else data.voice.samples.push({ id: key, copy: value });
+    }, { multiline:true, hint:'Tulis teks yang benar-benar layak ditampilkan, bukan contoh generik.' });
+  }
+  for (const [key,label,type] of [
+    ['readingOrder','Urutan baca pada layar kecil','long'],
+    ['sections','ID section untuk audit (satu per baris)','lines'],
+    ['riskAreas','Risiko overlap dan cropping (satu per baris)','lines'],
+    ['illustrationPolicy','Perubahan posisi / pengurangan dekorasi','long'],
+    ['motionFallback','Fallback animasi dan reduced motion','long'],
+    ['spec','Path rencana komposisi mobile (di repo klien)','']
+  ]) field($('#mobile-fields'), 'mobile-'+key, label, Array.isArray(data.mobile[key]) ? data.mobile[key].join('\n') : data.mobile[key], value => { data.mobile[key] = type === 'lines' ? lines(value) : value; }, { multiline: type === 'long' || type === 'lines' });
   entries('#decisions', data.decisions, 'Keputusan', [['choice', 'Pilihan'], ['evidenceIds', 'ID bukti', 'ids'], ['benefit', 'Manfaat pembaca'], ['tradeoff', 'Konsekuensi']]);
   entries('#avoid', data.avoid, 'Pola', [['pattern', 'Pola yang dihindari'], ['reason', 'Alasan khusus proyek ini']]);
   entries('#prior-projects', data.comparison.projects, 'Pembanding', [['name', 'Nama / sumber proyek'], ['contentOrder', 'Urutan isi', 'lines'], ['readingGrammar', 'Cara membaca'], ['interaction', 'Interaksi utama']]);
@@ -116,7 +156,7 @@ function issueText(issue) {
   const fields = { name: 'nama', audience: 'pembaca', primaryTask: 'tugas utama', thesis: 'alasan bentuk', claim: 'fakta', source: 'sumber', readingGrammar: 'cara membaca', media: 'perlakuan aset', interaction: 'interaksi', tradeoff: 'konsekuensi', reason: 'alasan', description: 'keputusan khas', benefit: 'manfaat', fallback: 'alternatif tanpa efek', choice: 'pilihan', pattern: 'pola', note: 'catatan perbandingan' };
   const parts = issue.field.split('.');
   const label = fields[parts.at(-1)] || parts.at(-1);
-  const location = parts[0] === 'concepts' ? `konsep ${parts[1]}` : parts[0] === 'facts' ? `bukti ${parts[1]}` : parts[0] === 'project' ? 'brief' : parts[0] === 'signature' ? 'keputusan khas' : parts[0] === 'decisions' ? 'keputusan dominan' : parts[0] === 'avoid' ? 'pola yang dihindari' : parts[0] === 'selection' ? 'pilihan arah' : 'perbandingan';
+  const location = parts[0] === 'voice' ? 'tone of voice' : parts[0] === 'mobile' ? 'mobile visual integrity' : parts[0] === 'concepts' ? `konsep ${parts[1]}` : parts[0] === 'facts' ? `bukti ${parts[1]}` : parts[0] === 'project' ? 'brief' : parts[0] === 'signature' ? 'keputusan khas' : parts[0] === 'decisions' ? 'keputusan dominan' : parts[0] === 'avoid' ? 'pola yang dihindari' : parts[0] === 'selection' ? 'pilihan arah' : 'perbandingan';
   const messages = {
     missing: `Lengkapi ${label} pada ${location}.`,
     facts: 'Tambahkan setidaknya satu fakta terverifikasi beserta sumbernya.',
@@ -144,7 +184,7 @@ function panel(name, moveFocus = false) {
 }
 function render() { renderBrief(); renderConcept(); renderSelection(); matrix(); review(); }
 function canReplace() { return !dirty || window.confirm('Ada perubahan yang belum diunduh. Ganti isi tab ini?'); }
-function replace(next, message) { data = next; activeConcept = data.concepts[0]?.id || 'A'; dirty = false; showAll = false; render(); panel('brief'); announce(message); }
+function replace(next, message) { data = next; const defaults = createContract(); data.voice ||= defaults.voice; data.mobile ||= defaults.mobile; data.qa.mobileInspections ||= []; activeConcept = data.concepts[0]?.id || 'A'; dirty = false; showAll = false; render(); panel('brief'); announce(message); }
 document.querySelectorAll('[data-panel]').forEach(button => button.addEventListener('click', () => panel(button.dataset.panel)));
 document.querySelectorAll('[data-next]').forEach(button => button.addEventListener('click', () => panel(button.dataset.next, true)));
 $('#add-fact').addEventListener('click', () => { let i = 1; while (data.facts.some(f => f.id === 'F' + i)) i++; data.facts.push({ id: 'F' + i, claim: '', source: '', status: 'uncertain' }); renderFacts(); changed(); $(`#fact-${data.facts.length - 1}-claim`).focus(); });

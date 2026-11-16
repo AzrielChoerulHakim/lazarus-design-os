@@ -4,7 +4,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { spawnSync, execFileSync } from 'node:child_process';
-import { createContract, validateContract, shapeErrors, safeRelativePath, VIEWPORTS, CHECKS, REVIEWS } from '../lib/design-contract.mjs';
+import { createContract, validateContract, shapeErrors, safeRelativePath, VIEWPORTS, CHECKS, REVIEWS, VOICE_TONES, MOBILE_REVIEW_WIDTHS } from '../lib/design-contract.mjs';
 import { exampleContract } from '../direction-room/example.mjs';
 
 const blocks = (data, stage = 'brief', extra = {}) => validateContract(data, { stage, ...extra }).filter(i => i.level === 'blocker');
@@ -12,11 +12,13 @@ const codes = rows => rows.map(r => r.code);
 function design() {
   const data = exampleContract();
   data.typography = { spec: 'proof/type.md', contentSource: 'Client supplied copy', specimens: ['A', 'B', 'C'].map(id => ({ id, path: `proof/${id}.html`, content: 'Same verified copy.' })), chosenId: 'C', reason: 'Reading task fits.', fontRights: 'System font; no distributed binary.', fallback: 'sans-serif' };
+  data.voice.spec = 'proof/voice.md';
+  data.mobile.spec = 'proof/mobile.md';
   return data;
 }
 function release(commit = 'a'.repeat(40)) {
   const data = design();
-  data.qa = { commit, environment: 'Temporary automated test fixture — not client QA', screenshots: [...VIEWPORTS.map(width => ({ width, height: 900, path: `proof/${width}.png` })), { width: 844, height: 390, path: 'proof/short.png' }], checks: CHECKS.map(id => ({ id, status: 'pass', evidence: 'proof/test-report.txt', notes: 'Fixture only.' })), reviews: REVIEWS.map(id => ({ id, status: 'pass', evidence: 'proof/test-report.txt', notes: 'Fixture only.' })), independentReview: { status: 'not-tested', notes: '' } };
+  data.qa = { commit, environment: 'Temporary automated test fixture — not client QA', mobileInspections: data.mobile.sections.flatMap(section => MOBILE_REVIEW_WIDTHS.map(width => ({ section, width, path: `proof/${section}-${width}.png`, status: 'pass', notes: 'Fixture only; not genuine visual QA.' }))), screenshots: [...VIEWPORTS.map(width => ({ width, height: 900, path: `proof/${width}.png` })), { width: 844, height: 390, path: 'proof/short.png' }], checks: CHECKS.map(id => ({ id, status: 'pass', evidence: 'proof/test-report.txt', notes: 'Fixture only.' })), reviews: REVIEWS.map(id => ({ id, status: 'pass', evidence: 'proof/test-report.txt', notes: 'Fixture only.' })), independentReview: { status: 'not-tested', notes: '' } };
   return data;
 }
 test('blank and malformed records never pass or throw', () => {
@@ -50,6 +52,48 @@ test('matching a prior project produces a review warning, not an originality ver
 test('duplicate IDs and nonexistent selections are blocked', () => {
   const data = exampleContract(); data.facts.push({ ...data.facts[0] }); data.selection.conceptId = 'Z';
   assert.ok(codes(blocks(data)).includes('duplicate-id')); assert.ok(codes(blocks(data)).includes('selection'));
+});
+test('new contracts include traceable voice and mobile plan without inventing a universal style', () => {
+  const data = createContract();
+  assert.equal(data.voice.approval, 'editorial-draft');
+  assert.deepEqual(data.mobile.sections, []);
+  assert.ok(VOICE_TONES.includes('professional-conversational'));
+  assert.deepEqual(MOBILE_REVIEW_WIDTHS, [320, 390]);
+  assert.ok(codes(blocks(data)).includes('voice-evidence'));
+  assert.ok(codes(blocks(data)).includes('mobile-sections'));
+});
+test('older contracts get actionable missing-system blockers, not runtime exceptions', () => {
+  const data = exampleContract();
+  delete data.voice;
+  delete data.mobile;
+  assert.deepEqual(codes(blocks(data)).filter(c => c.endsWith('-missing')), ['voice-missing', 'mobile-missing']);
+  assert.ok(blocks(data, 'design').length);
+});
+test('voice decisions must be grounded and explicit; draft approval stays a warning', () => {
+  const data = design();
+  assert.equal(blocks(data, 'design').length, 0);
+  data.voice.tone = 'loud-corporate';
+  data.voice.evidenceIds = ['unknown'];
+  data.voice.samples = data.voice.samples.filter(s => s.id !== 'action');
+  for (const code of ['voice-tone', 'evidence', 'voice-sample']) assert.ok(codes(blocks(data, 'design')).includes(code));
+  const releaseData = release();
+  assert.ok(validateContract(releaseData, { stage: 'release' }).some(i => i.code === 'voice-not-approved' && i.level === 'review'));
+});
+test('mobile release requires section-by-section screenshot inspections at 320 and 390, not a single hero shot', () => {
+  const data = release();
+  assert.equal(blocks(data, 'release').length, 0);
+  data.qa.mobileInspections = data.qa.mobileInspections.filter(r => !(r.section === 'export' && r.width === 390));
+  assert.ok(codes(blocks(data, 'release')).includes('mobile-unchecked'));
+  data.qa.mobileInspections[0].status = 'fail';
+  assert.ok(codes(blocks(data, 'release')).includes('mobile-fail'));
+  data.qa.mobileInspections.push({ ...data.qa.mobileInspections[1] });
+  assert.ok(codes(blocks(data, 'release')).includes('mobile-duplicate'));
+});
+test('mobile inspection evidence is included in artifact validation', () => {
+  const data = release();
+  assert.ok(data.qa.mobileInspections.every(r => r.path.startsWith('proof/')));
+  assert.ok(data.qa.mobileInspections.every(r => r.status === 'pass'));
+  assert.ok(data.qa.mobileInspections.length === data.mobile.sections.length * MOBILE_REVIEW_WIDTHS.length);
 });
 test('type gate requires equal copy and a real chosen specimen', () => {
   const data = design(); assert.equal(blocks(data, 'design').length, 0);
@@ -94,7 +138,7 @@ test('CLI protects existing work, rejects missing artifacts and symlinks, valida
     const missing = run('check', file, '--stage', 'design', '--json');
     assert.equal(missing.status, 1); assert.ok(JSON.parse(missing.stdout).issues.some(i => i.code === 'artifact'));
     fs.mkdirSync(path.join(root, 'proof'));
-    for (const filename of ['type.md', 'A.html', 'B.html', 'C.html']) fs.writeFileSync(path.join(root, 'proof', filename), 'Temporary test artifact');
+    for (const filename of ['type.md', 'A.html', 'B.html', 'C.html', 'voice.md', 'mobile.md']) fs.writeFileSync(path.join(root, 'proof', filename), 'Temporary test artifact');
     assert.equal(run('check', file, '--stage', 'design').status, 0);
     fs.unlinkSync(path.join(root, 'proof/A.html')); fs.symlinkSync(cli, path.join(root, 'proof/A.html'));
     assert.equal(run('check', file, '--stage', 'design').status, 1);
@@ -113,7 +157,7 @@ test('release CLI handles nested records and rejects source disguised as evidenc
     for (const specimen of data.typography.specimens) fs.writeFileSync(path.join(records, specimen.path), 'Fixture only');
     git('add', 'index.html', 'design/proof'); git('commit', '-m', 'Test source and type specimens');
     data.qa.commit = git('rev-parse', 'HEAD');
-    const paths = [data.typography.spec, ...data.typography.specimens.map(s => s.path), ...data.qa.screenshots.map(s => s.path), 'proof/test-report.txt'];
+    const paths = [data.typography.spec, ...data.typography.specimens.map(s => s.path), data.voice.spec, data.mobile.spec, ...data.qa.mobileInspections.map(s => s.path), ...data.qa.screenshots.map(s => s.path), 'proof/test-report.txt'];
     paths.forEach(p => fs.writeFileSync(path.join(records, p), 'Fixture only'));
     const file = path.join(records, 'design-contract.json'); fs.writeFileSync(file, JSON.stringify(data));
     const run = () => spawnSync(process.execPath, [cli, 'check', file, '--stage', 'release'], { encoding: 'utf8' });

@@ -40,6 +40,25 @@ Long real names and headlines at 320px:
 Screenshot-to-source commit SHA match:
 Typography QA blockers and exact affected text:
 
+## Tone of Voice review
+Voice spec and actual language/pronouns:
+Client source vs creative-director editorial proposal:
+Opening / evidence / action samples:
+Word choices, biography, nav, CTA and error-state consistency:
+Unsupported quotations or implied professional claims:
+Client-confirmed or editorial-draft status:
+
+## Mobile Visual Integrity review
+Mobile plan and full list of actual sections:
+320px screenshot and observation per section:
+390px screenshot and observation per section:
+Short-height and landscape screenshots:
+Illustration / focal crop and critical-text intersections:
+Fixed/sticky navigation with open/closed state:
+Mid-animation and reduced-motion behavior:
+Unresolved visual overlap, clipping and horizontal scroll:
+Optional geometry probe findings and manually adjudicated false positives:
+
 ## Anti-generic critique
 Identity swap:
 Structural skeleton:

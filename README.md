@@ -14,14 +14,20 @@ Most AI-generated websites fail through **structural sameness** as well as visua
 4. [Apple craft standard](docs/APPLE_CRAFT_STANDARD.md) — adopt purpose, feedback, typography and care; **do not copy Apple's look**.
 5. **[Typography Direction System](docs/TYPOGRAPHY_SYSTEM.md)** — content-first type hierarchy, optical craft, client-specific typography, font rights and three same-copy design specimens.
 6. **[Typography QA](docs/TYPOGRAPHY_QA.md)** — test real words, responsiveness, resize/reflow, user spacing override, fallback and contrast.
-7. [Seven-study Reference Atlas](docs/REFERENCE_ATLAS.md) — *mechanisms*, selection criteria and source analyses.
-8. [Anti-generic audit](docs/ANTI_GENERIC_AUDIT.md) — structured review of the actual rendered website.
-9. [Skill registry](docs/SKILL_REGISTRY.md) — external skill links plus original internal skills.
-10. [Project brief](templates/PROJECT_BRIEF.md) → [type spec](templates/TYPE_SPEC.md) → [decisions record](templates/DESIGN_DECISIONS.md).
-11. [Panduan penggunaan Bahasa Indonesia](docs/GETTING_STARTED_ID.md) — cara menerapkan sistem ke proyek klien.
+7. **[Tone of Voice System](docs/TONE_OF_VOICE_SYSTEM.md)** — human, client-specific language, pronouns, vocabulary, approval and copy QA.
+8. **[Mobile Visual Integrity System](docs/MOBILE_VISUAL_INTEGRITY.md)** — mobile-specific composition, art/text overlap, section-level QA and screenshot inspection.
+9. [Seven-study Reference Atlas](docs/REFERENCE_ATLAS.md) — *mechanisms*, selection criteria and source analyses.
+10. [Anti-generic audit](docs/ANTI_GENERIC_AUDIT.md) — structured review of the actual rendered website.
+11. [Skill registry](docs/SKILL_REGISTRY.md) — external skill links plus original internal skills.
+12. [Project brief](templates/PROJECT_BRIEF.md) → [type spec](templates/TYPE_SPEC.md) → [decisions record](templates/DESIGN_DECISIONS.md).
+13. [Panduan penggunaan Bahasa Indonesia](docs/GETTING_STARTED_ID.md) — cara menerapkan sistem ke proyek klien.
 
 ## New mandatory typography workflow
 **Real client reading tasks → seven distinct typographic grammars → select a concept → three monochrome same-copy type specimens → [TYPE_SPEC](templates/TYPE_SPEC.md) → code → [Typography QA](docs/TYPOGRAPHY_QA.md) + visual audit.** Apple typography is a craft model, **not** a San Francisco font or Apple.com layout preset. No release claim without tested screenshots and font rights.
+
+## New mandatory copy and mobile gates
+**Verified CV + client reading context → voice profile with actual copy → mobile composition plan with all sections and overlap risks → implement → section-by-section 320/390 visual review + six-width/short-height QA → delivery.**
+See [TONE_OF_VOICE](templates/TONE_OF_VOICE.md) and [MOBILE_VISUAL_QA](templates/MOBILE_VISUAL_QA.md). `scripts/design-gate.mjs` now blocks missing plans, voice samples and mobile inspection evidence. The optional [Playwright geometry probe](scripts/mobile-visual-audit.mjs) captures screenshots and flags marked critical/decorative intersections; a clean report does **not** replace human review.
 
 ## Try the Typography Proofing Lab
 **[Open the interactive Type Lab](type-lab/)** — paste verified client headlines, paragraphs and context; compare **the same words** across dossier, reading and index grammars, then check mobile-sized preview columns and reading measure. It uses no external font downloads and stores no typed content. This is a concept-proofing instrument, **not a browser accessibility certification or a house style**. See [Type Lab README](type-lab/README.md).
@@ -50,6 +56,8 @@ Make this repository readable to the agent (a link without access is not enough)
 Original, project-local skills live in [`.github/skills/`](.github/skills/):
 - [`lazarus-anti-generic`](.github/skills/lazarus-anti-generic/SKILL.md) — evidence-led structural divergence and critique.
 - **[`lazarus-type-director`](.github/skills/lazarus-type-director/SKILL.md)** — primary typography art direction, apples-to-web craft adaptation, same-copy specimens and QA gates.
+- **[`lazarus-voice-director`](.github/skills/lazarus-voice-director/SKILL.md)** — grounded tone, pronouns and natural copy.
+- **[`lazarus-mobile-integrity`](.github/skills/lazarus-mobile-integrity/SKILL.md)** — deliberate mobile composition and visual collision prevention.
 - [`lazarus-apple-craft`](.github/skills/lazarus-apple-craft/SKILL.md) — Apple-level interaction, hierarchy and quality without visual imitation.
 - [`lazarus-reference-atlas`](.github/skills/lazarus-reference-atlas/SKILL.md) — choose implementation techniques by use case and limitations.
 
@@ -59,6 +67,7 @@ These project skills follow [GitHub Copilot's documented `.github/skills/<skill>
 ```sh
 node scripts/check-atlas.mjs
 node --test tests/design-contract.test.mjs
+node --check scripts/mobile-visual-audit.mjs
 node scripts/design-gate.mjs init /path/to/client/design-contract.json
 node scripts/design-gate.mjs check /path/to/client/design-contract.json --stage brief
 ```

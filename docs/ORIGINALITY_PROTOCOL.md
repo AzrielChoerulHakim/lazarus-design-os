@@ -12,6 +12,11 @@ Lazarus's signature is a standard of authorship. It is not a house palette, a se
 
 Record these decisions in [design-contract.json](../templates/design-contract.json). [Direction Room](../direction-room/) helps edit the brief, compare the seven structures and export the record; it does not generate the concepts for you.
 
+## Voice and mobile identity gates
+Alongside the typographic reading grammar, establish **client tone of voice** from actual wording, profession and audience, with explicit pronouns and approval status ([voice protocol](TONE_OF_VOICE_SYSTEM.md)). Formality is not inferred from the visual concept. At the first desktop and mobile render, inspect actual copy for tone consistency and ungrounded first-person claims.
+
+Identify the entire mobile reading sequence and visual-collision risks before building. Prefer deliberate recomposition of artwork, overlays and text on narrow screens rather than only scaling desktop ([mobile protocol](MOBILE_VISUAL_INTEGRITY.md)). The release record must include observed 320/390 screenshots for every section.
+
 ## Make the content unmistakably theirs
 
 | Surface | Author a decision | Reject when |

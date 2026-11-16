@@ -18,5 +18,26 @@ export function exampleContract() {
   data.decisions = [{ choice: 'Satu model data untuk editor, perbandingan dan ekspor.', evidenceIds: ['F1', 'F2'], benefit: 'Keputusan yang dibandingkan sama dengan yang dibawa ke implementasi.', tradeoff: 'Isi perlu mengikuti struktur catatan agar dapat diperiksa.' }];
   data.avoid = [{ pattern: 'Persentase orisinalitas', reason: 'Jumlah bidang terisi tidak mengukur kualitas atau orisinalitas hasil.' }];
   data.comparison.note = 'Contoh ini membandingkan struktur alat di dalam repo, bukan portofolio klien. Perbandingan lintas klien belum dilakukan.';
+  data.voice = {
+    spec: '', language: 'id-ID', tone: 'professional-conversational',
+    audience: 'Desainer dan programmer yang memeriksa brief klien.',
+    pronouns: 'Kami sebagai penjelas alat; tidak mengatasnamakan klien.',
+    rationale: 'Instruksi lugas dan natural memudahkan membaca keputusan, bukan bahasa pemasaran generik.',
+    source: 'Konteks proyek pada docs/WORKFLOW.md dan docs/ORIGINALITY_PROTOCOL.md',
+    evidenceIds: ['F1', 'F2'], preferred: ['bukti', 'pilihan', 'alasan'],
+    avoid: ['solusi revolusioner', 'klaim orisinalitas mutlak'],
+    samples: [
+      { id: 'opening', copy: 'Mulai dari bukti yang bisa diperiksa.' },
+      { id: 'evidence', copy: 'Bandingkan tujuh struktur dan alasan di baliknya.' },
+      { id: 'action', copy: 'Ekspor keputusan desain.' }
+    ], approval: 'editorial-draft'
+  };
+  data.mobile = {
+    spec: '', readingOrder: 'Brief, bukti, tujuh alternatif, pilihan, ekspor; tetap bisa diakses tanpa horizontal scroll.',
+    illustrationPolicy: 'Tidak ada ilustrasi dekoratif yang boleh menutupi bidang isian atau bantuan.',
+    motionFallback: 'Bidang isian dan tombol langsung tersedia saat prefers-reduced-motion aktif.',
+    riskAreas: ['Kolom perbandingan terlalu lebar pada 320px', 'Tombol ekspor terpotong di layar pendek'],
+    sections: ['brief', 'concepts', 'export']
+  };
   return data;
 }

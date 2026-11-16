@@ -120,6 +120,29 @@
     "independentReview": {
       "status": "not-tested",
       "notes": ""
-    }
+    },
+    "mobileInspections": []
+  },
+  "voice": {
+    "spec": "",
+    "language": "",
+    "tone": "",
+    "audience": "",
+    "pronouns": "",
+    "rationale": "",
+    "source": "",
+    "evidenceIds": [],
+    "preferred": [],
+    "avoid": [],
+    "samples": [],
+    "approval": "editorial-draft"
+  },
+  "mobile": {
+    "spec": "",
+    "readingOrder": "",
+    "illustrationPolicy": "",
+    "motionFallback": "",
+    "riskAreas": [],
+    "sections": []
   }
 }

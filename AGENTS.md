@@ -8,8 +8,9 @@ This repository is a **decision system** for creating client-specific websites, 
 2. [DESIGN.md](DESIGN.md) and [docs/WORKFLOW.md](docs/WORKFLOW.md).
 3. [docs/RESEARCH_EVIDENCE.md](docs/RESEARCH_EVIDENCE.md) to understand what is evidence versus our hypothesis.
 4. [docs/APPLE_CRAFT_STANDARD.md](docs/APPLE_CRAFT_STANDARD.md) and **[docs/TYPOGRAPHY_SYSTEM.md](docs/TYPOGRAPHY_SYSTEM.md)**. Adopt Apple's discipline of text hierarchy, **not** Apple's fonts or visual skin.
-5. [docs/REFERENCE_ATLAS.md](docs/REFERENCE_ATLAS.md) and only relevant study notes under `docs/studies/`.
-6. [docs/ANTI_GENERIC_AUDIT.md](docs/ANTI_GENERIC_AUDIT.md) and **[docs/TYPOGRAPHY_QA.md](docs/TYPOGRAPHY_QA.md)** before delivery.
+5. **[docs/TONE_OF_VOICE_SYSTEM.md](docs/TONE_OF_VOICE_SYSTEM.md)** and **[docs/MOBILE_VISUAL_INTEGRITY.md](docs/MOBILE_VISUAL_INTEGRITY.md)** — language identity, mobile composition and overlapping-art safeguards.
+6. [docs/REFERENCE_ATLAS.md](docs/REFERENCE_ATLAS.md) and only relevant study notes under `docs/studies/`.
+7. [docs/ANTI_GENERIC_AUDIT.md](docs/ANTI_GENERIC_AUDIT.md) and **[docs/TYPOGRAPHY_QA.md](docs/TYPOGRAPHY_QA.md)** before delivery.
 If a source or project asset is inaccessible, say so. **Never claim to have examined an inaccessible source.**
 
 ## Decision hierarchy
@@ -27,8 +28,13 @@ Trace dominant decisions to verified fact IDs. Define one client-specific signat
 - Choose one with evidence. Record the discarded alternatives and why in `DESIGN_DECISIONS.md`.
 - Study 1–2 relevant reference **mechanisms**. If original code is not available, use the technical notes as conceptual pointers only; don't pretend to have studied the code.
 - **Typography gate before UI code:** run `lazarus-type-director` (or manually read its skill and follow the same procedure). Each of the seven directions must propose a distinct typographic/reading grammar; for the chosen direction prepare **three monochrome type specimens with the same verified client text**. Complete `TYPE_SPEC.md` from the template: actual font licensing, roles, leading/measure/tracking, number styles, fallback, responsive reflow and language coverage. Do not choose a universal sans+serif pair by habit. Never redistribute Apple font files without authorization.
+- **Tone-of-voice gate before implementation:** derive language, formality, pronouns and vocabulary from the client's verified identity and audience, not from the visual template. Fill `voice` in the contract, create the client `TONE_OF_VOICE.md`, draft opening/evidence/action copy, and flag unapproved first-person wording as an editorial proposal. Use `lazarus-voice-director` when available.
+- **Mobile visual integrity before implementation:** specify real section IDs, reading order, illustrated-object/focal crop policy, risk areas and reduced-motion fallback in `mobile`. Recompose rather than merely shrink desktop. Use `lazarus-mobile-integrity` when available.
 - Give each high-salience animation a job: feedback, spatial continuity, demonstration, or narrative comprehension. User input must not be blocked by nonessential motion.
 - Implement and inspect. Screenshots at 320, 390, **640**, 768, 1024 and 1440 CSS px; include short-height, keyboard, touch, reduced-motion, **200% text resize, 320px-equivalent reflow, text-spacing override, contrast and missing-font fallback**. Treat computed CSS font values and screenshots as evidence, not proof of subjective legibility or originality.
+
+## Tone of voice and mobile release blockers
+No invented personal speech, ungrounded credentials, tone switches, or unapproved attribution stated as fact. No essential reading content colliding with illustration, sticky/fixed UI or animation. Inspect **every** section at both 320 and 390 CSS px with screenshots and notes; verify the larger widths and short landscape too. The optional `scripts/mobile-visual-audit.mjs` is a heuristic, never a substitute for human screenshot review. Release must include `voice-claims`, `voice-consistency`, `mobile-visual-overlap`, `mobile-navigation-fit`, `mobile-motion-stability` and `mobile-art-direction` reviews.
 
 ## Typography-specific release blockers
 Essential words clipped or illegible; 200% enlargement loses information; reflow requires horizontal reading of ordinary prose; WCAG AA text contrast fails; license or fallback is unknown; artificially tiny captions conceal genuine evidence. Follow [Typography QA](docs/TYPOGRAPHY_QA.md). Apple-native 11pt/44pt tips are not CSS pixel mandates.
@@ -42,4 +48,4 @@ These are **diagnostics, not hard aesthetic bans**. A component may be correct i
 Use [docs/SKILL_REGISTRY.md](docs/SKILL_REGISTRY.md) as a map, not as automatic authority. Apple HIG is primarily platform guidance. GitHub community skills are not official Apple publications. Do not paste their unverified claims, tokens, or code into client projects blindly.
 
 ## Delivery contract
-Provide working implementation; clear links to actual code; `DESIGN_DECISIONS.md`, a completed `TYPE_SPEC.md`; a candid visual + typography QA report tied to a tested commit SHA, remaining limitations, and steps to reproduce. No dead CTA, lorem ipsum, fake projects, unlicensed assets, or untested claims about accessibility/performance.
+Keep decisions, voice, mobile inspection and type QA as internal source-bound evidence; for the Lazarus client handoff, return only the requested live GitHub Lab preview and deployable ZIP unless asked for other reports. Provide working implementation; clear links to actual code; `DESIGN_DECISIONS.md`, a completed `TYPE_SPEC.md`; a candid visual + typography QA report tied to a tested commit SHA, remaining limitations, and steps to reproduce. No dead CTA, lorem ipsum, fake projects, unlicensed assets, or untested claims about accessibility/performance.
