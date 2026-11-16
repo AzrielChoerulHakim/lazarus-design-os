@@ -21,7 +21,7 @@
 
 ## 2. What changed in the repository
 
-All new work is isolated under visual-lab/surrealist plus a new automated test and browser audit script. Existing Design OS contract, tone families, typographic standards, Reference Atlas and Direction Room remain authoritative.
+The prototype implementation is isolated under visual-lab/surrealist, with dedicated tests. Two existing agent/workflow documents gain optional pointers to the lab. The Design OS contract, tone families, typographic standards, Reference Atlas and Direction Room remain authoritative.
 
 | File | Purpose |
 | --- | --- |
@@ -32,7 +32,8 @@ All new work is isolated under visual-lab/surrealist plus a new automated test a
 | tests/surrealist-lab.test.mjs | Static structure, syntax, reference-integrity and accessibility-intent guards |
 | scripts/check-surrealist-lab-browser.mjs | Playwright seven-viewport checks and screenshots (requires execution) |
 | .github/workflows/surrealist-lab.yml | Dedicated branch CI for static/browser checks and screenshot upload |
-| README.md | Adds an entry point from the Design OS field manual **on this branch only** |
+| README.md and index.html | Add entry points from the Design OS field manual **on this branch only** |
+| AGENTS.md and docs/WORKFLOW.md | Add optional Surrealist Lab references without changing evidence, tone, typography or release gates |
 
 ## 3. Three concepts and the constraints they test
 
