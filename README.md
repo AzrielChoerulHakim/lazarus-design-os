@@ -36,7 +36,7 @@ See [TONE_OF_VOICE](templates/TONE_OF_VOICE.md) and [MOBILE_VISUAL_QA](templates
 **[View the interactive seven-concept prototype](concepts/)** — seven distinct page anatomies, typography systems, media treatments and navigational ideas for the SAME fictional architecture client (ATELIER SERA). Use [the concept rationale](concepts/README.md) to understand the decisions. This is a speculative study, **not seven client websites**. For GitHub Pages, enable root/branch publishing first; expected URL: https://azrielchoerulhakim.github.io/lazarus-design-os/concepts/ .
 
 ## Visual Field Lab / Surrealist Digital Editorial (experimental)
-**[Explore three structural studies](visual-lab/surrealist/)** — The Threshold, Impossible Atlas and Unfolding Monograph. These are original, illustrated prototype artboards with accessible controls and separate mobile compositions. The [experiment report](visual-lab/surrealist/EXPERIMENT_REPORT.md) documents source fidelity, risks, verification and untested items. This additive experiment is not a client template or a replacement for the existing five-family Tone of Voice System.
+**[Explore two curated structural studies](visual-lab/surrealist/)** — The Threshold and Unfolding Monograph; the rejected Impossible Atlas is documented in the experiment report. These are original, illustrated prototype artboards with accessible controls and separate mobile compositions. The [experiment report](visual-lab/surrealist/EXPERIMENT_REPORT.md) documents source fidelity, risks, verification and untested items. This additive experiment is not a client template or a replacement for the existing five-family Tone of Voice System.
 
 ## Website catalogue
 Open [index.html](index.html), or serve locally:
