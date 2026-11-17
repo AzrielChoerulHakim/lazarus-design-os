@@ -1,0 +1,68 @@
+name: Sculptural Impasto Mapping — Isolated QA
+
+on:
+  push:
+    branches:
+      - experiment/sculptural-impasto-visual-mapping-v1
+    paths:
+      - 'visual-directions/**'
+      - 'visual-lab/sculptural-impasto/**'
+      - 'tests/sculptural-impasto-mapping.test.mjs'
+      - 'scripts/check-sculptural-impasto-browser.mjs'
+      - '.github/workflows/sculptural-impasto-mapping.yml'
+      - 'README.md'
+  pull_request:
+    paths:
+      - 'visual-directions/**'
+      - 'visual-lab/sculptural-impasto/**'
+      - 'tests/sculptural-impasto-mapping.test.mjs'
+      - 'scripts/check-sculptural-impasto-browser.mjs'
+      - '.github/workflows/sculptural-impasto-mapping.yml'
+      - 'README.md'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Checkout full history for core-flow protection
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Ensure existing Design OS authority files are untouched
+        run: |
+          set -eu
+          git fetch origin main:refs/remotes/origin/main
+          changed="$(git diff --name-only origin/main...HEAD)"
+          echo "$changed"
+          if printf '%s\n' "$changed" | grep -E '^(AGENTS\.md|DESIGN\.md|docs/(WORKFLOW|TONE_OF_VOICE_SYSTEM|TYPOGRAPHY_SYSTEM|MOBILE_VISUAL_INTEGRITY|ORIGINALITY_PROTOCOL)\.md|lib/design-contract\.mjs|scripts/design-gate\.mjs)$'; then
+            echo 'ERROR: a core authority file was modified'; exit 1
+          fi
+      - name: Existing Design OS regression tests
+        run: |
+          node scripts/check-atlas.mjs
+          node --test tests/design-contract.test.mjs
+          node --check scripts/mobile-visual-audit.mjs
+      - name: Sculptural Impasto mapping static tests
+        run: node --test tests/sculptural-impasto-mapping.test.mjs
+      - name: Browser dependencies
+        run: |
+          npm install --no-save --no-audit --no-fund playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Seven-viewport mapping browser audit
+        run: node scripts/check-sculptural-impasto-browser.mjs
+      - name: Upload screenshot proof for human art-direction critique
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sculptural-impasto-layout-proof
+          path: screenshots/sculptural-impasto/
+          if-no-files-found: warn
