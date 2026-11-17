@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#151922">
-  <meta name="description" content="Three structural explorations of Surrealist Digital Editorial for Lazarus Design OS. Fictional demonstration, not client evidence.">
+  <meta name="description" content="Two curated structural explorations of Surrealist Digital Editorial for Lazarus Design OS. Fictional demonstration, not client evidence.">
   <title>Surrealist Field Lab 01 — Lazarus Design OS</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,29 +25,30 @@
     <div class="introduction__grid">
       <div>
         <p class="introduction__kicker"><span aria-hidden="true">✳</span> A study in impossible architecture</p>
-        <h1 id="page-title">Three ways<br>into <em>elsewhere.</em></h1>
+        <h1 id="page-title">Two ways<br>into <em>elsewhere.</em></h1>
       </div>
       <div class="introduction__aside">
-        <p>Satu keluarga visual. Tiga cara menyusun pengalaman. Yang dieksplorasi bukan tiga warna untuk satu layout, melainkan tiga arsitektur informasi yang berbeda.</p>
-        <div class="intro-legend"><span>01 / THE THRESHOLD</span><span>02 / IMPOSSIBLE ATLAS</span><span>03 / UNFOLDING MONOGRAPH</span></div>
+        <p>Satu keluarga visual. Dua arah yang lolos kurasi visual. Yang dieksplorasi bukan tiga warna untuk satu layout, melainkan dua arsitektur informasi yang berbeda.</p>
+        <div class="intro-legend"><span>01 / THE THRESHOLD</span><span>02 / UNFOLDING MONOGRAPH</span></div>
       </div>
     </div>
     <p class="fiction-note"><strong>FIKSI / STUDI KONSEP</strong> — SERA adalah praktik arsitektur spekulatif fiktif. Nama, judul karya, dan narasi hanya konten demonstrasi. Tidak ada pengalaman atau karya klien asli yang diklaim.</p>
   </section>
 
-  <section class="exploration" id="exploration" aria-label="Tiga eksplorasi Surrealist Digital Editorial">
+  <section class="exploration" id="exploration" aria-label="Dua eksplorasi terkurasi Surrealist Digital Editorial">
     <div class="exploration__bar">
       <div class="exploration__title"><span>SELECT AN EXPERIENCE</span><strong id="active-name">THE THRESHOLD</strong></div>
       <div class="exploration__tabs" role="tablist" aria-label="Pilih arah komposisi">
         <button class="exploration__tab" id="tab-threshold" type="button" role="tab" aria-selected="true" tabindex="0" aria-controls="panel-threshold" data-concept="threshold"><span>01</span> THRESHOLD</button>
-        <button class="exploration__tab" id="tab-atlas" type="button" role="tab" aria-selected="false" tabindex="-1" aria-controls="panel-atlas" data-concept="atlas"><span>02</span> ATLAS</button>
-        <button class="exploration__tab" id="tab-monograph" type="button" role="tab" aria-selected="false" tabindex="-1" aria-controls="panel-monograph" data-concept="monograph"><span>03</span> MONOGRAPH</button>
+        <button class="exploration__tab" id="tab-monograph" type="button" role="tab" aria-selected="false" tabindex="-1" aria-controls="panel-monograph" data-concept="monograph"><span>02</span> MONOGRAPH</button>
       </div>
     </div>
 
     <!-- A. Spatial passage: the architecture is the index. Content remains in the DOM. -->
     <section class="artboard threshold" id="panel-threshold" role="tabpanel" tabindex="0" aria-labelledby="tab-threshold" data-lazarus-section="threshold">
       <div class="threshold__art" data-lazarus-decoration="illustrated portal and sky" aria-hidden="true">
+        <div class="threshold__celestial-light"></div>
+        <div class="threshold__drifting-veil"></div>
         <svg class="threshold__scene" viewBox="0 0 1100 790" preserveAspectRatio="xMidYMid slice">
           <defs>
             <radialGradient id="t-sky"><stop stop-color="#506273"/><stop offset=".52" stop-color="#263b4c"/><stop offset="1" stop-color="#0e1d2b"/></radialGradient>
@@ -81,7 +82,11 @@
           <path d="M0 731Q261 687 433 734T1100 707V790H0Z" fill="#151f2b"/>
           <path d="M70 685Q218 649 326 689T540 690" fill="none" stroke="#ddac81" stroke-width="2" opacity=".22"/>
           <rect width="1100" height="790" filter="url(#t-noise)" opacity=".68"/>
+          <g fill="none" stroke="#e5d4b9" stroke-width="3" opacity=".48"><path d="M462 317 470 339 456 365 473 391 465 428"/><path d="M774 365 767 382 781 403 769 435 788 469"/><path d="M490 496 507 510 493 525"/><path d="M719 561 734 578 720 604"/></g>
+          <g stroke="#f9e9cd" fill="none" opacity=".23"><path d="M451 703 553 699 704 699 804 703" stroke-width="3"/><path d="M482 741H812M411 769H872" stroke-width="2"/></g>
         </svg>
+        <div class="threshold__floating-fragment"><i></i><b></b><em></em></div>
+        <div class="threshold__stone-grain"></div>
         <span class="threshold__orbital threshold__orbital--one"></span>
         <span class="threshold__orbital threshold__orbital--two"></span>
       </div>
@@ -102,56 +107,6 @@
       </aside>
     </section>
 
-    <!-- B. Archival atlas: list selection, comparisons and annotated graphic. -->
-    <section class="artboard atlas" id="panel-atlas" role="tabpanel" tabindex="0" aria-labelledby="tab-atlas" data-room="01" data-lazarus-section="atlas" hidden>
-      <header class="atlas__header"><span class="atlas__brand">SERA<span> / THE IMPOSSIBLE ATLAS</span></span><span>INDEX OF SPECULATIVE SPACES</span><span>VOL. 001 — MMXXVI</span></header>
-      <div class="atlas__body">
-        <div class="atlas__index">
-          <p class="atlas__index-name">A register of spaces that do not yet exist.</p>
-          <h2 data-lazarus-critical="atlas title">The anatomy<br>of an <em>elsewhere.</em></h2>
-          <p class="atlas__lead" data-lazarus-critical="atlas description">Three fictional studies; one way of seeing architecture as a collection of questions.</p>
-          <div class="atlas__list" role="group" aria-label="Select an atlas entry">
-            <button class="atlas__item is-active" type="button" data-room-choice="01" aria-pressed="true"><span>01</span><strong>Threshold studies</strong><span aria-hidden="true">↗</span></button>
-            <button class="atlas__item" type="button" data-room-choice="02" aria-pressed="false"><span>02</span><strong>Objects and memory</strong><span aria-hidden="true">↗</span></button>
-            <button class="atlas__item" type="button" data-room-choice="03" aria-pressed="false"><span>03</span><strong>Afterlight</strong><span aria-hidden="true">↗</span></button>
-          </div>
-        </div>
-        <div class="atlas__plate">
-          <div class="atlas__plate-top"><span>PLATE NO. <b id="atlas-plate-number">01</b></span><span>FIG / 01—03</span></div>
-          <svg class="atlas__diagram" viewBox="0 0 660 590" role="img" aria-label="Original illustrative architectural cross-section, concentric moon and arc diagrams">
-            <defs>
-              <linearGradient id="a-stone" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#dacfb5"/><stop offset=".52" stop-color="#897f6b"/><stop offset="1" stop-color="#5a5d55"/></linearGradient>
-              <pattern id="a-hatch" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(40)"><path d="M0 0V10" stroke="#5b574e" stroke-width="1" opacity=".2"/></pattern>
-            </defs>
-            <g fill="none" stroke="#6b736b" stroke-width="1" opacity=".42">
-              <circle cx="340" cy="284" r="238"/><circle cx="340" cy="284" r="184"/><circle cx="340" cy="284" r="129"/>
-              <path d="M20 284H643M340 20V555M78 78L602 506M78 508L602 70"/>
-              <path d="M62 130H142M534 130H613M62 436H142M534 436H613"/>
-            </g>
-            <circle cx="340" cy="284" r="102" fill="#9a725d" opacity=".27"/>
-            <circle cx="340" cy="284" r="80" fill="#aeb0a3" opacity=".8"/>
-            <circle cx="360" cy="260" r="76" fill="#efe6d4"/>
-            <path d="M223 467V267A117 117 0 0 1 457 267V467H402V271A63 63 0 0 0 278 271V467Z" fill="url(#a-stone)" fill-rule="evenodd" stroke="#65594a" stroke-width="2"/>
-            <path d="M223 467V267A117 117 0 0 1 457 267V467H402V271A63 63 0 0 0 278 271V467Z" fill="url(#a-hatch)" fill-rule="evenodd"/>
-            <path d="M195 468H486M182 494H499M158 522H520" stroke="#6a6558" stroke-width="4"/>
-            <g fill="#8b5a4b" stroke="#efe6d4" stroke-width="2"><circle cx="457" cy="267" r="8"/><circle cx="278" cy="467" r="7"/><circle cx="340" cy="82" r="7"/></g>
-            <g font-size="11" fill="#5a5b55" font-family="monospace"><text x="472" y="257">A</text><text x="289" y="459">B</text><text x="355" y="77">C</text><text x="38" y="553">1:100 / PROPOSITION</text></g>
-          </svg>
-          <div class="atlas__annotation atlas__annotation--one">STONE / MEMORY</div>
-          <div class="atlas__annotation atlas__annotation--two">GEOMETRY / ABSENCE</div>
-          <div class="atlas__plate-bottom">
-            <div class="atlas__details" id="atlas-details" aria-live="polite">
-              <div class="atlas__detail" data-room-detail="01"><strong>Threshold studies</strong><p>An investigation into how a passage changes our perception of a place.</p></div>
-              <div class="atlas__detail" data-room-detail="02" hidden><strong>Objects and memory</strong><p>An imagined collection of architectural fragments and what they remember.</p></div>
-              <div class="atlas__detail" data-room-detail="03" hidden><strong>Afterlight</strong><p>A fictional study of the last available light inside a room.</p></div>
-            </div>
-            <span class="atlas__proof">DEMO / ARTWORK IS A DIAGRAM, NOT BUILT WORK</span>
-          </div>
-        </div>
-      </div>
-      <footer class="atlas__footer"><span>RESEARCH ARCHIVE / SPATIAL INDEX</span><span>READING PATH: SELECT → INSPECT → COMPARE</span></footer>
-    </section>
-
     <!-- C. Publication: pages and typographic hierarchy instead of destination navigation. -->
     <section class="artboard monograph" id="panel-monograph" role="tabpanel" tabindex="0" aria-labelledby="tab-monograph" data-page="1" data-lazarus-section="monograph" hidden>
       <header class="monograph__header"><span>SERA <i>—</i> A STUDY IN FORM</span><span>THE UNFOLDING MONOGRAPH</span><span>2026 / ISSUE 01</span></header>
@@ -168,6 +123,9 @@
           </div>
         </div>
         <div class="monograph__visual" data-lazarus-decoration="illustrated paper spread" aria-hidden="true">
+          <div class="monograph__sculptural-ground"></div>
+          <img class="monograph__muse" src="assets/fractured-muse.svg" alt="" loading="eager" decoding="async">
+          <div class="monograph__print-grain"></div>
           <svg viewBox="0 0 620 650" preserveAspectRatio="xMidYMid slice">
             <defs>
               <linearGradient id="m-fabric" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#b47b6b"/><stop offset=".42" stop-color="#663f45"/><stop offset="1" stop-color="#bd8a74"/></linearGradient>
@@ -187,7 +145,7 @@
             <path d="M12 590Q151 546 295 590T618 570" fill="none" stroke="#edd1ad" opacity=".15" stroke-width="8"/>
           </svg>
           <div class="monograph__plate-label"><span>PLATE / 001</span><span>THE THRESHOLD OF FORM</span></div>
-          <div class="monograph__page-two"><span>PLATE / 002</span><strong>A room remembers the light.</strong><small>PROCESS / SKETCH / REFLECTION</small></div>
+          <div class="monograph__page-two"><span>PLATE / 002 — A MATERIAL STUDY</span><strong>A room remembers the light.</strong><small>PROCESS / SKETCH / REFLECTION</small></div>
         </div>
         <div class="monograph__side-note">BETWEEN THE OBJECT AND THE IMAGINED</div>
       </div>
@@ -197,10 +155,10 @@
   </section>
   <section class="research-note">
     <span>METHOD / NOT A TEMPLATE</span>
-    <p>Ketiga artboard ini adalah eksplorasi layout dan motion, bukan mockup fotorealistis atau situs klien yang siap dipublikasikan. Aset ilustratif dibuat sebagai SVG asli. Identitas, karya, tone of voice, tipografi final, dan data setiap klien tetap harus diturunkan dari bukti sebenarnya.</p>
+    <p>Kedua artboard ini adalah eksplorasi layout dan motion, bukan mockup fotorealistis atau situs klien yang siap dipublikasikan. Aset ilustratif dibuat sebagai SVG asli. Identitas, karya, tone of voice, tipografi final, dan data setiap klien tetap harus diturunkan dari bukti sebenarnya.</p>
     <a href="./README.md">READ THE EXPERIMENT REPORT <span aria-hidden="true">↗</span></a>
   </section>
 </main>
-<footer class="site-footer"><span>LAZARUS DESIGN OS / SURREALIST FIELD LAB</span><span>ONE ART DIRECTION. THREE STRUCTURES.</span><a href="../../">BACK TO DESIGN OS ↑</a></footer>
+<footer class="site-footer"><span>LAZARUS DESIGN OS / SURREALIST FIELD LAB</span><span>ONE ART DIRECTION. TWO RETAINED STRUCTURES.</span><a href="../../">BACK TO DESIGN OS ↑</a></footer>
 </body>
 </html>
