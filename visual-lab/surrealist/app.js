@@ -1,6 +1,6 @@
 /* Lazarus Surrealist Lab: semantic interactions only.
    Art direction is authored in the two raster assets; no image stacking,
-   no SVG, no parallax, no pseudo-3D or decorative animation. */
+   no vector scenes, no pointer-based depth effects or decorative animation. */
 (() => {
   const concepts = {
     threshold: {
