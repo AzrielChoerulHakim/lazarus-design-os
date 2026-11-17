@@ -2,6 +2,10 @@
 
 **The signature of Lazarus is the quality of the thinking, not a signature palette.** A lawyer, ceramicist and machine-learning researcher must not get the same hero and card grid with different typefaces.
 
+## Global image-led art-direction rule — Lazarus
+
+For portfolio website production, **do not use SVG for artistic website visuals** and **do not assemble scenes from stacked images, foreground cutouts, decorative CSS layers, pseudo-element lighting or fake parallax**. One art-directed composition is one complete raster image with coherent lighting, natural shadows, material and depth already resolved in the source. HTML may lay out text and controls around the image, never as an improvised scene-building collage. This rule overrides past vector/procedural art experiments. Image quality must be reviewed at real desktop and mobile sizes. If raster master assets are only low-quality previews, mark them **not approved for production**, and request/reuse the original-resolution asset rather than reconstruct it using stacked visual tricks.
+
 ## 1. Evidence is the design material
 Rank primary sources: verified portfolio work, CV, photography and context; then audience research; then project constraints; finally reference imagery. If a CV has little evidence, choose a focused information architecture instead of manufacturing a portfolio.
 
