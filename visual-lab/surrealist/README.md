@@ -8,7 +8,7 @@
 
 The visual reference provided by Lazarus has a very specific grammar: nocturnal blue atmosphere, improbable classical architecture, stone/plaster surfaces, a celestial disc, terracotta textile, controlled editorial serif, and tactile depth. The reference uses a left-side typographic opening against a sculptural monument, followed by selected work, an editorial about, and a rust-colored ending.
 
-That is a **visual language**, not a reusable page skeleton. This lab asks: can three substantially different information architectures carry that language without copying the original reference's exact composition? We use one fictional test brief to control for content variation.
+That is a **visual language**, not a reusable page skeleton. This lab asks: can three structural proposals, of which two survived visual critique carry that language without copying the original reference's exact composition? We use one fictional test brief to control for content variation.
 
 **Fictional study client:** SERA, a speculative architecture practice. The headings and three study titles are editorial placeholders, not professional claims, portfolio achievements or quotes from a real person. All depicted artwork is original vector construction in the page source. No assets, fonts or source files from the original reference artwork were copied.
 
@@ -22,31 +22,35 @@ python3 -m http.server 8000
 
 Open http://localhost:8000/visual-lab/surrealist/.
 
-Select the three direction tabs. The three studies respond to actual interaction:
+Select the three direction tabs. The **two retained studies** respond to actual interaction:
 - **01 / The Threshold:** click *Enter the first room* for a substantive dossier. Pointer movement provides optional depth on compatible desktops. Close via the cross or Escape.
-- **02 / Impossible Atlas:** select one of three entries. An active indexed dossier, plate number and diagram treatment update together.
-- **03 / Unfolding Monograph:** move between two publication spreads with previous/next buttons. No forced scrolling.
+- **02 / Unfolding Monograph:** move between two publication spreads with previous/next buttons. No forced scrolling.
 
 Keyboard: Left/Right and Home/End on the concept tabs. The artboards have visible focus states. Reduced-motion preferences disable transitions and parallax.
 
-## Three deliberate departures from one reference
+## Two retained directions after rendered review
 
 | Study | Information architecture | Typography | Visual center | Meaningful interaction | Cost |
 | --- | --- | --- | --- | --- | --- |
 | **A · The Threshold** | Arrival → threshold → dossier → evidence | Expansive poetic serif + deliberately secondary supporting text | A distant, illuminated architectural passage (no portrait bust) | Open a concise project dossier; optional subtle pointer depth | Atmosphere can exceed its informational value unless real project evidence appears immediately |
-| **B · Impossible Atlas** | Question → project index → annotated plate → detail | Tight reference labels + editorial catalogue headings | Constructed section drawing; moon as comparative geometry | Indexed selection changes a truthful, visible record | Needs several comparable projects; diagram is not evidence of a built project |
-| **C · Unfolding Monograph** | Editorial thesis → image plate → spread → deeper work | Overscale publication headline + hand-set page logic | Textile, stone and horizon as a printed plate | Manual page turn expresses chapter changes | Publications need reading/search fallback for large content sets |
+| **B · Unfolding Monograph** | Editorial thesis → image plate → spread → deeper work | Overscale publication headline + hand-set page logic | Textile, stone and horizon as a printed plate | Manual page turn expresses chapter changes | Publications need reading/search fallback for large content sets |
 
 They intentionally **do not** share identical hero blocks, project-card grids, CTA order, or scroll transitions. Shared motifs may be architectural, but the *reader's task* changes.
+
+## Curatorial decision / 17 November 2026
+
+**RETAIN** A — The Threshold, with a denser moonlit scene, suspended stone fragment, authored grain and restrained terracotta veil. **RETAIN** B — Unfolding Monograph, now using an original fractured marble figure, mineral shadows and two materially different editorial spreads. **CUT** Impossible Atlas from the active gallery and JS/CSS: despite useful indexing, the visual plate was an ordinary geometric diagram and failed the intended material, atmosphere and impossible-world language. Its rationale is preserved in EXPERIMENT_REPORT.md, not shipped as a design direction.
+
+This is a subjective creative review based on actual Chromium screenshots, **not** an objective originality score. A successful browser run is still not equivalent to a final art-direction approval.
 
 ## Visual DNA — not a uniform token kit
 
 - **Material:** pale mineral surfaces, imperfect edges, distant terrain, celestial light and textile weight. The aim is spatial tension and an authored texture, not prepackaged gradients or glowing glass.
 - **Color relationship:** deep blue nocturnes against limestone/chalk; warm terracotta/copper as directional material rather than random CTA red. The Atlas and Monograph deliberately invert the balance for evidence-heavy reading.
 - **Typography:** expressive italic display with intentionally measured secondary reading; the monograph favors dramatic asymmetric typesetting, while the atlas favors legibility in a labelled index.
-- **Composition:** A is cinematic depth, B is flat annotated indexing, C is a publication spread. Don't transpose one structure into another by palette swapping.
+- **Composition:** A is cinematic depth; B is a publication spread. The proposed Atlas was rejected after review because it read like conventional architectural information design rather than the surrealist world. Don't transpose one structure into another by palette swapping.
 - **Motion:** A provides spatial continuity, B visualizes selection, C communicates pagination. No autoplay, scroll-jacking or mandatory 3D.
-- **Mobile:** on small screens A becomes text first then illustration; B becomes catalogue then plate; C becomes publication copy then image spread. The illustrations cannot sit on top of legible content.
+- **Mobile:** on small screens A becomes text first then illustration; B becomes publication copy then image spread. The illustrations cannot sit on top of legible content.
 
 ## Relationship to the existing Design OS
 
