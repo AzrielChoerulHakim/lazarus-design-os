@@ -35,6 +35,9 @@ See [TONE_OF_VOICE](templates/TONE_OF_VOICE.md) and [MOBILE_VISUAL_QA](templates
 ## Seven Visual Directions — actual concept explorer
 **[View the interactive seven-concept prototype](concepts/)** — seven distinct page anatomies, typography systems, media treatments and navigational ideas for the SAME fictional architecture client (ATELIER SERA). Use [the concept rationale](concepts/README.md) to understand the decisions. This is a speculative study, **not seven client websites**. For GitHub Pages, enable root/branch publishing first; expected URL: https://azrielchoerulhakim.github.io/lazarus-design-os/concepts/ .
 
+## Optional art-direction mapping: Sculptural Impasto
+**[Explore the three-layout visual mapping lab](visual-lab/sculptural-impasto/)** and [read the Sculptural Impasto mapping system](visual-directions/01-sculptural-impasto/). This is an **additive research module**: one complete oil-impasto raster image per scene, no SVG scene construction or stacked images. It does **not** replace the seven client-specific concepts, five-family voice system, typography gate, anti-generic audit or release flow. GitHub artwork thumbnails are **staging only**, not original-quality painting masters.
+
 ## Website catalogue
 Open [index.html](index.html), or serve locally:
 ```sh
