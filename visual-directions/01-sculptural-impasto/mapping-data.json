@@ -1,0 +1,146 @@
+{
+  "schemaVersion": 1,
+  "directionId": "sculptural-impasto-surrealism",
+  "status": "experimental",
+  "globalInvariant": {
+    "sceneAsset": "one-complete-raster",
+    "artisticSvg": false,
+    "layeredMedia": false,
+    "compositeCssLighting": false,
+    "artificialParallax": false,
+    "textIsRealDOM": true,
+    "toneOfVoiceIndependent": true,
+    "mandatoryCoreWorkflowUnchanged": true
+  },
+  "paletteHypothesis": [
+    {
+      "id": "ultramarine",
+      "hex": "#202F4B",
+      "role": "scene atmosphere"
+    },
+    {
+      "id": "mineral-bone",
+      "hex": "#E9D6B7",
+      "role": "material highlight"
+    },
+    {
+      "id": "sienna",
+      "hex": "#A86745",
+      "role": "transformed mineral mass"
+    },
+    {
+      "id": "umber",
+      "hex": "#43352F",
+      "role": "shadow and earth"
+    },
+    {
+      "id": "ash-blue",
+      "hex": "#728296",
+      "role": "distant horizon"
+    }
+  ],
+  "studies": [
+    {
+      "id": "dissolution",
+      "title": "Monumental Dissolution",
+      "source": "generated research painting",
+      "originalSize": [
+        1536,
+        1024
+      ],
+      "focal": {
+        "x": 0.47,
+        "y": 0.51,
+        "width": 0.49,
+        "height": 0.64
+      },
+      "quietZone": "left upper sky, to be verified in visual inspection",
+      "contradiction": "stone colonnades become thick pigment rivers",
+      "composition": "gallery",
+      "readingOrder": [
+        "verified identity statement",
+        "single complete painting",
+        "evidence-first selected work",
+        "functional contact"
+      ],
+      "mobile": "copy then painting, full image no crop",
+      "limitations": [
+        "study is fictional",
+        "focal bounds hand-estimated"
+      ]
+    },
+    {
+      "id": "procession",
+      "title": "Material Procession",
+      "source": "generated research painting",
+      "originalSize": [
+        1536,
+        1024
+      ],
+      "focal": {
+        "x": 0.6,
+        "y": 0.51,
+        "width": 0.62,
+        "height": 0.78
+      },
+      "quietZone": "left middle sky, conditional on text contrast",
+      "contradiction": "architecture and paint lose separate material identities",
+      "composition": "folio",
+      "readingOrder": [
+        "indexed evidence",
+        "whole plate",
+        "process notes",
+        "clear action"
+      ],
+      "mobile": "index then painting then notes",
+      "limitations": [
+        "study is fictional",
+        "not a verified client case study"
+      ]
+    },
+    {
+      "id": "horizon",
+      "title": "Impossible Horizon",
+      "source": "generated research painting",
+      "originalSize": [
+        1536,
+        1024
+      ],
+      "focal": {
+        "x": 0.62,
+        "y": 0.31,
+        "width": 0.61,
+        "height": 0.51
+      },
+      "quietZone": "none assured; text kept outside image",
+      "contradiction": "a staircase enters an ocean suspended above its own landscape",
+      "composition": "passage",
+      "readingOrder": [
+        "editorial thesis",
+        "whole image",
+        "three reading chapters",
+        "clear contact"
+      ],
+      "mobile": "headline, image, sections; no viewport-locked hero",
+      "limitations": [
+        "study is fictional",
+        "no client work evidence"
+      ]
+    }
+  ],
+  "requiredHumanReview": [
+    "conceptual novelty",
+    "real pigment relief",
+    "two lighting systems",
+    "client evidence suitability",
+    "mobile visual integrity"
+  ],
+  "coreAuthority": [
+    "AGENTS.md",
+    "DESIGN.md",
+    "docs/WORKFLOW.md",
+    "docs/TONE_OF_VOICE_SYSTEM.md",
+    "docs/TYPOGRAPHY_SYSTEM.md",
+    "docs/MOBILE_VISUAL_INTEGRITY.md"
+  ]
+}
