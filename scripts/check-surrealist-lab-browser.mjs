@@ -54,8 +54,7 @@ try {
     await page.locator('#tab-monograph').click();
     await checkVisibility(page,'monograph');
     await noHorizontalOverflow(page,width + ' monograph');
-    const museLoaded = await page.locator('.monograph__muse').evaluate(image => image.complete && image.naturalWidth > 0);
-    assert.equal(museLoaded,true,'sculptural illustration did not load');
+    assert.equal(await page.locator('#panel-monograph .monograph__visual svg').isVisible(),true,'architectural plate not visible');
     await page.locator('#panel-monograph').screenshot({ path:path.join(shots,'monograph-cover-' + width + 'x' + height + '.png') });
     await page.locator('#monograph-next').click();
     assert.equal(await page.locator('#panel-monograph').getAttribute('data-page'),'2');
