@@ -1,0 +1,24 @@
+name: Transfer URL probe
+on:
+  push:
+    paths:
+      - '.github/workflows/asset-url-probe.yml'
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test image source resolutions
+        env:
+          URL_0: "https://media.canva.com/v2/image-resize/format:PNG/height:150/quality:100/uri:ifs%3A%2F%2FM%2Faa1ecf6e-4b63-48e5-9206-14a8006406da/watermark:F/width:200?csig=AAAAAAAAAAAAAAAAAAAAAOb2Q7YTRS0VB2o-K-6gktFCTcRKQqhc0pEroRhk0IYs&exp=1794900412&osig=AAAAAAAAAAAAAAAAAAAAADiFOPk55EZJnX55vNkfndWdjRoOQP84izFLmd9jNidQ&signer=media-rpc&token=AAIAAU0AJGFhMWVjZjZlLTRiNjMtNDhlNS05MjA2LTE0YTgwMDY0MDZkYQAAAAABoehmxmBVwV0BEssv07sO9nddt3cipJyPKWzJTebRfXiyWg_C-g&x-canva-quality=thumbnail"
+          URL_1: "https://media.canva.com/v2/image-resize/format:PNG/height:1086/quality:100/uri:ifs%3A%2F%2FM%2Faa1ecf6e-4b63-48e5-9206-14a8006406da/watermark:F/width:1448?csig=AAAAAAAAAAAAAAAAAAAAAOb2Q7YTRS0VB2o-K-6gktFCTcRKQqhc0pEroRhk0IYs&exp=1794900412&osig=AAAAAAAAAAAAAAAAAAAAADiFOPk55EZJnX55vNkfndWdjRoOQP84izFLmd9jNidQ&signer=media-rpc&token=AAIAAU0AJGFhMWVjZjZlLTRiNjMtNDhlNS05MjA2LTE0YTgwMDY0MDZkYQAAAAABoehmxmBVwV0BEssv07sO9nddt3cipJyPKWzJTebRfXiyWg_C-g&x-canva-quality=thumbnail"
+          URL_2: "https://media.canva.com/v2/image-resize/format:PNG/height:150/quality:100/uri:ifs%3A%2F%2FM%2Faa1ecf6e-4b63-48e5-9206-14a8006406da/watermark:F/width:200"
+          URL_3: "https://media.canva.com/v2/image-resize/format:PNG/height:1086/quality:100/uri:ifs%3A%2F%2FM%2Faa1ecf6e-4b63-48e5-9206-14a8006406da/watermark:F/width:1448?token=AAIAAU0AJGFhMWVjZjZlLTRiNjMtNDhlNS05MjA2LTE0YTgwMDY0MDZkYQAAAAABoehmxmBVwV0BEssv07sO9nddt3cipJyPKWzJTebRfXiyWg_C-g"
+          URL_4: "https://media.canva.com/v2/image-resize/format:PNG/height:1086/quality:100/uri:ifs%3A%2F%2FM%2Faa1ecf6e-4b63-48e5-9206-14a8006406da/watermark:F/width:1448?exp=1794900412&signer=media-rpc&token=AAIAAU0AJGFhMWVjZjZlLTRiNjMtNDhlNS05MjA2LTE0YTgwMDY0MDZkYQAAAAABoehmxmBVwV0BEssv07sO9nddt3cipJyPKWzJTebRfXiyWg_C-g&x-canva-quality=thumbnail"
+        run: |
+          code=$(curl -L -sS -w '%{http_code}' -o /tmp/probe0 "$URL_0" || true); echo "signed-thumb HTTP=$code SIZE=$(wc -c </tmp/probe0)"; file /tmp/probe0
+          code=$(curl -L -sS -w '%{http_code}' -o /tmp/probe1 "$URL_1" || true); echo "signed-full HTTP=$code SIZE=$(wc -c </tmp/probe1)"; file /tmp/probe1
+          code=$(curl -L -sS -w '%{http_code}' -o /tmp/probe2 "$URL_2" || true); echo "url-no-query HTTP=$code SIZE=$(wc -c </tmp/probe2)"; file /tmp/probe2
+          code=$(curl -L -sS -w '%{http_code}' -o /tmp/probe3 "$URL_3" || true); echo "token-only HTTP=$code SIZE=$(wc -c </tmp/probe3)"; file /tmp/probe3
+          code=$(curl -L -sS -w '%{http_code}' -o /tmp/probe4 "$URL_4" || true); echo "no-csig HTTP=$code SIZE=$(wc -c </tmp/probe4)"; file /tmp/probe4
