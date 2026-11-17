@@ -51,14 +51,6 @@ try {
     await page.locator('#close-threshold').click();
     assert.equal(await page.locator('#threshold-dossier').isHidden(),true);
     await page.screenshot({ path:path.join(shots,'threshold-' + width + 'x' + height + '.png'),fullPage:true });
-    await page.locator('#tab-atlas').click();
-    await checkVisibility(page,'atlas');
-    await noHorizontalOverflow(page,width + ' atlas');
-    await page.locator('[data-room-choice="03"]').click();
-    assert.equal(await page.locator('[data-room-choice="03"]').getAttribute('aria-pressed'),'true');
-    assert.equal(await page.locator('[data-room-detail="03"]').isVisible(),true);
-    assert.equal(await page.locator('#atlas-plate-number').innerText(),'03');
-    await page.screenshot({ path:path.join(shots,'atlas-' + width + 'x' + height + '.png'),fullPage:true });
     await page.locator('#tab-monograph').click();
     await checkVisibility(page,'monograph');
     await noHorizontalOverflow(page,width + ' monograph');
@@ -70,7 +62,7 @@ try {
     assert.equal(await page.locator('#tab-threshold').getAttribute('aria-selected'),'true');
     await page.locator('#tab-threshold').press('End');
     assert.equal(await page.locator('#tab-monograph').getAttribute('aria-selected'),'true');
-    report.viewports.push({ width,height,panels:3,overflow:'pass',dossier:'pass',index:'pass',pagination:'pass',keyboardTabs:'pass',reducedMotion:'pass',screenshots:3 });
+    report.viewports.push({ width,height,panels:3,overflow:'pass',dossier:'pass',pagination:'pass',keyboardTabs:'pass',reducedMotion:'pass',screenshots:2 });
     await page.close();
   }
   const page = await browser.newPage({ viewport: { width:1440,height:900 }, reducedMotion:'no-preference' });
@@ -78,10 +70,10 @@ try {
   await page.goto(server.base + '/visual-lab/surrealist/');
   await page.locator('#tab-threshold').focus();
   await page.locator('#tab-threshold').press('ArrowRight');
-  assert.equal(await page.locator('#tab-atlas').getAttribute('aria-selected'),'true');
-  await page.locator('#tab-atlas').press('ArrowLeft');
+  assert.equal(await page.locator('#tab-monograph').getAttribute('aria-selected'),'true');
+  await page.locator('#tab-monograph').press('ArrowLeft');
   assert.equal(await page.locator('#tab-threshold').getAttribute('aria-selected'),'true');
-  report.interactions.push('arrow-key switching','Home and End','Escape closes portal dossier','room index selection','two-page spread','reduced motion at seven sizes');
+  report.interactions.push('arrow-key switching','Home and End','Escape closes portal dossier','curated two-direction selection','two-page spread','reduced motion at seven sizes');
   await page.locator('#enter-threshold').click();
   await page.keyboard.press('Escape');
   assert.equal(await page.locator('#threshold-dossier').isHidden(),true);
@@ -93,4 +85,4 @@ try {
   await browser.close();
   server.close();
 }
-console.log('PASS: Surrealist Lab three artboards, interactions, keyboard, reduced motion and geometry at seven viewport sizes. Screenshot review is still required.');
+console.log('PASS: Surrealist Lab two curated artboards, interactions, keyboard, reduced motion and geometry at seven viewport sizes. Screenshot review is still required.');
