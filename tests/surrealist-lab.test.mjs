@@ -50,6 +50,6 @@ test('prototype names fictional client and does not conflate art direction with 
   assert.match(html, /FIKSI \/ STUDI KONSEP/);
   assert.match(html, /praktik arsitektur spekulatif fiktif/);
   assert.match(html, /tone of voice/i);
-  assert.match(html, /fractured-muse\.svg/);
+  assert.doesNotMatch(html, /fractured-muse\.svg|monograph__muse/);
   assert.doesNotMatch(html, /99%|1000\+|award-winning|satisfied clients/i);
 });
