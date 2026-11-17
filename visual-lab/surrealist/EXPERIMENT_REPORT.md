@@ -1,8 +1,27 @@
 # Experiment report — Surrealist Digital Editorial / 01
 
+## V2 Curatorial audit — actual rendered comparison (17 Nov 2026)
+
+The first live Chromium screenshots were inspected at **1440px desktop and 390px mobile** against the user-supplied Surrealist Digital Editorial reference. These are qualitative design judgements; they do not establish aesthetic quality automatically.
+
+| Original study | Visual fault observed in screenshot | Curatorial outcome |
+| --- | --- | --- |
+| **The Threshold** | Flat, almost icon-like stone portal; barely articulated limestone; sky, moon and threshold did not convey sufficient scale or material tension | **RETAIN / REWORK.** Deepened moonlight, layered mist/grain, suspended masonry and a terracotta fabric-like vector band. |
+| **Impossible Atlas** | Geometric figure behaved like a technical poster or conventional architecture diagram; changing the figure's rotation did not generate surreal world-building | **CUT.** Removed active tab, panel, event handlers and CSS; retain research analysis only. |
+| **Unfolding Monograph** | Initial page-02 cover was a flat rust rectangle with arch decoration; lacked a convincing tactile material object | **RETAIN / REWORK.** Added original fractured marble sculpture illustration to the printed plate and revised the second spread with layered architectural silhouettes and shadow. |
+
+**Decision rationale.** The direction is not a license to keep every interesting interface. The Atlas introduced a task model valuable for a real evidence-rich architect, but the visual proposition failed this specific surrealist editorial study. It must not be represented as a successful surrealist reference. Two remaining structures better test a physical voyage versus a publication layout, though they still require fresh screenshot assessment.
+
+**Source file state after curation:** two active tabpanels (Threshold, Monograph), two SVG artboards plus an authored standalone sculpture SVG, and no selectable Atlas UI. The vector sculpture is original to this experiment, not the client's actual artwork or a copied photograph.
+
+**Unfinished until screenshots are reviewed:** texture believability, figure silhouette, moonlight coherence and atmospheric depth on the newly revised render. CI will verify accessibility-oriented interactions, responsive overflow and capture fresh screenshot evidence, not artistic excellence. Do not claim a full art-direction pass merely because CI is green.
+
+---
+
+
 **Date:** 2026-11-17  
 **Branch:** experiment/surrealist-direction-lab-01  
-**Scope:** three structural explorations in one user-supplied visual family  
+**Scope:** three proposed structural explorations; two retained after visual curation  
 **Content status:** explicitly fictional and attributed as a study  
 **Release status:** exploratory; *not* a client deployment or release-gate approval.
 
@@ -26,8 +45,8 @@ The prototype implementation is isolated under visual-lab/surrealist, with dedic
 | File | Purpose |
 | --- | --- |
 | visual-lab/surrealist/index.html | Three semantic, separately structured interactive artboards with original SVG scenes |
-| visual-lab/surrealist/styles.css | Three different layout grammars, desktop and mobile recomposition, reduced-motion fallback |
-| visual-lab/surrealist/app.js | Concept tabs, focus-aware dossier, indexed selection, spread pagination, optional parallax |
+| visual-lab/surrealist/styles.css | Two retained layout grammars, desktop and mobile recomposition, reduced-motion fallback |
+| visual-lab/surrealist/app.js | Concept tabs, focus-aware dossier, spread pagination, optional parallax |
 | visual-lab/surrealist/README.md | Art direction DNA, boundaries, comparisons and production-adaptation method |
 | tests/surrealist-lab.test.mjs | Static structure, syntax, reference-integrity and accessibility-intent guards |
 | scripts/check-surrealist-lab-browser.mjs | Playwright seven-viewport checks and screenshots (requires execution) |
@@ -82,7 +101,7 @@ The prototype implementation is isolated under visual-lab/surrealist, with dedic
 
 The existing Lazarus five-family Voice Director remains unchanged. No style-to-personality mapping was added. A real production brief must select language, formality, pronouns and diction on the basis of actual client voice samples, audience, and creative approval. Current demo copy is a fictional editorial proposal, not personal speech.
 
-The three concept artboards are **not** substitutes for the Design OS's mandated seven structural alternatives based on a real client brief, nor substitutes for three grayscale same-copy typography specimens. They are internal exploration assets.
+The two retained concept artboards are **not** substitutes for the Design OS's mandated seven structural alternatives based on a real client brief, nor substitutes for three grayscale same-copy typography specimens. They are internal exploration assets.
 
 No invented professional achievements, fabricated testimonial, fictitious personal quotes presented as fact, fake contact action or third-party artworks were added.
 
