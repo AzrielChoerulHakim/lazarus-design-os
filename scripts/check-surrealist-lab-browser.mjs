@@ -54,6 +54,9 @@ try {
     await page.locator('#tab-monograph').click();
     await checkVisibility(page,'monograph');
     await noHorizontalOverflow(page,width + ' monograph');
+    const museLoaded = await page.locator('.monograph__muse').evaluate(image => image.complete && image.naturalWidth > 0);
+    assert.equal(museLoaded,true,'sculptural illustration did not load');
+    await page.locator('#panel-monograph').screenshot({ path:path.join(shots,'monograph-cover-' + width + 'x' + height + '.png') });
     await page.locator('#monograph-next').click();
     assert.equal(await page.locator('#panel-monograph').getAttribute('data-page'),'2');
     assert.equal(await page.locator('#monograph-next').isDisabled(),true);
@@ -62,7 +65,7 @@ try {
     assert.equal(await page.locator('#tab-threshold').getAttribute('aria-selected'),'true');
     await page.locator('#tab-threshold').press('End');
     assert.equal(await page.locator('#tab-monograph').getAttribute('aria-selected'),'true');
-    report.viewports.push({ width,height,panels:3,overflow:'pass',dossier:'pass',pagination:'pass',keyboardTabs:'pass',reducedMotion:'pass',screenshots:2 });
+    report.viewports.push({ width,height,panels:3,overflow:'pass',dossier:'pass',pagination:'pass',keyboardTabs:'pass',reducedMotion:'pass',screenshots:3 });
     await page.close();
   }
   const page = await browser.newPage({ viewport: { width:1440,height:900 }, reducedMotion:'no-preference' });
@@ -85,4 +88,4 @@ try {
   await browser.close();
   server.close();
 }
-console.log('PASS: Surrealist Lab two curated artboards, interactions, keyboard, reduced motion and geometry at seven viewport sizes. Screenshot review is still required.');
+console.log('PASS: Surrealist Lab two curated artboards, both monograph spreads, keyboard, reduced motion and geometry at seven viewport sizes. Screenshot review is still required.');
