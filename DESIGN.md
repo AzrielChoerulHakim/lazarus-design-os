@@ -23,6 +23,13 @@ The most important images are the client's actual works. Avoid generic stock, AI
 ## 6. Interaction must be responsive and interruptible
 Use movement to communicate state, causality and navigation; honor `prefers-reduced-motion`. Avoid fixed scripts that lock the UI; if drag-driven, track live pointer state and preserve continuity. Don't deploy physically elaborate motion into a basic information page unless it helps understanding.
 
+## 6A. Intentional detail / zero ornamental noise
+Every visible word, icon, line, micro-label, serial number, motif, caption, animation and decorative asset must serve a **specific, defensible information, interaction or artistic narrative purpose**. The author must be able to answer: *What exact message does this element carry, or what task does it help complete?* If the answer is only “it looks designed,” **remove it**.
+
+Do not add default SVG arrows, chevrons, decorative glyphs, scroll prompts, meaningless section counters, museum-style “PLATE 01” labels, visual-technique announcements, redundant captions, repeated role headers, studio watermarking on client pages, or filler editorial prose. Do not disguise thin information with microcopy. An icon is acceptable only where it communicates a verified state/action more clearly than words and has an accessible label; even then prefer plain meaningful text. This is **not** a blanket ban on functional indicators, legally necessary disclosures, or source attribution; require them to be purposeful and unobtrusive.
+
+Perform a **necessity pass** on the actual desktop/mobile screenshot: for every element ask whether removing it would lose information, usability, clarity, or a deliberate artistic message. If not, delete it. Preserve the client's facts and intended voice; do not inflate narrative with unverified claims.
+
 ## 7. Cohesion without monotony
 Link sections through a shared editorial logic and precise details, while varying density, rhythm and scale as the narrative requires. A design system ensures consistency of *rules*, not sameness of every component.
 
