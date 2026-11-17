@@ -10,13 +10,6 @@
       motion: 'Subtle depth reinforces a spatial relationship; clicking opens an evidence dossier.',
       tradeoff: 'A large atmospheric scene has a real performance cost; the text and dossier must stand without it.'
     },
-    atlas: {
-      title: 'IMPOSSIBLE ATLAS',
-      question: 'What if work is read as an annotated spatial index?',
-      structure: 'Question → indexed studies → selected plate → comparable evidence.',
-      motion: 'An index choice changes the active dossier and transforms the diagram consistently.',
-      tradeoff: 'Good for several research projects; unnecessary for a CV with only one small project.'
-    },
     monograph: {
       title: 'UNFOLDING MONOGRAPH',
       question: 'Could a portfolio behave like a collectible art publication?',
@@ -87,27 +80,6 @@
     if (event.key === 'Escape' && !dossier.hidden) {
       closeDossier(true);
     }
-  });
-
-  /* Atlas visual is illustrative, but text state is authoritative.
-     Entries are buttons and still work with CSS animation disabled. */
-  const atlas = document.getElementById('panel-atlas');
-  const roomButtons = Array.from(atlas.querySelectorAll('[data-room-choice]'));
-  const roomDetails = Array.from(atlas.querySelectorAll('[data-room-detail]'));
-  roomButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-      const chosen = button.dataset.roomChoice;
-      atlas.dataset.room = chosen;
-      setText('atlas-plate-number', chosen);
-      roomButtons.forEach((element) => {
-        const isActive = element === button;
-        element.classList.toggle('is-active', isActive);
-        element.setAttribute('aria-pressed', String(isActive));
-      });
-      roomDetails.forEach((detail) => {
-        detail.hidden = detail.dataset.roomDetail !== chosen;
-      });
-    });
   });
 
   /* The monograph has a finite, keyboard-accessible spread navigation. */
