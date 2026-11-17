@@ -214,7 +214,7 @@ button:disabled { opacity:.35; cursor:default; }
   .fiction-note { font-size:11px; padding:18px 0; }
   .exploration { padding:0 12px 65px; }
   .exploration__bar { padding:0 8px 16px; gap:16px; }
-  .exploration__tabs { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:4px; }
+  .exploration__tabs { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:4px; }
   .exploration__tab { padding:12px 5px; font-size:9px; letter-spacing:-.03em; }
   .exploration__tab span { display:none; }
   .artboard { min-height:0; }
@@ -283,4 +283,172 @@ button:disabled { opacity:.35; cursor:default; }
   *,*::before,*::after { animation:none!important; transition:none!important; }
   .threshold__scene,.threshold__architecture { transform:none!important; }
   .monograph__visual { transform:none!important; }
+}
+
+
+/* V2 / ART-DIRECTION INTERVENTIONS
+   Refined after inspecting actual 1440/390 Chromium screenshots.
+   02 / Impossible Atlas was cut: documentation remains in the experiment report.
+   Structural distinction: A = physical passage; C = printed narrative object.
+*/
+
+/* Threshold: material imperfections, physically located moonlight, impossible floating masonry.
+   The hero copy remains real DOM, separate from decorative artwork at mobile widths. */
+.threshold {
+  background:#091623;
+  --moonlight:#e7d5b7;
+}
+.threshold::before{
+  background:
+    radial-gradient(ellipse at 70% 42%, transparent 0%,transparent 17%,rgba(10,22,35,.2) 45%,rgba(8,18,29,.76) 100%),
+    linear-gradient(90deg,rgba(7,17,27,.95) 0%,rgba(7,17,27,.85) 29%,rgba(9,22,35,.24) 64%,transparent 100%),
+    linear-gradient(0deg,rgba(5,14,25,.75),transparent 35%);
+}
+.threshold__art{ background:
+  radial-gradient(ellipse at 71% 26%,rgba(231,209,181,.18),transparent 26%),
+  linear-gradient(128deg,#142636,#263c4f 51%,#071522);
+}
+.threshold__scene{
+  transform:translate3d(calc(var(--px,0)*-14px),calc(var(--py,0)*-8px),0) scale(1.09);
+  filter:saturate(.88) contrast(1.18) brightness(.94);
+}
+.threshold__celestial-light{
+  position:absolute;inset:-5%;z-index:1;pointer-events:none;
+  background:
+    radial-gradient(ellipse at 59% 24%,rgba(255,238,204,.28) 0%,rgba(255,229,192,.09) 19%,transparent 44%),
+    radial-gradient(ellipse at 85% 68%,rgba(182,105,74,.12),transparent 42%);
+  mix-blend-mode:screen;
+}
+.threshold__stone-grain{
+  position:absolute;inset:0;z-index:3;opacity:.23;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.61' numOctaves='3' seed='13' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.36'/%3E%3C/svg%3E");
+  background-size:260px 260px;mix-blend-mode:soft-light;
+}
+.threshold__floating-fragment{
+  position:absolute;z-index:1;top:18%;right:5.8%;
+  width:clamp(84px,10.7vw,178px);height:clamp(110px,16vw,255px);
+  transform:rotate(-15deg) skewY(4deg) translateY(calc(var(--py,0)*-15px));
+  transition:transform .8s cubic-bezier(.18,.7,.2,1);
+  background:linear-gradient(128deg,#d7c6b2 0%,#a29a92 22%,#555b63 78%,#303b49 100%);
+  clip-path:polygon(20% 0%,87% 9%,98% 68%,82% 91%,17% 100%,2% 85%,3% 18%);
+  filter:drop-shadow(22px 30px 30px rgba(1,7,16,.75));
+  opacity:.9;
+}
+.threshold__floating-fragment i{
+  position:absolute;inset:18% 17% 12% 20%;
+  border:clamp(8px,1.4vw,19px) solid #d2c5b1;
+  border-bottom:0;border-radius:80px 80px 0 0;
+  box-shadow:inset 12px 0 12px #3c4957,12px 3px 8px #333b44;
+}
+.threshold__floating-fragment b{
+  position:absolute;inset:0;
+  background:repeating-linear-gradient(14deg,transparent 0 38px,rgba(27,36,49,.1) 39px 40px);
+}
+.threshold__floating-fragment em{
+  position:absolute;top:48%;left:7%;width:80%;height:1px;
+  background:#e4d2b7;opacity:.45;transform:rotate(-14deg);
+}
+.threshold__drifting-veil{
+  position:absolute;z-index:2;pointer-events:none;right:-11%;bottom:-26%;width:57%;height:41%;
+  transform:rotate(-11deg);
+  background:linear-gradient(160deg,transparent 7%,rgba(192,101,79,.7) 15%,#6c3941 34%,#bb7869 46%,rgba(63,33,45,.2) 62%,transparent 82%);
+  clip-path:polygon(0 67%,16% 32%,41% 27%,60% 55%,74% 16%,100% 1%,100% 82%,71% 87%,42% 63%,22% 94%);
+  filter:drop-shadow(-13px -4px 10px rgba(9,14,24,.42));
+  opacity:.72;
+}
+.threshold__orbital{
+  border-color:rgba(231,196,145,.43);
+  filter:drop-shadow(0 0 7px rgba(248,204,157,.17));
+}
+.threshold__copy { text-shadow:0 3px 28px rgba(4,13,21,.36); }
+.threshold__copy h2 { font-weight:400; letter-spacing:-.06em; }
+.threshold__dossier{ border:1px solid rgba(128,88,68,.32); }
+
+/* Monograph: printed material and sculptural plate instead of a red flat UI tile.
+   We keep the editorial anatomy distinct from spatial threshold navigation. */
+.monograph{
+  background:
+    radial-gradient(ellipse at 79% 21%,rgba(202,167,130,.18),transparent 44%),
+    repeating-linear-gradient(100deg,rgba(68,48,39,.014) 0 1px,transparent 1px 5px),
+    #ece2d1;
+}
+.monograph__header,.monograph__footer { border-color:#b4a393; }
+.monograph__visual{
+  isolation:isolate;
+  background:
+    radial-gradient(circle at 66% 24%,rgba(221,212,192,.42) 0%,transparent 30%),
+    linear-gradient(140deg,#203143 0%,#304255 38%,#0c1b2b 90%);
+  overflow:hidden;
+  box-shadow:14px 18px 0 #cab6a1,25px 31px 27px rgba(73,48,42,.13);
+}
+.monograph__visual>svg{
+  position:absolute;inset:0;opacity:.36;
+  filter:saturate(.7) contrast(1.16);
+}
+.monograph__sculptural-ground{
+  position:absolute;inset:0;z-index:1;
+  background:
+    linear-gradient(135deg,transparent 33%,rgba(249,230,195,.09) 43%,transparent 53%),
+    radial-gradient(ellipse at 43% 86%,rgba(7,16,25,.89) 0%,transparent 45%),
+    linear-gradient(0deg,rgba(4,13,23,.7),transparent 54%);
+}
+.monograph__muse{
+  position:absolute;z-index:2;inset:2% -7% -13% -7%;width:114%;height:120%;
+  object-fit:contain;object-position:bottom center;
+  filter:drop-shadow(-27px 25px 31px rgba(2,12,20,.52)) contrast(1.12);
+  pointer-events:none;
+}
+.monograph__print-grain{
+  z-index:3;position:absolute;inset:0;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.66' numOctaves='3' seed='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23g)' opacity='.47'/%3E%3C/svg%3E");
+  mix-blend-mode:overlay;opacity:.19;
+}
+.monograph__plate-label{z-index:4;text-shadow:0 1px 8px rgba(0,0,0,.8);}
+.monograph__page-two{
+  background:
+    radial-gradient(ellipse at 72% 25%,rgba(232,197,157,.2) 0%,transparent 40%),
+    linear-gradient(146deg,#1d2837 0%,#48343b 47%,#9b695e 100%);
+  border:1px solid rgba(239,206,175,.23);
+}
+.monograph__page-two::before{
+  width:94%;height:77%;border:23px solid rgba(231,208,176,.5);
+  border-bottom-width:3px;right:-37%;top:7%;border-radius:50% 50% 0 0;
+  transform:rotate(-14deg);
+  box-shadow:inset -24px 18px 0 rgba(16,24,35,.24),-14px 13px 30px rgba(1,8,14,.25);
+}
+.monograph__page-two::after{
+  left:-20%;top:57%;width:150%;height:53%;
+  border:0;border-radius:0;box-shadow:none;
+  background:linear-gradient(169deg,rgba(238,162,130,.78),rgba(133,64,65,.88) 36%,#372d3c 70%,rgba(206,131,105,.4));
+  clip-path:polygon(0 19%,25% 30%,54% 5%,75% 47%,100% 8%,100% 80%,72% 95%,41% 65%,13% 90%,0 70%);
+  transform:rotate(-3deg);
+}
+.monograph__page-two strong{
+  font-size:clamp(50px,4.7vw,84px);
+  text-shadow:0 8px 23px rgba(23,20,28,.27);
+  line-height:.96;
+}
+.monograph__page-two span,.monograph__page-two small { color:#f5e4d2; }
+@media(max-width:900px){
+  .monograph__muse{inset:0 -10% -10%;height:112%;width:120%;}
+}
+@media(max-width:660px){
+  .threshold__art{height:460px;}
+  .threshold__scene{transform:scale(1.04);filter:contrast(1.1) brightness(1.03);}
+  .threshold__floating-fragment{width:77px;height:115px;right:6%;top:16%;opacity:.84;}
+  .threshold__drifting-veil{height:32%;width:80%;right:-20%;bottom:-16%;opacity:.68;}
+  .threshold__stone-grain{opacity:.14;}
+  .threshold__celestial-light{opacity:.8;}
+  .threshold__copy{text-shadow:none;}
+  .monograph__visual{height:460px;box-shadow:12px 13px 0 #cab6a1;}
+  .monograph__muse{inset:2% -9% -6%;height:109%;width:118%;}
+  .monograph__page-two strong{font-size:clamp(51px,9vw,68px);}
+}
+@media(max-width:380px){
+  .threshold__art{height:390px;}
+  .monograph__visual{height:380px;}
+  .monograph__page-two{padding:28px 22px;}
+}
+@media(prefers-reduced-motion:reduce){
+  .threshold__floating-fragment{transform:rotate(-15deg) skewY(4deg)!important;}
 }
