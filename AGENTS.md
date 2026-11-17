@@ -13,6 +13,9 @@ This repository is a **decision system** for creating client-specific websites, 
 7. [docs/ANTI_GENERIC_AUDIT.md](docs/ANTI_GENERIC_AUDIT.md) and **[docs/TYPOGRAPHY_QA.md](docs/TYPOGRAPHY_QA.md)** before delivery.
 If a source or project asset is inaccessible, say so. **Never claim to have examined an inaccessible source.**
 
+## Zero-noise visual and copy rule (all Lazarus client projects)
+No meaningless details. **Before delivery, inspect the rendered desktop and mobile pages and justify every displayed word, caption, icon, SVG, arrow glyph, serial number, line, ornament and decorative asset.** Keep only details serving a clear reading, interaction, accessibility or client-specific artistic purpose; remove the rest. In particular, never automatically add chevrons/arrows beside textual links, numbered “PLATE” captions, announcements of visual technique, decorative section labels, studio credits on a client's portfolio, or sentences explaining obvious imagery. Avoid superficial “editorial” filler. If a label is necessary for navigation, factual attribution, a real state change or an artistic message, make its purpose explicit and verify it functions. Maintain verified CV content and do not eliminate accessibility metadata or genuine provenance requirements merely to make a screenshot cleaner. This is an additive editing/review rule, not a new design contract or replacement for the current workflow.
+
 ## Decision hierarchy
 User intent and factual content > audience needs > identity-specific structure > accessibility and usability > coherent craft > meaningful motion > decoration.
 
