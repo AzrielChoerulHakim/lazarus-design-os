@@ -59,3 +59,12 @@ test('all six documentation texts exist without new contract version',()=>{
   assert.ok(fs.statSync(path.join(docs,file)).size>=1200,file+' incomplete');
  }
 });
+test('optional agent skill advertises selective use and existing gate authority',()=>{
+ const skill=read(root,'.github/skills/lazarus-visual-mapper/SKILL.md');
+ assert.match(skill,/name: lazarus-visual-mapper/);
+ assert.match(skill,/activate only when the creative director explicitly selects Sculptural Impasto/i);
+ assert.match(skill,/seven client-specific concept directions/i);
+ assert.match(skill,/Tone of Voice/i);
+ assert.match(skill,/200×133 staging thumbnails/i);
+ assert.match(read(root,'README.md'),/Optional art-direction mapping: Sculptural Impasto/);
+});
