@@ -1,0 +1,47 @@
+name: Temporary Impasto Asset Staging
+on:
+  push:
+    paths:
+      - ".github/workflows/impasto-asset-staging.yml"
+permissions:
+  contents: write
+jobs:
+  copy:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Retrieve intact raster previews
+        env:
+          PAINTING_DISSOLUTION: "https://media.canva.com/v2/image-resize/format:PNG/height:133/quality:100/uri:ifs%3A%2F%2FM%2Ff8722f6a-8ca5-4c07-b726-d6991e51677b/watermark:F/width:200?csig=AAAAAAAAAAAAAAAAAAAAAMIaQ-gIwtVtXVwvnfU6wb7Qgl4fWZmbiZvAF6NM3sXG&exp=1794933693&osig=AAAAAAAAAAAAAAAAAAAAAIen2epG9m3Dkvh7xBimGO0YcTt6hkRYXpFJTp9fUQ19&signer=media-rpc&token=AAIAAU0AJGY4NzIyZjZhLThjYTUtNGMwNy1iNzI2LWQ2OTkxZTUxNjc3YgAAAAABoepimkhumEiY-39Ps_yS536Hss8rJ_8v0peDKxlAdtg_6ZvurQ&x-canva-quality=thumbnail"
+          PAINTING_PROCESSION: "https://media.canva.com/v2/image-resize/format:PNG/height:133/quality:100/uri:ifs%3A%2F%2FM%2F6d699293-4103-480e-ba84-d4c650d6a0cc/watermark:F/width:200?csig=AAAAAAAAAAAAAAAAAAAAAFvoBzI7QfG68QGmbsqe9cOEyOX511cB3SpJtMLtHQPA&exp=1794935540&osig=AAAAAAAAAAAAAAAAAAAAAIPO5hMRjtGdRw31rtQN3vMkycznE5cXa0-nZhwmMSGf&signer=media-rpc&token=AAIAAU0AJDZkNjk5MjkzLTQxMDMtNDgwZS1iYTg0LWQ0YzY1MGQ2YTBjYwAAAAABoep-ySD6Tgi5WMHRUJqbG1hpRiIqYnnq8962C2QgfXfIaWBgfA&x-canva-quality=thumbnail"
+          PAINTING_HORIZON: "https://media.canva.com/v2/image-resize/format:PNG/height:133/quality:100/uri:ifs%3A%2F%2FM%2F3b80512d-9514-4935-82bc-af7b700848b5/watermark:F/width:200?csig=AAAAAAAAAAAAAAAAAAAAAGvrU9rnjdAAN_Hj2a5vrjMNT5fyYfTRcSSGaN3rSn0v&exp=1794934513&osig=AAAAAAAAAAAAAAAAAAAAAMZxa938dFUvbXTg-aR8sQCDs7dEk4uG4viePU1LFoCa&signer=media-rpc&token=AAIAAU0AJDNiODA1MTJkLTk1MTQtNDkzNS04MmJjLWFmN2I3MDA4NDhiNQAAAAABoepvHWjISJ8FjINsM6mrq_WDygWRI0F6l3M31zs6uZE6h1sOGQ&x-canva-quality=thumbnail"
+        run: |
+          set -euo pipefail
+          mkdir -p visual-lab/sculptural-impasto/assets
+          curl --fail --location --silent --show-error --retry 2 "$PAINTING_DISSOLUTION" -o /tmp/dissolution.png
+          curl --fail --location --silent --show-error --retry 2 "$PAINTING_PROCESSION" -o /tmp/procession.png
+          curl --fail --location --silent --show-error --retry 2 "$PAINTING_HORIZON" -o /tmp/horizon.png
+          python3 -m pip install --quiet --break-system-packages Pillow
+          python3 - <<'PY'
+          from PIL import Image
+          from pathlib import Path
+          root=Path('visual-lab/sculptural-impasto/assets')
+          for name in ('dissolution','procession','horizon'):
+              im=Image.open('/tmp/'+name+'.png').convert('RGB')
+              assert im.width>=190 and im.height>=120
+              output=root/('study-'+name+'.webp')
+              im.save(output,'WEBP',quality=86,method=6)
+              print(output,im.size)
+          PY
+      - name: Commit raster previews
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add visual-lab/sculptural-impasto/assets/study-*.webp
+          if ! git diff --cached --quiet; then
+            git commit -m "assets(impasto-map): stage three original-scene raster thumbnails"
+            git push origin HEAD:refs/heads/experiment/sculptural-impasto-visual-mapping-v1
+          fi
