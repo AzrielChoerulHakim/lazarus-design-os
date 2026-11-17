@@ -39,7 +39,7 @@ They intentionally **do not** share identical hero blocks, project-card grids, C
 
 ## Curatorial decision / 17 November 2026
 
-**RETAIN** A — The Threshold, with a denser moonlit scene, suspended stone fragment, authored grain and restrained terracotta veil. **RETAIN** B — Unfolding Monograph, now using an original fractured marble figure, mineral shadows and two materially different editorial spreads. **CUT** Impossible Atlas from the active gallery and JS/CSS: despite useful indexing, the visual plate was an ordinary geometric diagram and failed the intended material, atmosphere and impossible-world language. Its rationale is preserved in EXPERIMENT_REPORT.md, not shipped as a design direction.
+**RETAIN** A — The Threshold, with a denser moonlit scene, suspended stone fragment, authored grain and restrained terracotta veil. **RETAIN** B — Unfolding Monograph, using an architectural plate, mineral shadows and two materially different editorial spreads. A proposed vector portrait was rejected after actual render review and deleted. **CUT** Impossible Atlas from the active gallery and JS/CSS: despite useful indexing, the visual plate was an ordinary geometric diagram and failed the intended material, atmosphere and impossible-world language. Its rationale is preserved in EXPERIMENT_REPORT.md, not shipped as a design direction.
 
 This is a subjective creative review based on actual Chromium screenshots, **not** an objective originality score. A successful browser run is still not equivalent to a final art-direction approval.
 
