@@ -23,21 +23,12 @@
 <path d="M378 533Q398 621 367 668Q416 709 468 696Q515 681 539 636Q499 603 506 523Z" fill="url(#face)" stroke="#716b68" stroke-width="3" filter="url(#stoneGrain)"/>
 <path d="M399 575Q418 626 404 659Q431 671 470 653" fill="none" stroke="#756d6b" stroke-width="7" opacity=".37"/>
 <!-- curls, with positive and negative carves -->
-<g fill="url(#hair)" stroke="#4d5058" stroke-width="4" opacity=".98">
-<path d="M404 222Q385 170 432 148Q453 115 496 136Q515 101 556 131Q590 119 609 161Q657 174 648 219Q690 244 663 284Q679 321 643 342Q657 376 617 396L583 375Q565 280 486 245Q442 236 404 222Z"/>
-<path d="M400 269Q352 246 361 208Q331 184 348 155Q360 132 392 146Q390 109 425 111Q452 112 453 141Q458 167 434 182Q418 211 438 241Z"/>
-<path d="M588 245Q637 225 660 263Q678 294 652 325Q683 349 659 381Q644 403 615 389L584 336Z"/>
-</g>
-<g fill="none" stroke="#ead9c0" stroke-linecap="round" opacity=".54">
-<path d="M379 194Q356 172 383 154Q413 145 422 170Q427 192 397 209" stroke-width="9"/>
-<path d="M432 168Q438 129 474 143Q495 151 494 176" stroke-width="8"/>
-<path d="M511 160Q529 136 552 153Q570 170 551 196" stroke-width="10"/>
-<path d="M581 170Q608 183 601 212Q596 231 568 230" stroke-width="7"/>
-<path d="M625 249Q659 279 628 311" stroke-width="8"/>
-</g>
-<g fill="none" stroke="#333c48" opacity=".6" stroke-width="7" stroke-linecap="round">
-<path d="M377 181Q402 181 399 208"/><path d="M462 143Q480 173 455 194"/><path d="M535 144Q556 160 541 190"/><path d="M604 203Q627 234 596 255"/><path d="M630 296Q633 325 607 345"/>
-</g>
+<!-- Broken mineral crown: asymmetrical planes, eroded chips, no decorative cartoon curls. -->
+<path d="M349 277Q341 223 368 198L353 176L389 144L415 151L435 117L481 132L517 110L552 146L589 131L623 172L612 205L648 222L643 261L668 281L642 328L648 366L622 401L586 388Q578 304 540 260Q507 228 476 236Q398 242 349 277Z" fill="url(#hair)" stroke="#434a55" stroke-width="5" filter="url(#stoneGrain)"/>
+<path d="M365 204 390 191 415 160 437 177 476 152 511 172 550 149 568 193 611 190 598 229 633 255 602 287 629 313 599 347" stroke="#e2d3bb" stroke-width="9" fill="none" opacity=".43"/>
+<path d="M353 260 382 230 416 242 437 213 474 222 501 193 543 226 564 208 605 241 579 276 607 302 584 346" stroke="#313a49" stroke-width="12" fill="none" opacity=".38"/>
+<path d="M354 178 375 195 357 220 372 241M517 110 508 154 528 177M623 172 607 207 626 226" stroke="#e9dcc8" stroke-width="3" fill="none" opacity=".52"/>
+<path d="M365 225 377 206 398 214M550 158 571 170 569 195" fill="none" stroke="#f4e5d0" stroke-width="3" opacity=".36"/>
 <!-- the face, distinct planes for a more sculpted rather than flat silhouette -->
 <path d="M480 207Q418 203 378 248Q347 290 350 337Q346 378 312 416Q289 432 292 449Q297 463 334 465Q331 500 345 531Q366 568 418 595Q470 610 512 582Q554 550 566 498Q596 443 597 374Q597 286 548 236Q516 213 480 207Z" fill="url(#face)" stroke="#6b6664" stroke-width="2.5" filter="url(#stoneGrain)"/>
 <path d="M484 214Q553 253 550 352Q565 414 544 460Q535 523 496 570Q517 514 509 484Q501 429 506 381Q493 302 464 271Z" fill="#4c5057" opacity=".24"/>
