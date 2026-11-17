@@ -3,6 +3,10 @@
 ## Purpose
 This repository is a **decision system** for creating client-specific websites, not a house visual template. The intended result must not read as default AI-generated UI. This is not a guarantee: originality is assessed against the actual client brief and rendered result.
 
+## Global image-led art-direction rule — Lazarus
+
+For portfolio website production, **do not use SVG for artistic website visuals** and **do not assemble scenes from stacked images, foreground cutouts, decorative CSS layers, pseudo-element lighting or fake parallax**. One art-directed composition is one complete raster image with coherent lighting, natural shadows, material and depth already resolved in the source. HTML may lay out text and controls around the image, never as an improvised scene-building collage. This rule overrides past vector/procedural art experiments. Image quality must be reviewed at real desktop and mobile sizes. If raster master assets are only low-quality previews, mark them **not approved for production**, and request/reuse the original-resolution asset rather than reconstruct it using stacked visual tricks.
+
 ## Required reading, in order
 1. The client's actual CV, imagery, real work, audience, and the existing project code.
 2. [DESIGN.md](DESIGN.md) and [docs/WORKFLOW.md](docs/WORKFLOW.md).
