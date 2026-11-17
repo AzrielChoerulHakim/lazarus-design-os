@@ -36,5 +36,8 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: surrealist-field-lab-proof
-          path: screenshots/surrealist-lab/
+          path: |
+            screenshots/surrealist-lab/
+            visual-lab/surrealist/
+            scripts/browser-server.mjs
           if-no-files-found: warn
