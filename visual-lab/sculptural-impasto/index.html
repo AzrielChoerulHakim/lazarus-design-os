@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#151e2a">
+<meta name="description" content="Sculptural Impasto Visual Mapping Lab — tiga tata letak, konten identik, satu lukisan raster utuh per scene.">
+<title>Sculptural Impasto / Visual Mapping — Lazarus Design OS</title>
+<link rel="stylesheet" href="styles.css">
+<script src="app.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#lab">Lewati pengantar</a>
+<header class="shell-header">
+  <a class="shell-logo" href="../../" aria-label="Kembali ke Lazarus Design OS">L<span>∕</span>D <small>DESIGN OS</small></a>
+  <span class="shell-id">VISUAL MAPPING / RESEARCH 01</span>
+  <a class="shell-link" href="../../visual-directions/01-sculptural-impasto/README.md">READ MAPPING <span aria-hidden="true">↗</span></a>
+</header>
+<main>
+<section class="intro" aria-labelledby="intro-title">
+  <p class="eyebrow">VISUAL DIRECTION 01 — AN ADDITIVE MODULE, NOT A NEW DESIGN OS</p>
+  <div class="intro-grid">
+    <h1 id="intro-title">Painting,<br>then <em>architecture.</em></h1>
+    <div class="intro-side">
+      <p>Sculptural Impasto bukan efek yang ditempel ke website. Ini cara memetakan komposisi lukisan minyak timbul menjadi hierarki, ritme, dan ruang baca yang disengaja.</p>
+      <p class="subnote">Eksperimen studio dengan konten fiktif. Tidak memuat CV, karya, atau kutipan dari klien nyata.</p>
+    </div>
+  </div>
+</section>
+
+<section class="lab" id="lab" aria-label="Visual mapping lab">
+  <div class="lab-controls">
+    <div class="control-primary">
+      <label class="control-heading">01 / LAYOUT GRAMMAR</label>
+      <div class="tabs" role="tablist" aria-label="Pilih tata letak">
+        <button id="tab-gallery" type="button" role="tab" data-layout="gallery" aria-selected="true" aria-controls="panel-gallery" tabindex="0">A · GALLERY</button>
+        <button id="tab-folio" type="button" role="tab" data-layout="folio" aria-selected="false" aria-controls="panel-folio" tabindex="-1">B · FOLIO</button>
+        <button id="tab-passage" type="button" role="tab" data-layout="passage" aria-selected="false" aria-controls="panel-passage" tabindex="-1">C · PASSAGE</button>
+      </div>
+    </div>
+    <div class="control-secondary">
+      <label class="control-heading" for="painting-select">02 / PAINTING MASTER</label>
+      <select id="painting-select" aria-label="Uji lukisan yang sama pada setiap tata letak">
+        <option value="dissolution">01 — Monumental Dissolution</option>
+        <option value="procession">02 — Material Procession</option>
+        <option value="horizon">03 — Impossible Horizon</option>
+      </select>
+    </div>
+  </div>
+  <p class="lab-method">Bandingkan ketiga tata letak dengan **lukisan dan kata yang sama**. Satu gambar per scene, tanpa SVG, tanpa kolase objek dan tanpa cahaya buatan CSS.</p>
+
+  <section class="study study-gallery" id="panel-gallery" role="tabpanel" aria-labelledby="tab-gallery" tabindex="0" data-lazarus-section="gallery">
+    <div class="g-top">
+      <span>ATELIER SERA <i>—</i> SPATIAL STUDIES</span>
+      <span>EXHIBITION 01 / THE UNRELIABLE WORLD</span>
+    </div>
+    <div class="g-hero">
+      <div class="g-copy">
+        <p class="study-kicker">AN EXERCISE IN IMPOSSIBLE MATERIALS</p>
+        <h2 data-lazarus-critical="gallery title">When matter<br>stops <em>obeying</em><br>itself.</h2>
+        <p class="study-intro" data-lazarus-critical="gallery intro">Atelier Sera is a fictional speculative architecture practice used only to test painting-to-layout mapping.</p>
+        <a class="editorial-link" href="#review">Read mapping notes <span aria-hidden="true">↗</span></a>
+      </div>
+      <figure class="g-art">
+        <img class="master-image" data-art="gallery" src="assets/study-dissolution.webp" width="900" height="600" alt="Thick oil impasto painting of impossible architecture whose stone turns into heavy pigment." loading="eager" decoding="async" fetchpriority="high">
+        <figcaption>FIG. 01 — AN INTACT PAINTING, NOT A COMPOSITE</figcaption>
+      </figure>
+    </div>
+    <div class="g-register">
+      <div class="g-register-head"><span>RESEARCH / THREE FICTIONAL STUDIES</span><span>01—03</span></div>
+      <div class="g-register-grid">
+        <article><span>01 / MATERIAL</span><h3>Monumental Dissolution</h3><p>Stone loses its edge and becomes pigment.</p></article>
+        <article><span>02 / PROCESS</span><h3>Material Procession</h3><p>A sequence of arches becomes a river of paint.</p></article>
+        <article><span>03 / SPACE</span><h3>Impossible Horizon</h3><p>A stairway climbs toward an upside-down sea.</p></article>
+      </div>
+    </div>
+    <div class="g-end"><strong>Observe the paradox.</strong><p>Research material only. No client claims.</p></div>
+  </section>
+
+  <section class="study study-folio" id="panel-folio" role="tabpanel" aria-labelledby="tab-folio" tabindex="0" data-lazarus-section="folio" hidden>
+    <div class="f-head"><span>ATELIER SERA / PLATE INDEX</span><span>ARCHIVE OF IMPOSSIBLE MATERIALS</span></div>
+    <div class="f-grid">
+      <aside class="f-index">
+        <p class="study-kicker">RESEARCH / A FICTIONAL COLLECTION</p>
+        <h2 data-lazarus-critical="folio title">When matter<br>stops <em>obeying</em><br>itself.</h2>
+        <p class="study-intro" data-lazarus-critical="folio intro">Atelier Sera is a fictional speculative architecture practice used only to test painting-to-layout mapping.</p>
+        <div class="f-list" aria-label="Study index">
+          <div><span>01</span><strong>Monumental Dissolution</strong></div>
+          <div><span>02</span><strong>Material Procession</strong></div>
+          <div><span>03</span><strong>Impossible Horizon</strong></div>
+        </div>
+      </aside>
+      <div class="f-plate">
+        <div class="f-plate-number"><span>PLATE 001</span><span>OIL RELIEF STUDY</span></div>
+        <figure>
+          <img class="master-image" data-art="folio" src="assets/study-dissolution.webp" width="900" height="600" alt="One complete impasto oil painting with an impossible transformation of architectural stone." loading="lazy" decoding="async">
+          <figcaption>FIG. 01 — ONE RASTER / FULL COMPOSITION</figcaption>
+        </figure>
+        <div class="f-foot"><p>Stone loses its edge and becomes pigment.</p><span>ILLUSTRATIVE STUDY — NOT A BUILT PROJECT</span></div>
+      </div>
+    </div>
+    <div class="f-bottom"><p><strong>Reading the material.</strong> The plate is independent from factual descriptions; no fictional artwork is presented as client evidence.</p><a href="#review">Read mapping notes ↗</a></div>
+  </section>
+
+  <section class="study study-passage" id="panel-passage" role="tabpanel" aria-labelledby="tab-passage" tabindex="0" data-lazarus-section="passage" hidden>
+    <div class="p-head"><span>ATELIER SERA</span><span>CHAPTER / THE WORLD UNFASTENED</span></div>
+    <div class="p-opening">
+      <p class="study-kicker">A SPECULATIVE ARCHITECTURAL ESSAY</p>
+      <h2 data-lazarus-critical="passage title">When matter<br>stops <em>obeying</em><br>itself.</h2>
+      <p class="study-intro" data-lazarus-critical="passage intro">Atelier Sera is a fictional speculative architecture practice used only to test painting-to-layout mapping.</p>
+    </div>
+    <figure class="p-plate">
+      <img class="master-image" data-art="passage" src="assets/study-dissolution.webp" width="900" height="600" alt="A standalone painting of an impossible landscape rendered in thick sculptural oil pigment." loading="lazy" decoding="async">
+      <figcaption><span>THE FIRST IMPOSSIBLE ROOM</span><span>ONE PAINTING / NO CUTOUT LAYERS</span></figcaption>
+    </figure>
+    <div class="p-chapters">
+      <article><span>CHAPTER 01 / MATERIAL</span><h3>Monumental Dissolution</h3><p>Stone loses its edge and becomes pigment.</p></article>
+      <article><span>CHAPTER 02 / PROCESS</span><h3>Material Procession</h3><p>A sequence of arches becomes a river of paint.</p></article>
+      <article><span>CHAPTER 03 / SPACE</span><h3>Impossible Horizon</h3><p>A stairway climbs toward an upside-down sea.</p></article>
+    </div>
+    <div class="p-ending"><span>AN EXPERIMENT / NOT A PORTFOLIO CLAIM</span><a href="#review">Read mapping notes ↗</a></div>
+  </section>
+
+  <section class="review" id="review" aria-label="Mapping review">
+    <div><span class="eyebrow">WHAT CHANGES BETWEEN THE THREE?</span><h3 id="mapping-thesis">A gallery treats the painting as a complete featured work.</h3></div>
+    <div><span class="eyebrow">READING ORDER</span><p id="mapping-reading">Statement → single painting → research register → quiet closing.</p></div>
+    <div><span class="eyebrow">PRIMARY RISK</span><p id="mapping-risk">An image-led approach can conceal dense professional credentials.</p></div>
+    <div><span class="eyebrow">DESIGN STATUS</span><p>Fictional R&D study. Mapping requires client evidence, typography approval, original-resolution art and visual QA before production.</p></div>
+  </section>
+</section>
+<section class="method"><span>RESEARCH INSTRUMENT · NO CLIENT CLAIMS</span><p>Art direction here is not a house layout. The production decision comes from verified client work and audience needs. A dramatic painting is optional when evidence needs a quieter information architecture.</p><a href="../../visual-directions/01-sculptural-impasto/COMPOSITION_MAPPING.md">Read the full mapping protocol ↗</a></section>
+</main>
+<footer class="shell-footer"><span>LAZARUS DESIGN OS / SCULPTURAL IMPASTO</span><a href="../../">BACK TO THE DESIGN OS ↑</a></footer>
+</body>
+</html>
