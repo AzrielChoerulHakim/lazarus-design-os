@@ -1,164 +1,89 @@
 <!doctype html>
 <html lang="id">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#151922">
-  <meta name="description" content="Two curated structural explorations of Surrealist Digital Editorial for Lazarus Design OS. Fictional demonstration, not client evidence.">
-  <title>Surrealist Field Lab 01 — Lazarus Design OS</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <script defer src="app.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#132133">
+<meta name="description" content="Lazarus Surrealist Digital Editorial — one raster master per visual scene, no decorative layering.">
+<title>Surrealist Field Lab / Master Image Studies — Lazarus Design OS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script defer src="app.js"></script>
 </head>
 <body>
 <a class="skip" href="#exploration">Langsung ke eksplorasi</a>
 <header class="lab-header">
   <a class="lab-brand" href="../../" aria-label="Kembali ke Lazarus Design OS">L<span>∕</span>D <small>DESIGN OS</small></a>
-  <span class="lab-edition">VISUAL RESEARCH / 01 OF 07</span>
-  <a class="lab-document" href="./README.md">STUDY NOTES <span aria-hidden="true">↗</span></a>
+  <span class="lab-edition">ART DIRECTION / 01 OF 07</span>
+  <a class="lab-document" href="LIGHTING_DEPTH_MASTER.md">THE LIGHTING MAP ↗</a>
 </header>
 <main>
-  <section class="introduction" aria-labelledby="page-title">
-    <div class="introduction__index"><span>LAZARUS / VISUAL FIELD STUDIES</span><span>17 NOVEMBER 2026</span></div>
-    <div class="introduction__grid">
-      <div>
-        <p class="introduction__kicker"><span aria-hidden="true">✳</span> A study in impossible architecture</p>
-        <h1 id="page-title">Two ways<br>into <em>elsewhere.</em></h1>
-      </div>
-      <div class="introduction__aside">
-        <p>Satu keluarga visual. Dua arah yang lolos kurasi visual. Yang dieksplorasi bukan tiga warna untuk satu layout, melainkan dua arsitektur informasi yang berbeda.</p>
-        <div class="intro-legend"><span>01 / THE THRESHOLD</span><span>02 / UNFOLDING MONOGRAPH</span></div>
-      </div>
+<section class="introduction" aria-labelledby="page-title">
+  <div class="introduction__index"><span>LAZARUS / IMAGE MASTER RESEARCH</span><span>17 NOVEMBER 2026</span></div>
+  <div class="intro-content">
+    <h1 id="page-title">One image.<br><em>One world.</em></h1>
+    <div class="intro-aside">
+      <p>Satu gambar raster menyimpan keseluruhan pencahayaan, material, dan kedalaman visual. Website menyusun ruang untuk gambar tersebut—bukan menumpuk objek dekoratif untuk menirunya.</p>
+      <span>LIGHTING / MATERIAL / DEPTH / COMPOSITION</span>
     </div>
-    <p class="fiction-note"><strong>FIKSI / STUDI KONSEP</strong> — SERA adalah praktik arsitektur spekulatif fiktif. Nama, judul karya, dan narasi hanya konten demonstrasi. Tidak ada pengalaman atau karya klien asli yang diklaim.</p>
-  </section>
-
-  <section class="exploration" id="exploration" aria-label="Dua eksplorasi terkurasi Surrealist Digital Editorial">
-    <div class="exploration__bar">
-      <div class="exploration__title"><span>SELECT AN EXPERIENCE</span><strong id="active-name">THE THRESHOLD</strong></div>
-      <div class="exploration__tabs" role="tablist" aria-label="Pilih arah komposisi">
-        <button class="exploration__tab" id="tab-threshold" type="button" role="tab" aria-selected="true" tabindex="0" aria-controls="panel-threshold" data-concept="threshold"><span>01</span> THRESHOLD</button>
-        <button class="exploration__tab" id="tab-monograph" type="button" role="tab" aria-selected="false" tabindex="-1" aria-controls="panel-monograph" data-concept="monograph"><span>02</span> MONOGRAPH</button>
-      </div>
+  </div>
+  <p class="fiction-note">STUDI KONSEP — SERA dan judul proyek merupakan konten fiktif untuk mengevaluasi struktur. Tidak mewakili riwayat atau proyek klien nyata.</p>
+</section>
+<section class="exploration" id="exploration" aria-label="Dua eksperimen arsitektur informasi">
+  <div class="exploration__bar">
+    <div class="exploration__title"><span>CURATED EDITORIAL STUDIES</span><strong id="active-name">THE THRESHOLD</strong></div>
+    <div class="exploration__tabs" role="tablist" aria-label="Pilih komposisi">
+      <button type="button" class="exploration__tab" id="tab-threshold" role="tab" aria-selected="true" tabindex="0" aria-controls="panel-threshold" data-concept="threshold">01 / THRESHOLD</button>
+      <button type="button" class="exploration__tab" id="tab-monograph" role="tab" aria-selected="false" tabindex="-1" aria-controls="panel-monograph" data-concept="monograph">02 / MONOGRAPH</button>
     </div>
+  </div>
 
-    <!-- A. Spatial passage: the architecture is the index. Content remains in the DOM. -->
-    <section class="artboard threshold" id="panel-threshold" role="tabpanel" tabindex="0" aria-labelledby="tab-threshold" data-lazarus-section="threshold">
-      <div class="threshold__art" data-lazarus-decoration="illustrated portal and sky" aria-hidden="true">
-        <div class="threshold__celestial-light"></div>
-        <div class="threshold__drifting-veil"></div>
-        <svg class="threshold__scene" viewBox="0 0 1100 790" preserveAspectRatio="xMidYMid slice">
-          <defs>
-            <radialGradient id="t-sky"><stop stop-color="#506273"/><stop offset=".52" stop-color="#263b4c"/><stop offset="1" stop-color="#0e1d2b"/></radialGradient>
-            <radialGradient id="t-moon"><stop stop-color="#e9e3d0"/><stop offset=".8" stop-color="#ccc7bb"/><stop offset="1" stop-color="#8d9598"/></radialGradient>
-            <linearGradient id="t-stone" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ede2cc"/><stop offset=".36" stop-color="#b6ab9d"/><stop offset=".73" stop-color="#847d78"/><stop offset="1" stop-color="#d3c5b0"/></linearGradient>
-            <linearGradient id="t-stone-side"><stop stop-color="#313943"/><stop offset="1" stop-color="#798087"/></linearGradient>
-            <linearGradient id="t-inset" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#8b644d"/><stop offset=".52" stop-color="#4b3440"/><stop offset="1" stop-color="#111b2a"/></linearGradient>
-            <linearGradient id="t-ground" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#34414c"/><stop offset="1" stop-color="#151d29"/></linearGradient>
-            <filter id="t-noise"><feTurbulence type="fractalNoise" baseFrequency=".5" numOctaves="3" seed="6" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope=".075"/></feComponentTransfer></filter>
-            <filter id="t-blur"><feGaussianBlur stdDeviation="22"/></filter>
-          </defs>
-          <rect width="1100" height="790" fill="url(#t-sky)"/>
-          <circle cx="626" cy="193" r="139" fill="#f1e7d2" opacity=".12" filter="url(#t-blur)"/>
-          <circle cx="626" cy="193" r="109" fill="url(#t-moon)"/>
-          <g fill="#73808a" opacity=".22"><circle cx="610" cy="170" r="25"/><circle cx="674" cy="208" r="36"/><circle cx="579" cy="226" r="13"/><circle cx="652" cy="123" r="11"/></g>
-          <path d="M0 529 102 481 214 517 371 405 496 456 597 397 720 471 859 377 1000 429 1100 384V790H0Z" fill="#304556" opacity=".65"/>
-          <path d="M0 582 156 521 286 560 443 480 537 540 695 476 849 541 972 495 1100 523V790H0Z" fill="#203345"/>
-          <path d="M0 644Q260 580 468 617T1100 570V790H0Z" fill="url(#t-ground)"/>
-          <g class="threshold__architecture">
-            <path d="M568 169L638 155 864 256 800 286Z" fill="#e9dcca" opacity=".8"/>
-            <path d="M804 264L864 254V669L804 705Z" fill="url(#t-stone-side)"/>
-            <path d="M446 704V288Q446 160 626 155Q810 164 810 287V704H700V309Q700 252 630 247Q556 244 556 309V704Z" fill="url(#t-stone)" fill-rule="evenodd"/>
-            <path d="M556 309Q556 244 630 247Q700 252 700 309V704H556Z" fill="url(#t-inset)"/>
-            <path d="M571 330Q574 275 627 270Q680 276 686 330" fill="none" stroke="#f6d1a4" stroke-width="5" opacity=".4"/>
-            <path d="M456 290Q460 170 626 166Q790 176 800 290" fill="none" stroke="#f8eedb" stroke-width="6" opacity=".52"/>
-            <path d="M456 363H554M701 363H799M447 608H556M700 608H810" stroke="#4c4c51" stroke-width="3" opacity=".35"/>
-            <path d="M491 290V702M763 290V702" stroke="#f2e9d8" stroke-width="3" opacity=".38"/>
-            <path d="M446 704H809L861 672 527 672Z" fill="#ada79e"/>
-            <path d="M404 740 450 703 802 703 848 740ZM367 769 398 741 856 741 892 769Z" fill="#a39b8f" stroke="#625e60" stroke-width="3"/>
-          </g>
-          <path d="M0 731Q261 687 433 734T1100 707V790H0Z" fill="#151f2b"/>
-          <path d="M70 685Q218 649 326 689T540 690" fill="none" stroke="#ddac81" stroke-width="2" opacity=".22"/>
-          <rect width="1100" height="790" filter="url(#t-noise)" opacity=".68"/>
-          <g fill="none" stroke="#e5d4b9" stroke-width="3" opacity=".48"><path d="M462 317 470 339 456 365 473 391 465 428"/><path d="M774 365 767 382 781 403 769 435 788 469"/><path d="M490 496 507 510 493 525"/><path d="M719 561 734 578 720 604"/></g>
-          <g stroke="#f9e9cd" fill="none" opacity=".23"><path d="M451 703 553 699 704 699 804 703" stroke-width="3"/><path d="M482 741H812M411 769H872" stroke-width="2"/></g>
-        </svg>
-        <div class="threshold__floating-fragment"><i></i><b></b><em></em></div>
-        <div class="threshold__stone-grain"></div>
-        <span class="threshold__orbital threshold__orbital--one"></span>
-        <span class="threshold__orbital threshold__orbital--two"></span>
-      </div>
-      <div class="threshold__top"><span class="threshold__brand">SERA <i>∕</i> spatial studies</span><span>CHAPTER I · ORIGIN</span></div>
+  <section class="artboard threshold" id="panel-threshold" role="tabpanel" tabindex="0" aria-labelledby="tab-threshold" data-lazarus-section="threshold">
+    <div class="threshold__top"><span>SERA / SPECULATIVE SPACES</span><span>STUDY 001 · SPATIAL NARRATIVE</span></div>
+    <div class="threshold__layout">
       <div class="threshold__copy">
-        <p class="threshold__eyebrow">An architecture of possibilities <span aria-hidden="true">✦</span></p>
-        <h2 data-lazarus-critical="threshold title">There are<br><em>other ways</em><br>to arrive.</h2>
-        <p class="threshold__lede" data-lazarus-critical="threshold description">A speculative practice studying the places between memory, imagination, and form.</p>
-        <button id="enter-threshold" type="button" class="threshold__button" aria-expanded="false" aria-controls="threshold-dossier" data-lazarus-critical="threshold action">Enter the first room <span aria-hidden="true">↗</span></button>
+        <p class="eyebrow">THE SPACE BETWEEN WORLDS</p>
+        <h2 data-lazarus-critical="threshold title">A passage<br>into <em>another</em><br>world.</h2>
+        <p class="lede" data-lazarus-critical="threshold description">Architecture is not the ornament. It is the invitation to imagine somewhere beyond what is visible.</p>
+        <button type="button" class="threshold__button" id="enter-threshold" aria-expanded="false" aria-controls="threshold-dossier">Read the field note <span aria-hidden="true">↗</span></button>
       </div>
-      <div class="threshold__bottom"><span>AN EXPERIMENT IN SPATIAL READING</span><span>SCENE 01 / 03</span><span>SCROLL THE WORK, NOT A TIMELINE</span></div>
-      <aside class="threshold__dossier" id="threshold-dossier" aria-label="Study dossier" hidden>
-        <button id="close-threshold" type="button" aria-label="Tutup dossier">×</button>
-        <span class="threshold__dossier-label">THE FIRST ROOM / 001</span>
-        <h3>Threshold studies</h3>
-        <p>Architecture as a transition, not a destination. This fictional work would be documented with drawings, process and real project evidence.</p>
-        <span class="threshold__dossier-foot">DEMONSTRATION CONTENT · NOT A CLIENT PROJECT</span>
-      </aside>
-    </section>
+      <figure class="threshold__figure" data-lazarus-critical="threshold master image">
+        <img src="assets/hero-master.webp" width="768" height="576" alt="Colossal fractured stone face and arches beneath a luminous moon, with mountain haze and terracotta cloth." loading="eager" fetchpriority="high" decoding="async">
+        <figcaption>01 — HERO LIGHTING MASTER / COMPOSITE RASTER</figcaption>
+      </figure>
+    </div>
+    <div class="threshold__dossier" id="threshold-dossier" hidden>
+      <div><span>FIELD NOTE / 001</span><h3>Light belongs to the world.</h3><p>The moon, architecture, statue, sky, fabric, and atmosphere are already composed in one authored image. No artificial visual overlays are required.</p></div>
+      <button type="button" id="close-threshold">Close field note ×</button>
+    </div>
+    <div class="threshold__bottom"><span>LIGHT DIRECTION: HIGH LEFT / LUNAR</span><span>DEPTH: FOREGROUND → MONUMENT → MOUNTAINS → SKY</span></div>
+  </section>
 
-    <!-- C. Publication: pages and typographic hierarchy instead of destination navigation. -->
-    <section class="artboard monograph" id="panel-monograph" role="tabpanel" tabindex="0" aria-labelledby="tab-monograph" data-page="1" data-lazarus-section="monograph" hidden>
-      <header class="monograph__header"><span>SERA <i>—</i> A STUDY IN FORM</span><span>THE UNFOLDING MONOGRAPH</span><span>2026 / ISSUE 01</span></header>
-      <div class="monograph__layout">
-        <div class="monograph__number" aria-hidden="true">I<span>.</span></div>
-        <div class="monograph__copy">
-          <p class="monograph__kicker">NOTES FROM AN IMAGINARY PRACTICE</p>
-          <h2 data-lazarus-critical="monograph title">The <em>shape</em><br>of what<br>remains.</h2>
-          <p class="monograph__lede" data-lazarus-critical="monograph description">A two-spread study of mineral weight, borrowed light and the rooms that survive only as memory.</p>
-          <div class="monograph__controls" aria-label="Publication pages">
-            <button id="monograph-prev" type="button" aria-label="Halaman sebelumnya" disabled>←</button>
-            <span id="monograph-counter" aria-live="polite">SPREAD 01 / 02</span>
-            <button id="monograph-next" type="button" aria-label="Halaman berikutnya">→</button>
-          </div>
-        </div>
-        <div class="monograph__visual" data-lazarus-decoration="illustrated paper spread" aria-hidden="true">
-          <div class="monograph__sculptural-ground"></div>
-          <div class="monograph__chiaroscuro"></div>
-          <div class="monograph__print-grain"></div>
-          <svg viewBox="0 0 620 650" preserveAspectRatio="xMidYMid slice">
-            <defs>
-              <linearGradient id="m-fabric" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#b47b6b"/><stop offset=".42" stop-color="#663f45"/><stop offset="1" stop-color="#bd8a74"/></linearGradient>
-              <linearGradient id="m-night" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#25394c"/><stop offset="1" stop-color="#111e30"/></linearGradient>
-              <linearGradient id="m-stone" x1="0" x2="1"><stop stop-color="#ddd2bd"/><stop offset=".65" stop-color="#8c867c"/><stop offset="1" stop-color="#c5b8a0"/></linearGradient>
-            </defs>
-            <rect width="620" height="650" fill="url(#m-night)"/>
-            <circle cx="366" cy="175" r="125" fill="#e3d2b6"/>
-            <circle cx="392" cy="152" r="125" fill="#b9a494" opacity=".26"/>
-            <path d="M-30 525 155 420 281 487 402 405 650 498V650H-30Z" fill="#415364"/>
-            <path d="M-40 560Q135 487 263 543T650 517V650H-40Z" fill="#24384a"/>
-            <path d="M184 567V281Q184 131 350 124Q516 137 516 281V567H427V285A77 77 0 0 0 273 285V567Z" fill="url(#m-stone)" fill-rule="evenodd"/>
-            <path d="M273 285A77 77 0 0 1 427 285V567H273Z" fill="#6c514e" opacity=".57"/>
-            <path d="M181 359H272M427 359H515M184 485H273M427 485H516" stroke="#675f5b" stroke-width="4" opacity=".35"/>
-            <path d="M-25 516C131 455 195 549 323 490S476 376 659 471V650H-25Z" fill="url(#m-fabric)"/>
-            <path d="M-25 516C117 479 190 560 323 502S490 400 659 483" stroke="#e0a48b" stroke-width="4" fill="none" opacity=".35"/>
-            <path d="M12 590Q151 546 295 590T618 570" fill="none" stroke="#edd1ad" opacity=".15" stroke-width="8"/>
-          </svg>
-          <div class="monograph__plate-label"><span>PLATE / 001</span><span>THE THRESHOLD OF FORM</span></div>
-          <div class="monograph__page-two"><span>PLATE / 002 — A MATERIAL STUDY</span><strong>A room remembers the light.</strong><small>PROCESS / SKETCH / REFLECTION</small></div>
-        </div>
-        <div class="monograph__side-note">BETWEEN THE OBJECT AND THE IMAGINED</div>
-      </div>
-      <footer class="monograph__footer"><span>FICTIONAL EDITORIAL STUDY</span><span>ARCHITECTURE AS AN UNFINISHED SENTENCE</span></footer>
-    </section>
-    <div class="artboard__below"><div><span class="rationale-label">THE STRUCTURAL IDEA</span><h3 id="concept-question">Can navigation feel like crossing a threshold?</h3></div><div><span class="rationale-label">READING ORDER</span><p id="concept-structure">Arrival → world → portal → evidence dossier.</p></div><div><span class="rationale-label">MOTION WITH A JOB</span><p id="concept-motion">Depth implies passage; a deliberate click reveals project evidence.</p></div><div><span class="rationale-label">TRADEOFF</span><p id="concept-tradeoff">Needs carefully designed accessible content when the 3D scene is absent.</p></div></div>
+  <section class="artboard monograph" id="panel-monograph" role="tabpanel" tabindex="0" aria-labelledby="tab-monograph" data-lazarus-section="monograph" hidden>
+    <div class="monograph__top"><span>SERA / STUDY OF FORM</span><span>ISSUE 01 — MATERIAL, MEMORY, LIGHT</span></div>
+    <div class="monograph__statement">
+      <p class="eyebrow">THE UNFOLDING MONOGRAPH</p>
+      <h2 data-lazarus-critical="monograph title">Places that<br><em>remember</em><br>the light.</h2>
+      <p class="lede" data-lazarus-critical="monograph description">A publication about a room, a passage, and the shadows that make both feel real.</p>
+    </div>
+    <figure class="monograph__plate" data-lazarus-critical="monograph master image">
+      <img src="assets/passage-master.webp" width="768" height="576" alt="Weathered limestone columns and a stairway, deep moonlit arches, distant mountain mist, and a single overhead terracotta fabric." loading="lazy" decoding="async">
+      <figcaption><span>PLATE 002 / THE PASSAGE</span><span>ONE CONTINUOUS IMAGE — NO COMPOSITED UI LAYERS</span></figcaption>
+    </figure>
+    <div class="monograph__footnote"><span>STUDY OF ATMOSPHERIC PERSPECTIVE</span><p>Editorial pacing comes from scale, margins, image sequence and typography—not extra floating objects.</p></div>
   </section>
-  <section class="research-note">
-    <span>METHOD / NOT A TEMPLATE</span>
-    <p>Kedua artboard ini adalah eksplorasi layout dan motion, bukan mockup fotorealistis atau situs klien yang siap dipublikasikan. Aset ilustratif dibuat sebagai SVG asli. Identitas, karya, tone of voice, tipografi final, dan data setiap klien tetap harus diturunkan dari bukti sebenarnya.</p>
-    <a href="./README.md">READ THE EXPERIMENT REPORT <span aria-hidden="true">↗</span></a>
-  </section>
+
+  <div class="artboard__below">
+    <div><span class="rationale-label">STRUCTURAL IDEA</span><h3 id="concept-question">Can a single authored image carry the atmosphere?</h3></div>
+    <div><span class="rationale-label">READING ORDER</span><p id="concept-structure">Statement → master scene → field note.</p></div>
+    <div><span class="rationale-label">LIGHTING & DEPTH</span><p id="concept-motion">Realistic material and depth are baked into the master asset; no browser parallax.</p></div>
+    <div><span class="rationale-label">LIMITATION</span><p id="concept-tradeoff">An illustration must never replace actual client achievements or project proof.</p></div>
+  </div>
+</section>
+<section class="research-note"><span>PRODUCTION RULE / NO VISUAL STACKS</span><p>No SVG. No decorative image layering. No pseudo-element illusions. Each concept uses exactly one independently framed master raster; text, navigation and interface remain outside the image.</p><a href="LIGHTING_DEPTH_MASTER.md">READ MASTER MAPPING ↗</a></section>
 </main>
-<footer class="site-footer"><span>LAZARUS DESIGN OS / SURREALIST FIELD LAB</span><span>ONE ART DIRECTION. TWO RETAINED STRUCTURES.</span><a href="../../">BACK TO DESIGN OS ↑</a></footer>
+<footer class="site-footer"><span>LAZARUS DESIGN OS / ART-DIRECTION RESEARCH</span><span>TWO COMPOSITIONS. ONE VISUAL WORLD.</span><a href="../../">BACK TO DESIGN OS ↑</a></footer>
 </body>
 </html>
