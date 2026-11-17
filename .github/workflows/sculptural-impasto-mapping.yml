@@ -6,6 +6,7 @@ on:
       - experiment/sculptural-impasto-visual-mapping-v1
     paths:
       - 'visual-directions/**'
+      - '.github/skills/lazarus-visual-mapper/**'
       - 'visual-lab/sculptural-impasto/**'
       - 'tests/sculptural-impasto-mapping.test.mjs'
       - 'scripts/check-sculptural-impasto-browser.mjs'
@@ -14,6 +15,7 @@ on:
   pull_request:
     paths:
       - 'visual-directions/**'
+      - '.github/skills/lazarus-visual-mapper/**'
       - 'visual-lab/sculptural-impasto/**'
       - 'tests/sculptural-impasto-mapping.test.mjs'
       - 'scripts/check-sculptural-impasto-browser.mjs'
