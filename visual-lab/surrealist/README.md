@@ -1,79 +1,56 @@
-# Surrealist Field Lab / 01
+# Surrealist Digital Editorial — Raster-Only Master Mapping
 
-**Experimental branch:** experiment/surrealist-direction-lab-01  
-**Parent system:** [Lazarus Design OS](../../README.md)  
-**Status:** Exploratory prototypes. **Not** a verified client website, production template, or photorealistic final design.
+This experimental branch implements **two surviving compositions**, each using **one complete raster image**:
 
-## What this is
+- **01 — The Threshold:** spatial narrative with singular image of moon, monumental sculpture, ruins, terracotta and mountains.
+- **02 — Unfolding Monograph:** editorial narrative with singular image of a moonlit architectural passage and staircase.
 
-The visual reference provided by Lazarus has a very specific grammar: nocturnal blue atmosphere, improbable classical architecture, stone/plaster surfaces, a celestial disc, terracotta textile, controlled editorial serif, and tactile depth. The reference uses a left-side typographic opening against a sculptural monument, followed by selected work, an editorial about, and a rust-colored ending.
+The previous assembled SVG portal, painted stone head, layered sky, orbit overlays, CSS drapery, fake lighting and mouse parallax were deliberately removed from the active HTML/CSS/JavaScript. The rejected Impossible Atlas remains outside the active prototype.
 
-That is a **visual language**, not a reusable page skeleton. This lab asks: can three structural proposals, of which two survived visual critique carry that language without copying the original reference's exact composition? We use one fictional test brief to control for content variation.
+## Non-negotiable production rule
 
-**Fictional study client:** SERA, a speculative architecture practice. The headings and three study titles are editorial placeholders, not professional claims, portfolio achievements or quotes from a real person. All depicted artwork is original vector construction in the page source. No assets, fonts or source files from the original reference artwork were copied.
+**No inline SVG, stacked images, multiple backgrounds, gradient decoration, pseudo-element illusions, artificial parallax or fabricated depth.** A visual scene is one image. Its lighting, stone textures, shadows and depth exist in the asset itself, not a browser effect. Text and controls are separate from artwork.
 
-## Explore locally
+## Asset provenance and transfer quality
 
-From the repository root:
+Two full-resolution generated PNG master artworks (1448 × 1086) were supplied in this conversation:
 
-~~~bash
-python3 -m http.server 8000
-~~~
+1. wajah_batu_di_bawah_cahaya_bulan.png — hero scene.
+2. arkadia_batu_di_bawah_cahaya_bulan.png — architectural passage.
 
-Open http://localhost:8000/visual-lab/surrealist/.
+Locally stored binary asset files now exist in the GitHub branch:
 
-Select the three direction tabs. The **two retained studies** respond to actual interaction:
-- **01 / The Threshold:** click *Enter the first room* for a substantive dossier. Pointer movement provides optional depth on compatible desktops. Close via the cross or Escape.
-- **02 / Unfolding Monograph:** move between two publication spreads with previous/next buttons. No forced scrolling.
+- assets/hero-master.webp
+- assets/passage-master.webp
 
-Keyboard: Left/Right and Home/End on the concept tabs. The artboards have visible focus states. Reduced-motion preferences disable transitions and parallax.
+**Quality caveat:** the connector transfer supplied only 200 × 150 staging thumbnails. These were upscaled into 768 × 576 WebP to provide working local browser previews. They are **not** pixel-faithful copies of the 1448 × 1086 masters and lose significant texture detail. This is an explicitly outstanding production gate. Replace them at identical paths with optimized WebP files made DIRECTLY from the two original PNGs. Do not call the currently staged preview derivatives finished art direction.
 
-## Two retained directions after rendered review
+To regenerate proper high-resolution derivatives with Pillow, use this Python script in the lab directory, with both original PNGs present:
 
-| Study | Information architecture | Typography | Visual center | Meaningful interaction | Cost |
-| --- | --- | --- | --- | --- | --- |
-| **A · The Threshold** | Arrival → threshold → dossier → evidence | Expansive poetic serif + deliberately secondary supporting text | A distant, illuminated architectural passage (no portrait bust) | Open a concise project dossier; optional subtle pointer depth | Atmosphere can exceed its informational value unless real project evidence appears immediately |
-| **B · Unfolding Monograph** | Editorial thesis → image plate → spread → deeper work | Overscale publication headline + hand-set page logic | Textile, stone and horizon as a printed plate | Manual page turn expresses chapter changes | Publications need reading/search fallback for large content sets |
+    from PIL import Image
+    from pathlib import Path
+    sources = {
+      "wajah_batu_di_bawah_cahaya_bulan.png": "assets/hero-master.webp",
+      "arkadia_batu_di_bawah_cahaya_bulan.png": "assets/passage-master.webp",
+    }
+    for source,target in sources.items():
+      image=Image.open(source).convert("RGB")
+      Path(target).parent.mkdir(parents=True,exist_ok=True)
+      image.save(target,format="WEBP",quality=85,method=6)
 
-They intentionally **do not** share identical hero blocks, project-card grids, CTA order, or scroll transitions. Shared motifs may be architectural, but the *reader's task* changes.
+This replacement requires no layout changes or additional visual layers.
 
-## Curatorial decision / 17 November 2026
+## Mapping, responsive behavior, testing
 
-**RETAIN** A — The Threshold, with a denser moonlit scene, suspended stone fragment, authored grain and restrained terracotta veil. **RETAIN** B — Unfolding Monograph, using an architectural plate, mineral shadows and two materially different editorial spreads. A proposed vector portrait was rejected after actual render review and deleted. **CUT** Impossible Atlas from the active gallery and JS/CSS: despite useful indexing, the visual plate was an ordinary geometric diagram and failed the intended material, atmosphere and impossible-world language. Its rationale is preserved in EXPERIMENT_REPORT.md, not shipped as a design direction.
+Read [LIGHTING_DEPTH_MASTER.md](LIGHTING_DEPTH_MASTER.md) for five depth planes (D0–D4), cool moon key from high-left, warm stone/terracotta bounce, receding mist and strict rules against browser-side relighting.
 
-This is a subjective creative review based on actual Chromium screenshots, **not** an objective originality score. A successful browser run is still not equivalent to a final art-direction approval.
+The source includes responsive layouts, semantic tabs, disclosure, reduced-motion support and static no-layering tests.
 
-## Visual DNA — not a uniform token kit
+- Static QA: node --test tests/surrealist-lab.test.mjs
+- Browser QA: node scripts/check-surrealist-lab-browser.mjs
+- Artworks must load (naturalWidth > 0) at 320, 390, 640, 768, 1024, 1440 and landscape viewport sizes.
+- Review real screenshots before release.
 
-- **Material:** pale mineral surfaces, imperfect edges, distant terrain, celestial light and textile weight. The aim is spatial tension and an authored texture, not prepackaged gradients or glowing glass.
-- **Color relationship:** deep blue nocturnes against limestone/chalk; warm terracotta/copper as directional material rather than random CTA red. The Atlas and Monograph deliberately invert the balance for evidence-heavy reading.
-- **Typography:** expressive italic display with intentionally measured secondary reading; the monograph favors dramatic asymmetric typesetting, while the atlas favors legibility in a labelled index.
-- **Composition:** A is cinematic depth; B is a publication spread. The proposed Atlas was rejected after review because it read like conventional architectural information design rather than the surrealist world. Don't transpose one structure into another by palette swapping.
-- **Motion:** A provides spatial continuity, B visualizes selection, C communicates pagination. No autoplay, scroll-jacking or mandatory 3D.
-- **Mobile:** on small screens A becomes text first then illustration; B becomes publication copy then image spread. The illustrations cannot sit on top of legible content.
+SERA is fictional and supplies no evidence of professional experience. Lazarus Design OS voice, typography, original sources and release gates remain authoritative.
 
-## Relationship to the existing Design OS
-
-This lab is additive. It does **not** modify [Tone of Voice](../../docs/TONE_OF_VOICE_SYSTEM.md), the existing [Reference Atlas](../../docs/REFERENCE_ATLAS.md), the seven client-specific alternatives in the Direction Room, or the release gates.
-
-The seven named *visual families* provided by Lazarus are different from the seven *technical mechanism* studies in the Reference Atlas. Neither should replace the other. The voice is selected from client evidence and audiences **independently** from any visual family. A whimsical or surreal surface does not give permission to write first-person quotations or attribute eccentricity to the client.
-
-The **three grayscale same-copy typography specimens** in the Design OS workflow are still mandatory when a real client is selected. These color artboards do not pretend to fulfill that client-specific gate.
-
-## If promoted to a real client project
-
-1. Read their CV, authenticated work, photographs, writing and practical audience goals.
-2. Keep the seven-structure comparison demanded by Design OS; this lab offers only three explorations *within one style family*.
-3. Pick the visual direction independently from the five tone-of-voice starting families; justify any hybrid.
-4. Run the real-content typography gate and font/license review, and write a verified source ledger.
-5. Replace these SVG scene sketches with appropriately licensed photographs, authorized illustrations or original 3D assets **only if** they serve the person's real work.
-6. Include complete project details, contact actions and functional navigation; the current concept buttons are not a finished portfolio.
-7. Perform actual browser QA: section-by-section screenshots at 320 and 390 CSS px, 640/768/1024/1440, short landscape, text enlargement, contrast, navigation, touch, keyboard and reduced motion.
-
-## Testability
-
-- Static checks: node --test tests/surrealist-lab.test.mjs
-- Browser and screenshot checks (requires Playwright/Chromium): node scripts/check-surrealist-lab-browser.mjs
-- Screenshots and test report are written under screenshots/surrealist-lab/.
-
-See [EXPERIMENT_REPORT.md](EXPERIMENT_REPORT.md) for the evidence matrix, known limitations and next creative hypotheses. **Do not mark the visual integrity gate as passed solely from source inspection or a script's success.**
+**Current release status:** structural and art-direction exploration. Preview-quality raster assets must be replaced by original-quality derivatives before approving production.
