@@ -1,0 +1,902 @@
+{
+  "schemaVersion": 1,
+  "library": "Lazarus Scroll Director",
+  "researchDate": "2026-11-21",
+  "definition": "15 independent scroll interaction patterns; selection is problem-led, not a design-style preset.",
+  "maxRecommendedSystems": 2,
+  "maxDominantSystems": 1,
+  "readerJobs": [
+    "compare-artifacts",
+    "demonstrate-making",
+    "explore-portfolio",
+    "follow-chronology",
+    "interpret-data",
+    "map-journey",
+    "navigate-longform",
+    "read-evidence",
+    "read-longform",
+    "scan-chapters",
+    "study-transformation",
+    "tell-photo-story",
+    "understand-process",
+    "understand-space"
+  ],
+  "evidenceTags": [
+    "licensed-media",
+    "paired-authentic-assets",
+    "verified-chronology",
+    "verified-data",
+    "verified-evidence",
+    "verified-process",
+    "verified-sections"
+  ],
+  "sources": [
+    {
+      "id": "figma-sites-interactions",
+      "title": "Figma Sites — add interactions",
+      "url": "https://help.figma.com/hc/en-us/articles/35895820755095-Figma-Sites-collection-Add-interactions-to-a-website",
+      "kind": "official-doc"
+    },
+    {
+      "id": "figma-sticky",
+      "title": "Figma Sites — position elements",
+      "url": "https://help.figma.com/hc/en-us/articles/31242774629655-Position-elements-in-a-webpage",
+      "kind": "official-doc"
+    },
+    {
+      "id": "figma-scroll",
+      "title": "Figma prototype — scroll and overflow",
+      "url": "https://help.figma.com/hc/en-us/articles/360039818734-Prototype-scroll-and-overflow-behavior",
+      "kind": "official-doc"
+    },
+    {
+      "id": "mdn-scroll",
+      "title": "MDN — CSS scroll-driven animations",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Scroll-driven_animations",
+      "kind": "platform-doc"
+    },
+    {
+      "id": "mdn-snap",
+      "title": "MDN — CSS scroll snap",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Scroll_snap",
+      "kind": "platform-doc"
+    },
+    {
+      "id": "mdn-observer",
+      "title": "MDN — Intersection Observer",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API",
+      "kind": "platform-doc"
+    },
+    {
+      "id": "mdn-motion",
+      "title": "MDN — reduced motion media query",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Media_queries/Using_for_accessibility",
+      "kind": "platform-doc"
+    },
+    {
+      "id": "gsap-scrolltrigger",
+      "title": "GSAP — ScrollTrigger",
+      "url": "https://gsap.com/docs/v3/Plugins/ScrollTrigger/",
+      "kind": "library-doc"
+    },
+    {
+      "id": "gsap-sequence",
+      "title": "GSAP — Image Sequence Scrub",
+      "url": "https://gsap.com/docs/v3/HelperFunctions/helpers/imageSequenceScrub/",
+      "kind": "library-doc"
+    },
+    {
+      "id": "gsap-matchmedia",
+      "title": "GSAP — matchMedia and cleanup",
+      "url": "https://gsap.com/docs/v3/GSAP/gsap.matchMedia%28%29/",
+      "kind": "library-doc"
+    },
+    {
+      "id": "motion-scroll",
+      "title": "Motion — useScroll",
+      "url": "https://motion.dev/docs/react-use-scroll",
+      "kind": "library-doc"
+    },
+    {
+      "id": "motion-transform",
+      "title": "Motion — useTransform",
+      "url": "https://motion.dev/docs/react-use-transform",
+      "kind": "library-doc"
+    },
+    {
+      "id": "motion-text",
+      "title": "Motion — text animation",
+      "url": "https://motion.dev/docs/text-animation",
+      "kind": "library-doc"
+    },
+    {
+      "id": "superdesign-journey",
+      "title": "Superdesign — Scroll Journey Line",
+      "url": "https://superdesign.dev/library/scroll-journey-line",
+      "kind": "design-prompt"
+    },
+    {
+      "id": "superdesign-horizontal",
+      "title": "Superdesign — GASP, horizontal setup",
+      "url": "https://superdesign.dev/library/gasp",
+      "kind": "design-prompt"
+    },
+    {
+      "id": "superdesign-website",
+      "title": "Superdesign — website experiment",
+      "url": "https://superdesign.dev/library/website",
+      "kind": "design-prompt"
+    },
+    {
+      "id": "superdesign-process",
+      "title": "Superdesign — scroll-traced curve",
+      "url": "https://superdesign.dev/library/animated-dark-landing-page-geometric-display-type-with-a-scroll-traced-data-curve-and-ember-glow",
+      "kind": "design-prompt"
+    },
+    {
+      "id": "w3c-motion",
+      "title": "W3C — Understanding animation from interactions",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/animation-from-interactions",
+      "kind": "standards"
+    },
+    {
+      "id": "w3c-pause",
+      "title": "W3C — Pause, Stop, Hide",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/pause-stop-hide",
+      "kind": "standards"
+    }
+  ],
+  "systems": [
+    {
+      "id": "reading-progress-rail",
+      "title": "Reading Progress Rail",
+      "family": "navigation",
+      "role": "supporting",
+      "complexity": "low",
+      "readerJobs": [
+        "navigate-longform",
+        "read-longform"
+      ],
+      "requiredEvidenceTags": [
+        "verified-sections"
+      ],
+      "purpose": "Show genuine position in a long readable document, not an ornamental percentage.",
+      "trigger": "Root document scroll relative to scrollable height.",
+      "canonicalState": "Clamp scrollTop / max(1, scrollHeight - viewportHeight) to 0..1; guard zero-length document.",
+      "visibleResult": "An optional progress indicator complementary to headings and anchors.",
+      "implementation": {
+        "baseline": "Semantic HTML in reading order, content complete before enhancement.",
+        "native": "CSS animation-timeline: scroll(root block) inside @supports; keep indicator purely supplemental.",
+        "advanced": "Coalesced passive scroll + resize observer or Motion useScroll for a semantic aria-valuenow when needed."
+      },
+      "fallback": {
+        "noJs": "All document sections and headings remain readable without the rail.",
+        "reducedMotion": "Remove the moving rail or show a static section index; do not trap reading.",
+        "mobile": "Use a subtle or absent rail on small screens; never overlap headers or system navigation."
+      },
+      "qa": [
+        "zero-scroll-height",
+        "bottom-reach",
+        "resize-progress",
+        "keyboard",
+        "reduced-motion",
+        "mobile-320"
+      ],
+      "rejectWhen": "Page is short, there is no longform need, or the marker pretends to represent meaningful milestones.",
+      "sourceIds": [
+        "mdn-scroll",
+        "motion-scroll",
+        "mdn-motion"
+      ],
+      "relatedAtlasMechanisms": [],
+      "risks": [
+        "fixed rail can cover content"
+      ],
+      "prototypeStatus": "research-only"
+    },
+    {
+      "id": "chapter-index-sync",
+      "title": "Scroll-Synced Chapter Index",
+      "family": "navigation",
+      "role": "supporting",
+      "complexity": "medium",
+      "readerJobs": [
+        "navigate-longform",
+        "scan-chapters",
+        "follow-chronology"
+      ],
+      "requiredEvidenceTags": [
+        "verified-sections"
+      ],
+      "purpose": "Help readers find sections and know which chapter is currently being read.",
+      "trigger": "Section visibility crossings plus explicit anchor navigation.",
+      "canonicalState": "One active section ID selected by a deterministic visibility policy; URL anchors remain authoritative.",
+      "visibleResult": "A linked table of contents receives aria-current=\"location\" on its active link.",
+      "implementation": {
+        "baseline": "Semantic HTML in reading order, content complete before enhancement.",
+        "native": "Native sticky navigation and IntersectionObserver (activation), plus scroll-margin-top for anchors.",
+        "advanced": "GSAP ScrollTrigger enter/enterBack for complex pinned contexts; same section ID model."
+      },
+      "fallback": {
+        "noJs": "The table of contents is a functioning set of fragment links without JS.",
+        "reducedMotion": "Disable animated index transitions, retain the exact active link.",
+        "mobile": "Recompose to an ordinary compact jump list rather than a persistent overlay."
+      },
+      "qa": [
+        "anchor-deeplink",
+        "hash-history",
+        "active-state",
+        "keyboard",
+        "reverse-scroll",
+        "sticky-header",
+        "mobile-320"
+      ],
+      "rejectWhen": "Fewer than three meaningful chapters or current-section status has no practical benefit.",
+      "sourceIds": [
+        "figma-sticky",
+        "mdn-observer",
+        "gsap-scrolltrigger"
+      ],
+      "relatedAtlasMechanisms": [
+        "chronology-state"
+      ],
+      "risks": [],
+      "prototypeStatus": "research-only"
+    },
+    {
+      "id": "native-snap-strip",
+      "title": "Native Snap Chapter Strip",
+      "family": "navigation",
+      "role": "supporting",
+      "complexity": "low",
+      "readerJobs": [
+        "explore-portfolio",
+        "scan-chapters",
+        "compare-artifacts"
+      ],
+      "requiredEvidenceTags": [
+        "licensed-media"
+      ],
+      "purpose": "Allow direct browsing of finite media or related chapters without forced page pinning.",
+      "trigger": "User-driven horizontal swipe, trackpad, keyboard/tab and previous/next controls.",
+      "canonicalState": "Native scroll position and stable item IDs; no fake carousel index separate from the DOM.",
+      "visibleResult": "A horizontally scrollable group using proximity snapping and visible neighboring context.",
+      "implementation": {
+        "baseline": "Semantic HTML in reading order, content complete before enhancement.",
+        "native": "overflow-x:auto; scroll-snap-type:x proximity; scroll-padding; anchor links or real buttons.",
+        "advanced": "Optional JS scrollIntoView and an IntersectionObserver to update a live position label."
+      },
+      "fallback": {
+        "noJs": "The overflow container remains natively scrollable and every item stays in DOM.",
+        "reducedMotion": "Keep native scroll behavior; disable animated smooth scrolling.",
+        "mobile": "Use touch-native swiping with visible next/previous access; avoid horizontal-only text."
+      },
+      "qa": [
+        "keyboard-focus",
+        "scroll-escape",
+        "oversize-items",
+        "touch",
+        "long-copy",
+        "focus-visibility",
+        "mobile-320"
+      ],
+      "rejectWhen": "A carousel hides core prose, traps keyboard focus, or mandatory snapping prevents reading a tall card.",
+      "sourceIds": [
+        "mdn-snap",
+        "figma-scroll"
+      ],
+      "relatedAtlasMechanisms": [],
+      "risks": [],
+      "prototypeStatus": "implemented-demo"
+    },
+    {
+      "id": "sticky-evidence-exchange",
+      "title": "Sticky Evidence Exchange",
+      "family": "narrative",
+      "role": "dominant",
+      "complexity": "medium",
+      "readerJobs": [
+        "read-evidence",
+        "compare-artifacts",
+        "understand-process"
+      ],
+      "requiredEvidenceTags": [
+        "verified-evidence",
+        "verified-sections"
+      ],
+      "purpose": "Let one evidence illustration stay visible while sequential verified findings change its interpretation.",
+      "trigger": "Narrative steps enter a defined viewport band.",
+      "canonicalState": "Active step ID derived from the currently intersecting section; never manage a parallel scene clock.",
+      "visibleResult": "Sticky panel updates supporting label or diagram while all evidence steps remain in document order.",
+      "implementation": {
+        "baseline": "Semantic HTML in reading order, content complete before enhancement.",
+        "native": "CSS position:sticky and IntersectionObserver; use real captions and figures.",
+        "advanced": "Motion useScroll or GSAP ScrollTrigger only if interpolation between steps is necessary."
+      },
+      "fallback": {
+        "noJs": "Show evidence and interpretation beside each step without a persistent stage.",
+        "reducedMotion": "Replace sticky stage with ordinary figures and captions.",
+        "mobile": "At 320/390px place the figure immediately before its relevant step, not over the text."
+      },
+      "qa": [
+        "reverse-scroll",
+        "short-height",
+        "focus-order",
+        "reading-order",
+        "resize",
+        "mobile-320",
+        "mobile-390",
+        "no-js-content"
+      ],
+      "rejectWhen": "Every step uses the same unrelated image or the pinned stage is taller than the viewport.",
+      "sourceIds": [
+        "figma-sticky",
+        "mdn-observer",
+        "gsap-scrolltrigger"
+      ],
+      "relatedAtlasMechanisms": [
+        "evidence-state",
+        "progressive-chapter"
+      ],
+      "risks": [],
+      "prototypeStatus": "implemented-demo"
+    },
+    {
+      "id": "data-linked-scrub",
+      "title": "Data-Linked Scrollytelling",
+      "family": "narrative",
+      "role": "dominant",
+      "complexity": "high",
+      "readerJobs": [
+        "interpret-data",
+        "understand-process",
+        "compare-artifacts"
+      ],
+      "requiredEvidenceTags": [
+        "verified-data"
+      ],
+      "purpose": "Coordinate observed values, plot cursor, units and explanation from one sourced dataset.",
+      "trigger": "Scroll stage progress or deliberate step changes (with explicit value navigation).",
+      "canonicalState": "One clamped progress variable resolves one deterministic row or interpolation, with data provenance.",
+      "visibleResult": "Text readout and chart marker reflect the same point, never fabricated telemetry.",
+      "implementation": {
+        "baseline": "Semantic HTML in reading order, content complete before enhancement.",
+        "native": "Use a static SVG chart/table first; optional CSS view timeline for visual emphasis.",
+        "advanced": "GSAP scrub or Motion useScroll -> useTransform; retain exact textual value navigation."
+      },
+      "fallback": {
+        "noJs": "A labelled table and descriptive chart expose all relevant values.",
+        "reducedMotion": "Show chart plus static annotated values in reading order.",
+        "mobile": "Unpin data graphics for cramped screens; data table remains directly reachable."
+      },
+      "qa": [
+        "data-authenticity",
+        "unit-labels",
+        "state-sync",
+        "reverse-scroll",
+        "keyboard",
+        "no-js-content",
+        "mobile-320"
+      ],
+      "rejectWhen": "Sources lack real numeric data or the interpolation suggests unobserved precision.",
+      "sourceIds": [
+        "superdesign-process",
+        "motion-scroll",
+        "gsap-scrolltrigger"
+      ],
+      "relatedAtlasMechanisms": [
+        "synchronized-process-plot"
+      ],
+      "risks": [
+        "false precision",
+        "hidden data"
+      ],
+      "prototypeStatus": "research-only"
+    },
+    {
+      "id": "svg-journey-trace",
+      "title": "SVG Journey Trace",
+      "family": "narrative",
+      "role": "dominant",
+      "complexity": "medium",
+      "readerJobs": [
+        "follow-chronology",
+        "understand-process",
+        "map-journey"
+      ],
+      "requiredEvidenceTags": [
+        "verified-chronology"
+      ],
+      "purpose": "Visually connect a documented sequence with a line that advances along actual milestones.",
+      "trigger": "Document or section scroll progress.",
+      "canonicalState": "Path progress from measured length and validated stage positions, mapped to chronology IDs.",
+      "visibleResult": "stroke-dashoffset draws connecting path; real list titles remain always visible.",
+      "implementation": {
+        "baseline": "Semantic HTML in reading order, content complete before enhancement.",
+        "native": "SVG vector-effect where appropriate; CSS scroll timeline where supported; path visible as baseline.",
+        "advanced": "Motion useScroll + pathLength / GSAP; compute real SVG length, no hardcoded decorative route units."
+      },
+      "fallback": {
+        "noJs": "A complete ordered chronology with explicit dates and content.",
+        "reducedMotion": "Render a static visible connector or a plain timeline list.",
+        "mobile": "Replace complex curves with short vertical connector or no connector."
+      },
+      "qa": [
+        "path-resize",
+        "reverse-scroll",
+        "no-js-content",
+        "reading-order",
+        "date-authenticity",
+        "mobile-320"
+      ],
+      "rejectWhen": "The route implies precise geography or time without supporting source data.",
+      "sourceIds": [
+        "superdesign-journey",
+        "motion-scroll",
+        "mdn-scroll"
+      ],
+      "relatedAtlasMechanisms": [
+        "progressive-chapter"
+      ],
+      "risks": [
+        "route looks like factual GIS data"
+      ],
+      "prototypeStatus": "research-only"
+    },
+    {
+      "id": "horizontal-editorial-gallery",
+      "title": "Horizontal Editorial Gallery",
+      "family": "editorial",
+      "role": "dominant",
+      "complexity": "high",
+      "readerJobs": [
+        "explore-portfolio",
+        "read-longform",
+        "compare-artifacts"
+      ],
+      "requiredEvidenceTags": [
+        "licensed-media",
+        "verified-sections"
+      ],
+      "purpose": "Present a genuine sequence of visual work as an editorial spread with spatial continuity.",
+      "trigger": "Vertical section scroll mapped to horizontal track travel, only when explicitly justified.",
+      "canonicalState": "Travel distance max(0, scrollWidth - clientWidth), recomputed for resize/images/font load.",
+      "visibleResult": "Track traverses framed work while every panel has anchors, headings and accessible links.",
+      "implementation": {
+        "baseline": "Semantic HTML in reading order, content complete before enhancement.",
+        "native": "Prefer a native horizontal overflow gallery before considering pinned vertical-to-horizontal mapping.",
+        "advanced": "GSAP ScrollTrigger pin/scrub with matchMedia cleanup, focus navigation and anchor correction."
+      },
+      "fallback": {
+        "noJs": "All panels remain accessible in normal vertical DOM flow or via native overflow.",
+        "reducedMotion": "No pinning; stack editorial panels vertically.",
+        "mobile": "Use swipe-native or vertically stacked panels; never translate offscreen focused text."
+      },
+      "qa": [
+        "focus-reveal",
+        "horizontal-escape",
+        "touch",
+        "short-height",
+        "content-width-resize",
+        "reverse-scroll",
+        "mobile-320"
+      ],
+      "rejectWhen": "Long reading copy, essential controls offscreen, or panels could not be reached by keyboard.",
+      "sourceIds": [
+        "superdesign-horizontal",
+        "gsap-scrolltrigger",
+        "gsap-matchmedia"
+      ],
+      "relatedAtlasMechanisms": [
+        "progressive-chapter"
+      ],
+      "risks": [
+        "scroll hijack",
+        "offscreen focused controls"
+      ],
+      "prototypeStatus": "research-only"
+    },
+    {
+      "id": "layered-card-stack",
+      "title": "Layered Card Stack",
+      "family": "editorial",
+      "role": "dominant",
+      "complexity": "medium",
+      "readerJobs": [
+        "scan-chapters",
+        "compare-artifacts",
+        "explore-portfolio"
+      ],
+      "requiredEvidenceTags": [
+        "verified-sections"
+      ],
+      "purpose": "Convey accumulating chapters or a physical stack of related authentic artifacts.",
+      "trigger": "Each card enters sticky viewport position then yields to the next.",
+      "canonicalState": "DOM order is canonical; CSS sticky top offsets establish the visual pile only.",
+      "visibleResult": "Cards overlap gradually while headings and focusable elements remain accessible.",
+      "implementation": {
+        "baseline": "Semantic HTML in reading order, content complete before enhancement.",
+        "native": "CSS position:sticky with finite container and short section geometry, avoid forced heights.",
+        "advanced": "Optional GSAP scale/translate for restrained depth; no opacity fade that hides content."
+      },
+      "fallback": {
+        "noJs": "Plain sequential card list with identical content and intact headings.",
+        "reducedMotion": "Disable overlap, preserve natural flow.",
+        "mobile": "Unstack into full-width articles with comfortable spacing."
+      },
+      "qa": [
+        "tab-focus",
+        "short-height",
+        "card-overlap",
+        "reading-order",
+        "reverse-scroll",
+        "mobile-320"
+      ],
+      "rejectWhen": "Interactive controls are covered by later cards or stories have no accumulating relationship.",
+      "sourceIds": [
+        "figma-sticky",
+        "gsap-scrolltrigger"
+      ],
+      "relatedAtlasMechanisms": [
+        "progressive-chapter"
+      ],
+      "risks": [
+        "overlap may conceal buttons"
+      ],
+      "prototypeStatus": "research-only"
+    },
+    {
+      "id": "depth-parallax-theatre",
+      "title": "Depth Parallax Theatre",
+      "family": "editorial",
+      "role": "dominant",
+      "complexity": "high",
+      "readerJobs": [
+        "explore-portfolio",
+        "understand-space",
+        "tell-photo-story"
+      ],
+      "requiredEvidenceTags": [
+        "licensed-media"
+      ],
+      "purpose": "Show spatial relationships in multi-layer illustration or authentic architectural imagery.",
+      "trigger": "Scene-local scroll progress, not pointer position.",
+      "canonicalState": "Single progress value transformed to bounded depth offsets per decor layer.",
+      "visibleResult": "Foreground and distant layers travel at restrained relative speeds; copy stays fixed in reading order.",
+      "implementation": {
+        "baseline": "Semantic HTML in reading order, content complete before enhancement.",
+        "native": "CSS view timeline for transform-only optional decor with baseline layered composition.",
+        "advanced": "Motion useScroll/useTransform or GSAP for geometry-linked depth; throttle Canvas loops."
+      },
+      "fallback": {
+        "noJs": "A composed static layered image/illustration with full description.",
+        "reducedMotion": "Zero transform, no animated zoom; show static composition.",
+        "mobile": "Limit travel; protect readability and prefer single-layer composition on narrow screens."
+      },
+      "qa": [
+        "reduced-motion",
+        "text-contrast",
+        "image-license",
+        "low-power",
+        "resize",
+        "mobile-320"
+      ],
+      "rejectWhen": "Motion competes with text, layers have no narrative/spatial purpose, or visual occludes controls.",
+      "sourceIds": [
+        "figma-sites-interactions",
+        "mdn-scroll",
+        "motion-transform"
+      ],
+      "relatedAtlasMechanisms": [
+        "meaningful-media-reveal"
+      ],
+      "risks": [
+        "vestibular discomfort",
+        "GPU memory"
+      ],
+      "prototypeStatus": "research-only"
+    },
+    {
+      "id": "aperture-mask-reveal",
+      "title": "Aperture & Mask Reveal",
+      "family": "transformation",
+      "role": "dominant",
+      "complexity": "medium",
+      "readerJobs": [
+        "tell-photo-story",
+        "compare-artifacts",
+        "study-transformation"
+      ],
+      "requiredEvidenceTags": [
+        "licensed-media"
+      ],
+      "purpose": "Control what part of a verified image is revealed to support a real discovery.",
+      "trigger": "Section-local normalized scroll range.",
+      "canonicalState": "Clip inset/radius/shape interpolated from progress with clear 0 and 1 endpoints.",
+      "visibleResult": "More of an authentic image becomes visible while caption and subject remain legible.",
+      "implementation": {
+        "baseline": "Semantic HTML in reading order, content complete before enhancement.",
+        "native": "Use CSS clip-path and @supports(animation-timeline: view()); baseline shows full image.",
+        "advanced": "Motion useTransform to clip-path or GSAP timeline; no hidden media dependency."
+      },
+      "fallback": {
+        "noJs": "Full authentic photograph with meaningful caption and readable context.",
+        "reducedMotion": "Show entire still immediately (not a frozen aperture).",
+        "mobile": "Use contextual image crop and no forced reveal."
+      },
+      "qa": [
+        "content-visibility",
+        "image-failure",
+        "reduced-motion",
+        "contrast",
+        "mobile-crop",
+        "reverse-scroll"
+      ],
+      "rejectWhen": "Reveal conceals essential details or the image has no factual narrative role.",
+      "sourceIds": [
+        "mdn-scroll",
+        "motion-scroll",
+        "superdesign-website"
+      ],
+      "relatedAtlasMechanisms": [
+        "meaningful-media-reveal"
+      ],
+      "risks": [
+        "visibility of important text"
+      ],
+      "prototypeStatus": "research-only"
+    },
+    {
+      "id": "before-after-wipe",
+      "title": "Before–After Split Reveal",
+      "family": "transformation",
+      "role": "dominant",
+      "complexity": "medium",
+      "readerJobs": [
+        "compare-artifacts",
+        "study-transformation",
+        "read-evidence"
+      ],
+      "requiredEvidenceTags": [
+        "paired-authentic-assets"
+      ],
+      "purpose": "Compare two documented states of the same artifact with identical framing.",
+      "trigger": "Scroll progress or user-controlled native range slider.",
+      "canonicalState": "Reveal fraction clamped 0..1, with labelled before/after captions sharing one model.",
+      "visibleResult": "A split view lets readers inspect change without losing context.",
+      "implementation": {
+        "baseline": "Semantic HTML in reading order, content complete before enhancement.",
+        "native": "Two images same size/alignment, CSS clip-path, native range input as direct control.",
+        "advanced": "Motion scroll mapping only when it does not replace direct keyboard/touch comparison."
+      },
+      "fallback": {
+        "noJs": "Two full, correctly labelled images displayed consecutively.",
+        "reducedMotion": "Side-by-side or stacked before/after stills; interactive range remains operable if offered.",
+        "mobile": "Stack images and prefer a draggable native slider with enough target size."
+      },
+      "qa": [
+        "alignment",
+        "source-authenticity",
+        "slider-keyboard",
+        "touch",
+        "focus",
+        "no-js-content",
+        "mobile-320"
+      ],
+      "rejectWhen": "Before/after images are unrelated or the interactive view hides material evidence.",
+      "sourceIds": [
+        "mdn-scroll",
+        "superdesign-website"
+      ],
+      "relatedAtlasMechanisms": [
+        "meaningful-media-reveal"
+      ],
+      "risks": [
+        "false causal implication"
+      ],
+      "prototypeStatus": "research-only"
+    },
+    {
+      "id": "object-sequence-scrub",
+      "title": "Object Sequence Scrub",
+      "family": "transformation",
+      "role": "dominant",
+      "complexity": "high",
+      "readerJobs": [
+        "study-transformation",
+        "understand-process",
+        "demonstrate-making"
+      ],
+      "requiredEvidenceTags": [
+        "verified-process",
+        "licensed-media"
+      ],
+      "purpose": "Reveal actual steps of making through ordered frames or reproducible object states.",
+      "trigger": "Section progress mapped to discrete frame indices.",
+      "canonicalState": "frameIndex=floor(clamp01(progress)*(frameCount-1)); index reused for caption and object.",
+      "visibleResult": "Sourced visual stages show real change, optionally supplemented by model rotation.",
+      "implementation": {
+        "baseline": "Semantic HTML in reading order, content complete before enhancement.",
+        "native": "Use still frames or sprite/CSS step animation with an accessible stage index.",
+        "advanced": "Canvas image-sequence/GSAP with preloading window, frame caching, DPR cap and cleanup."
+      },
+      "fallback": {
+        "noJs": "Contact sheet of labelled stages or representative source frames.",
+        "reducedMotion": "Provide immediately readable beginning/middle/end annotated images.",
+        "mobile": "Use 2–4 representative stills, without a pinned multi-screen preload stage."
+      },
+      "qa": [
+        "missing-frames",
+        "network-failure",
+        "memory-pressure",
+        "visibility-pause",
+        "reduced-motion",
+        "reverse-scroll"
+      ],
+      "rejectWhen": "Frames are generated without evidence or media budget blocks reading/performance.",
+      "sourceIds": [
+        "gsap-sequence",
+        "gsap-scrolltrigger"
+      ],
+      "relatedAtlasMechanisms": [
+        "dom-measured-plot"
+      ],
+      "risks": [
+        "asset weight",
+        "canvas not screen-reader accessible"
+      ],
+      "prototypeStatus": "research-only"
+    },
+    {
+      "id": "typographic-disclosure",
+      "title": "Typographic Disclosure",
+      "family": "experimental",
+      "role": "dominant",
+      "complexity": "medium",
+      "readerJobs": [
+        "read-longform",
+        "read-evidence",
+        "scan-chapters"
+      ],
+      "requiredEvidenceTags": [
+        "verified-sections"
+      ],
+      "purpose": "Reveal a documented statement progressively to match a valid editorial argument.",
+      "trigger": "Per-word or per-phrase view progress.",
+      "canonicalState": "Progress maps to visual emphasis only; semantic text content is always complete.",
+      "visibleResult": "Words shift emphasis or underline rather than becoming undiscoverable text.",
+      "implementation": {
+        "baseline": "Semantic HTML in reading order, content complete before enhancement.",
+        "native": "CSS background-size/color/opacity on decor and native readable text; limit effect to a short quote.",
+        "advanced": "Motion useScroll with stable pre-rendered text spans; no per-character layout shifts."
+      },
+      "fallback": {
+        "noJs": "Full paragraph remains visible and readable without script.",
+        "reducedMotion": "Remove all progressive word fills and masks; full text has correct contrast.",
+        "mobile": "Use modest highlight; no horizontal moving marquee inside body copy."
+      },
+      "qa": [
+        "contrast-at-progress",
+        "screen-reader-text",
+        "font-resize",
+        "text-spacing",
+        "reduced-motion",
+        "mobile-320"
+      ],
+      "rejectWhen": "Text is hidden until the user scrolls, reading order breaks, or every paragraph gets animated.",
+      "sourceIds": [
+        "motion-text",
+        "superdesign-process"
+      ],
+      "relatedAtlasMechanisms": [
+        "progressive-chapter"
+      ],
+      "risks": [
+        "screen-reader fragmentation",
+        "contrast failure"
+      ],
+      "prototypeStatus": "research-only"
+    },
+    {
+      "id": "spatial-zoom-transit",
+      "title": "Spatial Zoom Transit",
+      "family": "experimental",
+      "role": "dominant",
+      "complexity": "high",
+      "readerJobs": [
+        "understand-space",
+        "tell-photo-story",
+        "explore-portfolio"
+      ],
+      "requiredEvidenceTags": [
+        "licensed-media"
+      ],
+      "purpose": "Explain a real nesting of scales, e.g. overview to a specific project detail.",
+      "trigger": "Local progress of a scene anchored to a sequence of verified visual contexts.",
+      "canonicalState": "Camera transform bounded by specific target anchors; not an infinite decorative zoom.",
+      "visibleResult": "View transitions from contextual overview to documented detail.",
+      "implementation": {
+        "baseline": "Semantic HTML in reading order, content complete before enhancement.",
+        "native": "CSS transformed images and anchor targets with static accessible alternatives.",
+        "advanced": "Motion/GSAP transform timeline; optional WebGL only if real 3D is essential, with resource controls."
+      },
+      "fallback": {
+        "noJs": "Overview image and detailed crop as separate images with headings and captions.",
+        "reducedMotion": "Replace zoom with a simple cut and explicit navigation.",
+        "mobile": "No large auto camera moves; stack detail and overview naturally."
+      },
+      "qa": [
+        "motion-sickness",
+        "focus-visibility",
+        "crop-quality",
+        "low-power",
+        "resize",
+        "mobile-320"
+      ],
+      "rejectWhen": "Zoom adds no information or imposes rapid viewport-scale movement.",
+      "sourceIds": [
+        "motion-scroll",
+        "mdn-motion",
+        "gsap-scrolltrigger"
+      ],
+      "relatedAtlasMechanisms": [
+        "meaningful-media-reveal",
+        "visibility-aware-drawing"
+      ],
+      "risks": [
+        "vestibular discomfort"
+      ],
+      "prototypeStatus": "research-only"
+    },
+    {
+      "id": "radial-chronology",
+      "title": "Radial Chronology Navigator",
+      "family": "experimental",
+      "role": "dominant",
+      "complexity": "high",
+      "readerJobs": [
+        "follow-chronology",
+        "navigate-longform",
+        "scan-chapters"
+      ],
+      "requiredEvidenceTags": [
+        "verified-chronology"
+      ],
+      "purpose": "Represent a cyclical or recurring documented chronology with geometric navigation.",
+      "trigger": "Scroll progression or explicit selection of one dated milestone.",
+      "canonicalState": "One canonical active year/ID derived from chronology data, shared between ring and readable list.",
+      "visibleResult": "Ring markers encode actual ordered events; each event remains a semantic link and article.",
+      "implementation": {
+        "baseline": "Semantic HTML in reading order, content complete before enhancement.",
+        "native": "Progressive enhanced SVG ring with native anchor-driven linear chronology underneath.",
+        "advanced": "Motion/GSAP derive rotation from the single selected ID; never replace real chronological links."
+      },
+      "fallback": {
+        "noJs": "Complete ordered dated timeline with real titles and active links.",
+        "reducedMotion": "Hide ring and show linear chronology, with no fake frozen radial control.",
+        "mobile": "Use a readable vertical index and direct anchors."
+      },
+      "qa": [
+        "keyboard",
+        "year-authenticity",
+        "screen-reader-order",
+        "reverse-scroll",
+        "focus-visible",
+        "mobile-320"
+      ],
+      "rejectWhen": "Events are simply linear and the radial structure creates worse comprehension.",
+      "sourceIds": [
+        "figma-scroll",
+        "mdn-observer",
+        "motion-scroll"
+      ],
+      "relatedAtlasMechanisms": [
+        "chronology-state"
+      ],
+      "risks": [
+        "chronological order becomes ambiguous"
+      ],
+      "prototypeStatus": "research-only"
+    }
+  ]
+}

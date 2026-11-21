@@ -20,6 +20,7 @@ Most AI-generated websites fail through **structural sameness** as well as visua
 10. [Anti-generic audit](docs/ANTI_GENERIC_AUDIT.md) — structured review of the actual rendered website.
 11. [Skill registry](docs/SKILL_REGISTRY.md) — external skill links plus original internal skills.
 11a. **[Reference Engineering](docs/REFERENCE_ENGINEERING.md)** — seven studied sources, twelve independently implementable mechanisms, decision validator, fallback recipes and source-bound QA.
+11b. **[Scroll Director](docs/SCROLL_SYSTEMS.md)** — 15 independent scrolling systems with evidence criteria, original engineering recipes, release QA and a live [Scroll Lab](scroll-lab/) demonstration.
 12. [Project brief](templates/PROJECT_BRIEF.md) → [type spec](templates/TYPE_SPEC.md) → [decisions record](templates/DESIGN_DECISIONS.md).
 13. [Panduan penggunaan Bahasa Indonesia](docs/GETTING_STARTED_ID.md) — cara menerapkan sistem ke proyek klien.
 
@@ -61,6 +62,7 @@ Original, project-local skills live in [`.github/skills/`](.github/skills/):
 - **[`lazarus-mobile-integrity`](.github/skills/lazarus-mobile-integrity/SKILL.md)** — deliberate mobile composition and visual collision prevention.
 - [`lazarus-apple-craft`](.github/skills/lazarus-apple-craft/SKILL.md) — Apple-level interaction, hierarchy and quality without visual imitation.
 - [`lazarus-reference-atlas`](.github/skills/lazarus-reference-atlas/SKILL.md) — select at most two evidence-backed mechanisms from the 12-mechanism [Reference Engineering registry](data/reference-mechanisms.json), implement independently, and verify fallback, provenance and QA.
+- **[`lazarus-scroll-director`](.github/skills/lazarus-scroll-director/SKILL.md)** — choose from 15 purposeful scroll grammars using verified reader jobs; allow no more than one dominant plus one supporting mechanism, sharing the global two-mechanism limit with Reference Engineering.
 
 These project skills follow [GitHub Copilot's documented `.github/skills/<skill>/SKILL.md` convention](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/add-skills); skill selection is contextual and depends on the coding agent's support. The third-party skills cited in the registry are *linked*, not copied or installed.
 
@@ -68,6 +70,8 @@ These project skills follow [GitHub Copilot's documented `.github/skills/<skill>
 ```sh
 node scripts/check-atlas.mjs
 node scripts/reference-engineering.mjs registry-check
+node scripts/scroll-director.mjs registry-check
+node --test tests/scroll-director.test.mjs
 node --test tests/reference-engineering.test.mjs
 node --test tests/design-contract.test.mjs
 node --check scripts/mobile-visual-audit.mjs

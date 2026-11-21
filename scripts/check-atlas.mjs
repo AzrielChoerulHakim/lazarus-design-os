@@ -9,6 +9,7 @@ function has(p) { return fs.existsSync(path.join(root, p)); }
 const required = ['README.md','AGENTS.md','DESIGN.md','index.html','styles.css','app.js','data/atlas-data.js','docs/APPLE_CRAFT_STANDARD.md','docs/ANTI_GENERIC_AUDIT.md','docs/REFERENCE_ATLAS.md','docs/RESEARCH_EVIDENCE.md','docs/SKILL_REGISTRY.md','docs/SOURCE_POLICY.md','docs/WORKFLOW.md','docs/TYPOGRAPHY_SYSTEM.md','docs/TYPOGRAPHY_QA.md','templates/CLIENT_AGENT.md','templates/TYPE_SPEC.md','.github/copilot-instructions.md','.github/skills/lazarus-type-director/SKILL.md','type-lab/index.html','type-lab/type-lab.css','type-lab/type-lab.js','type-lab/README.md'];
 required.push('docs/TONE_OF_VOICE_SYSTEM.md','docs/MOBILE_VISUAL_INTEGRITY.md','templates/TONE_OF_VOICE.md','templates/MOBILE_VISUAL_QA.md','scripts/mobile-visual-audit.mjs','tests/mobile-visual-audit.test.mjs','.github/skills/lazarus-voice-director/SKILL.md','.github/skills/lazarus-mobile-integrity/SKILL.md');
 required.push('docs/ORIGINALITY_PROTOCOL.md','docs/DESIGN_CONTRACT.md','docs/V4_DESIGN_DECISIONS.md','docs/v4-type-specimens.html','templates/design-contract.json','direction-room/index.html','direction-room/room.css','direction-room/room.mjs','direction-room/example.mjs','lib/design-contract.mjs','scripts/design-gate.mjs','tests/design-contract.test.mjs','scripts/check-direction-room-browser.mjs');
+required.push('docs/SCROLL_SYSTEMS.md','docs/scroll-systems/ADOPTION.md','docs/scroll-systems/IMPLEMENTATION_RECIPES.md','docs/scroll-systems/QA_MATRIX.md','docs/scroll-systems/SOURCES.md','data/scroll-systems.json','.github/skills/lazarus-scroll-director/SKILL.md','lib/scroll-director.mjs','scripts/scroll-director.mjs','templates/scroll-plan.json','tests/scroll-director.test.mjs','scroll-lab/index.html','scroll-lab/style.css','scroll-lab/app.js','scroll-lab/README.md');
 required.forEach(p => { if (!has(p)) errors.push('Missing: ' + p); });
 let studies = [];
 if (has('data/atlas-data.js')) {
@@ -61,7 +62,7 @@ if (has('index.html') && !fs.readFileSync(path.join(root,'index.html'),'utf8').i
 if (has('AGENTS.md') && !fs.readFileSync(path.join(root,'AGENTS.md'),'utf8').includes('TYPOGRAPHY_SYSTEM.md')) errors.push('Agent rules missing mandatory typography reading');
 if (has('.github/skills/lazarus-anti-generic/SKILL.md') && fs.readFileSync(path.join(root,'.github/skills/lazarus-anti-generic/SKILL.md'),'utf8').includes('record the other two')) errors.push('Outdated three-option wording in anti-generic skill');
 
-for (const module of ['lib/design-contract.mjs','direction-room/room.mjs','direction-room/example.mjs','scripts/design-gate.mjs','scripts/browser-server.mjs','scripts/check-direction-room-browser.mjs']) {
+for (const module of ['lib/scroll-director.mjs','scripts/scroll-director.mjs','scroll-lab/app.js','lib/design-contract.mjs','direction-room/room.mjs','direction-room/example.mjs','scripts/design-gate.mjs','scripts/browser-server.mjs','scripts/check-direction-room-browser.mjs']) {
   try { execFileSync(process.execPath, ['--check', path.join(root, module)], { stdio: 'pipe' }); }
   catch { errors.push('Missing or invalid module: ' + module); }
 }

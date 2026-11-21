@@ -1,0 +1,46 @@
+name: Verify Scroll Director
+
+on:
+  push:
+    paths:
+      - '.github/skills/lazarus-scroll-director/**'
+      - '.github/workflows/scroll-director.yml'
+      - 'data/scroll-systems.json'
+      - 'docs/SCROLL_SYSTEMS.md'
+      - 'docs/scroll-systems/**'
+      - 'lib/scroll-director.mjs'
+      - 'scripts/scroll-director.mjs'
+      - 'templates/scroll-plan.json'
+      - 'tests/scroll-director.test.mjs'
+      - 'scroll-lab/**'
+  pull_request:
+    paths:
+      - '.github/skills/lazarus-scroll-director/**'
+      - '.github/workflows/scroll-director.yml'
+      - 'data/scroll-systems.json'
+      - 'docs/SCROLL_SYSTEMS.md'
+      - 'docs/scroll-systems/**'
+      - 'lib/scroll-director.mjs'
+      - 'scripts/scroll-director.mjs'
+      - 'templates/scroll-plan.json'
+      - 'tests/scroll-director.test.mjs'
+      - 'scroll-lab/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  scroll-director:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check scroll mechanism registry
+        run: node scripts/scroll-director.mjs registry-check
+      - name: Test scroll plan validation, source integrity and decisions
+        run: node --test tests/scroll-director.test.mjs
+      - name: Parse scroll lab JavaScript
+        run: node --check scroll-lab/app.js

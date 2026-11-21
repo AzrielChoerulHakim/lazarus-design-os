@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "project": {
+    "name": "",
+    "audience": "",
+    "readerJobs": [],
+    "constraints": "",
+    "baseline": "semantic-document"
+  },
+  "evidence": [],
+  "selections": [],
+  "noScrollReason": "",
+  "rejected": [],
+  "qa": {"reviewedCommit": "", "environment": "", "checks": []}
+}
