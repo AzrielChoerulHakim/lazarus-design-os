@@ -23,7 +23,7 @@ Use [Mobile Visual Integrity](MOBILE_VISUAL_INTEGRITY.md) and [MOBILE_VISUAL_QA]
 ## 3 — Reference only when needed
 Before proceeding, run the contract's `brief` and `design` stages. Define the project's signature, source evidence, audience benefit and fallback. A duplicate-structure warning requires comparison, not renaming the concept.
 
-Read [Reference Atlas](REFERENCE_ATLAS.md) for relevant mechanisms. Read the appropriate note and the original source only **if available and authorized**. Record mechanism, transformation and protected visual carryovers to avoid.
+Read [Reference Atlas](REFERENCE_ATLAS.md) and [Reference Engineering](REFERENCE_ENGINEERING.md) for relevant mechanisms. Use `node scripts/reference-engineering.mjs catalog` or `suggest` to shortlist by verified client needs; choose **zero to two**, never by visual resemblance alone. Read the appropriate note and original source only **if available and authorized**. Record source basis, exclusions, audience benefit, transformation, static/reduced-motion fallback and method-specific QA in `reference-engineering-plan.json` in the client repository. The separate mechanism gate complements, but does not replace, the main design contract.
 
 ## 4 — Design system and implementation
 Specify tokens suitable for that client, not Apple/Anthropic/Lazarus defaults. Typography tokens must implement approved **semantic text roles**, not decorative pixel classes; scale/reflow after testing actual names, job titles, dense paragraphs and data. Implement semantic structure and truthful content first; responsive CSS and usable navigation second; a small number of meaningful interactions third. Animations must honor reduced-motion. All actions functional.

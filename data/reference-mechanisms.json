@@ -1,0 +1,526 @@
+{
+  "schemaVersion": 1,
+  "purpose": "An evidence-led mechanism registry, not a source-code archive or a visual-style preset.",
+  "sourceRights": "Historical reference sources and media are not redistributed; only independently authored mechanics, analysis and demos are published.",
+  "allowedJobTags": [
+    "compare-states",
+    "contact",
+    "coordinate-ui-state",
+    "create-modal",
+    "demonstrate-making",
+    "fit-long-wordmark",
+    "justify-decision",
+    "present-media",
+    "read-longform",
+    "read-profile",
+    "review-portfolio",
+    "scan-credentials",
+    "show-chronology",
+    "show-journey",
+    "show-process",
+    "show-spatial-context",
+    "tell-photo-story"
+  ],
+  "allowedEvidenceTags": [
+    "licensed-visual-material",
+    "verified-artifact",
+    "verified-chronology",
+    "verified-evidence",
+    "verified-process"
+  ],
+  "studies": [
+    {
+      "id": "foreshore",
+      "title": "Foreshore",
+      "note": "docs/studies/01-foreshore.md",
+      "historicalSource": "index.html",
+      "repoDistribution": "notes-only"
+    },
+    {
+      "id": "halfmile",
+      "title": "Halfmile",
+      "note": "docs/studies/02-halfmile.md",
+      "historicalSource": "halfmile-landing.html",
+      "repoDistribution": "notes-only"
+    },
+    {
+      "id": "ninth-meridian",
+      "title": "Ninth Meridian",
+      "note": "docs/studies/03-ninth-meridian.md",
+      "historicalSource": "Ninth-Meridian-Standalone.html",
+      "repoDistribution": "notes-only"
+    },
+    {
+      "id": "cullet",
+      "title": "Cullet",
+      "note": "docs/studies/04-cullet.md",
+      "historicalSource": "cullet-standalone.html",
+      "repoDistribution": "notes-only"
+    },
+    {
+      "id": "mode",
+      "title": "MØDE",
+      "note": "docs/studies/05-mode.md",
+      "historicalSource": "noir-editorial-ui.zip",
+      "repoDistribution": "notes-only"
+    },
+    {
+      "id": "pencil-sketch",
+      "title": "Pencil Sketch Loader",
+      "note": "docs/studies/06-pencil-sketch.md",
+      "historicalSource": "pencil-sketch-loader.zip",
+      "repoDistribution": "notes-only"
+    },
+    {
+      "id": "orbit-timeline",
+      "title": "Orbit Timeline",
+      "note": "docs/studies/07-orbit-timeline.md",
+      "historicalSource": "preview.html",
+      "repoDistribution": "notes-only"
+    }
+  ],
+  "universalReleaseChecks": [
+    "data-authenticity",
+    "source-rights",
+    "non-imitation",
+    "keyboard",
+    "reduced-motion",
+    "no-js-content",
+    "mobile-320",
+    "mobile-390",
+    "short-height"
+  ],
+  "mechanisms": [
+    {
+      "id": "evidence-state",
+      "studyId": "foreshore",
+      "family": "state",
+      "problem": "Multiple evidence views disagree or lose their selected context.",
+      "jobTags": [
+        "justify-decision",
+        "compare-states",
+        "coordinate-ui-state"
+      ],
+      "requiredEvidenceTags": [
+        "verified-evidence"
+      ],
+      "complexity": "medium",
+      "motion": "optional",
+      "recipe": [
+        "Store the active evidence ID in one state model, not per component.",
+        "Derive status, explanation, and selected controls from that state.",
+        "Use native controls with a visible active label.",
+        "Handle keyboard, focus, and hash/deep-link needs independently of animations."
+      ],
+      "fallback": "Present every claim with its explanation in a semantic list; selection is progressive enhancement.",
+      "qa": [
+        "state-sync",
+        "keyboard",
+        "focus",
+        "data-authenticity"
+      ],
+      "avoid": [
+        "cyan telemetry UI",
+        "glowing verdict cards",
+        "ocean atmosphere"
+      ],
+      "rejectWhen": [
+        "No verified claims exist, or state changes cannot be explained in text."
+      ]
+    },
+    {
+      "id": "visibility-aware-drawing",
+      "studyId": "foreshore",
+      "family": "rendering",
+      "problem": "A meaningful atmospheric field needs Canvas/WebGL but must not consume idle resources.",
+      "jobTags": [
+        "show-spatial-context",
+        "demonstrate-making"
+      ],
+      "requiredEvidenceTags": [
+        "licensed-visual-material"
+      ],
+      "complexity": "high",
+      "motion": "optional",
+      "recipe": [
+        "Render a factual or explicitly illustrative field behind semantic content.",
+        "Cap device pixel ratio and schedule one animation loop only.",
+        "Pause when hidden or offscreen; resume on visibility changes.",
+        "Handle context loss, unsupported graphics, and cleanup."
+      ],
+      "fallback": "Use a licensed static still or simple SVG with the same information.",
+      "qa": [
+        "visibility-pause",
+        "context-loss",
+        "low-power",
+        "resource-failure"
+      ],
+      "avoid": [
+        "ocean shader",
+        "neon instrumentation",
+        "faux sensor figures"
+      ],
+      "rejectWhen": [
+        "The visual adds no meaning, low-power performance is critical, or assets are unlicensed."
+      ]
+    },
+    {
+      "id": "progressive-chapter",
+      "studyId": "halfmile",
+      "family": "scroll",
+      "problem": "A real sequence needs a temporal relationship between scroll, text and a diagram.",
+      "jobTags": [
+        "show-process",
+        "show-journey"
+      ],
+      "requiredEvidenceTags": [
+        "verified-process"
+      ],
+      "complexity": "high",
+      "motion": "optional",
+      "recipe": [
+        "Model actual stages and transitions before writing scroll code.",
+        "Compute clamped section progress from geometry in one function.",
+        "Derive labels, active stage and diagram from that progress.",
+        "Verify reverse scroll, short-height and touch; never block normal scrolling."
+      ],
+      "fallback": "Provide the complete sequence in ordinary document order without sticky locking.",
+      "qa": [
+        "reverse-scroll",
+        "short-height",
+        "touch",
+        "state-sync"
+      ],
+      "avoid": [
+        "red courier poster",
+        "fake route clock",
+        "multiple 400svh stages"
+      ],
+      "rejectWhen": [
+        "There is no meaningful staged relationship, or sticky scrolling delays essential information."
+      ]
+    },
+    {
+      "id": "linear-recomposition",
+      "studyId": "halfmile",
+      "family": "fallback",
+      "problem": "A visually pinned narrative must remain usable without movement and scripting.",
+      "jobTags": [
+        "show-process",
+        "show-journey",
+        "show-chronology"
+      ],
+      "requiredEvidenceTags": [],
+      "complexity": "medium",
+      "motion": "none",
+      "recipe": [
+        "Write a complete document-first sequence.",
+        "Treat pinning and animation as optional enhanced presentation.",
+        "In reduced-motion mode restore auto height and relative/statically positioned sections.",
+        "Test focus, reading order, and back-navigation."
+      ],
+      "fallback": "The ordinary document flow is the primary implementation and never disappears.",
+      "qa": [
+        "no-js-content",
+        "reduced-motion",
+        "reading-order",
+        "short-height"
+      ],
+      "avoid": [
+        "courier typography",
+        "decorative scrolling counters"
+      ],
+      "rejectWhen": [
+        "Never reject a working linear fallback; reject only if it introduces worse order or hides content."
+      ]
+    },
+    {
+      "id": "meaningful-media-reveal",
+      "studyId": "ninth-meridian",
+      "family": "media",
+      "problem": "An authentic image needs controlled exposure to explain a change or a discovery.",
+      "jobTags": [
+        "tell-photo-story",
+        "compare-states",
+        "demonstrate-making"
+      ],
+      "requiredEvidenceTags": [
+        "licensed-visual-material"
+      ],
+      "complexity": "medium",
+      "motion": "optional",
+      "recipe": [
+        "Identify exactly what the photograph proves.",
+        "Design the baseline full image, descriptive caption, and meaningful crop.",
+        "Progressively add an inset/circle mask tied to a clear trigger.",
+        "Keep labels readable at both endpoints and throughout the transition."
+      ],
+      "fallback": "Show full still images and their captions without aperture effects.",
+      "qa": [
+        "resource-failure",
+        "contrast",
+        "mobile-crop",
+        "reduced-motion"
+      ],
+      "avoid": [
+        "desert imagery",
+        "sand/navy/coral scheme",
+        "original iris sequence"
+      ],
+      "rejectWhen": [
+        "Visual source has no provenance or the reveal adds atmosphere but no information."
+      ]
+    },
+    {
+      "id": "synchronized-process-plot",
+      "studyId": "cullet",
+      "family": "data",
+      "problem": "Graph, narration and process readout must represent one actual data model.",
+      "jobTags": [
+        "show-process",
+        "compare-states",
+        "justify-decision"
+      ],
+      "requiredEvidenceTags": [
+        "verified-process"
+      ],
+      "complexity": "high",
+      "motion": "optional",
+      "recipe": [
+        "Define units, values, source and interpolation assumptions.",
+        "Compute process phase and plotted values from one pure function.",
+        "Use the same function for graphic, selection and textual readout.",
+        "Offer an accessible table/text interpretation for every represented value."
+      ],
+      "fallback": "Show a sourced table or an ordered qualitative process when numerical data are unavailable.",
+      "qa": [
+        "state-sync",
+        "data-authenticity",
+        "screen-reader-summary",
+        "reverse-scroll"
+      ],
+      "avoid": [
+        "molten contours",
+        "ember palette",
+        "invented temperatures"
+      ],
+      "rejectWhen": [
+        "Only hypothetical numbers exist or a graph would create false precision."
+      ]
+    },
+    {
+      "id": "measured-display-type",
+      "studyId": "cullet",
+      "family": "typography",
+      "problem": "An unusual display lockup must fit real content at variable widths and font states.",
+      "jobTags": [
+        "fit-long-wordmark",
+        "tell-photo-story"
+      ],
+      "requiredEvidenceTags": [],
+      "complexity": "low",
+      "motion": "none",
+      "recipe": [
+        "Use semantic heading content and a fluid CSS baseline.",
+        "Measure rendered overflow only after font/layout readiness.",
+        "Update only necessary properties and debounce layout changes.",
+        "Test 200 percent zoom, 320px reflow and missing-font fallback."
+      ],
+      "fallback": "Allow the original heading to wrap naturally without JS or measured scaling.",
+      "qa": [
+        "font-fallback",
+        "text-resize-200",
+        "reflow-320",
+        "long-content"
+      ],
+      "avoid": [
+        "Unbounded wordmark",
+        "source display proportions"
+      ],
+      "rejectWhen": [
+        "It depends on shrinking meaningful text below readable sizes."
+      ]
+    },
+    {
+      "id": "poster-first-video",
+      "studyId": "mode",
+      "family": "media",
+      "problem": "Actual moving work needs video without sacrificing first-load clarity.",
+      "jobTags": [
+        "present-media",
+        "tell-photo-story",
+        "demonstrate-making"
+      ],
+      "requiredEvidenceTags": [
+        "licensed-visual-material"
+      ],
+      "complexity": "medium",
+      "motion": "optional",
+      "recipe": [
+        "Identify the video’s informational benefit over a still.",
+        "Use a licensed poster, captions or transcript where appropriate.",
+        "Respect motion preferences and data/bandwidth constraints.",
+        "Provide accessible play/pause controls when sound or duration matters."
+      ],
+      "fallback": "Use the poster image, transcript and direct work link if playback is unavailable.",
+      "qa": [
+        "video-failure",
+        "reduced-motion",
+        "keyboard",
+        "asset-rights"
+      ],
+      "avoid": [
+        "original film",
+        "source editorial overlays",
+        "borrowed case studies"
+      ],
+      "rejectWhen": [
+        "The footage is illustrative but presented as proof of client work or is licensed ambiguously."
+      ]
+    },
+    {
+      "id": "reversible-dialog",
+      "studyId": "mode",
+      "family": "interaction",
+      "problem": "Details need an accessible temporary focus context rather than an inert overlay.",
+      "jobTags": [
+        "create-modal",
+        "compare-states",
+        "coordinate-ui-state"
+      ],
+      "requiredEvidenceTags": [],
+      "complexity": "medium",
+      "motion": "none",
+      "recipe": [
+        "Prefer a native dialog when modal behavior is needed.",
+        "Open on deliberate activation; track the invoking element.",
+        "Close on Escape and explicit control; restore focus.",
+        "Ensure the backdrop does not conceal the only path to essential details."
+      ],
+      "fallback": "Use a normal linked details page or inline expandable section.",
+      "qa": [
+        "keyboard",
+        "escape-close",
+        "focus-return",
+        "touch"
+      ],
+      "avoid": [
+        "source translucent glass",
+        "specific serif/sans pairing"
+      ],
+      "rejectWhen": [
+        "A modal interrupts a job better served by a stable detail page."
+      ]
+    },
+    {
+      "id": "dom-measured-plot",
+      "studyId": "pencil-sketch",
+      "family": "geometry",
+      "problem": "An instructional overlay must follow actual elements, not an invented coordinate sketch.",
+      "jobTags": [
+        "demonstrate-making",
+        "compare-states"
+      ],
+      "requiredEvidenceTags": [
+        "verified-artifact"
+      ],
+      "complexity": "high",
+      "motion": "optional",
+      "recipe": [
+        "Render complete real HTML before measuring.",
+        "After fonts are ready, measure explicitly annotated elements.",
+        "Map measurements to an SVG overlay, including scroll offsets and transforms.",
+        "Re-measure on resize and content change; cancel observers on teardown."
+      ],
+      "fallback": "Show the finished artifact immediately, with optional plan illustration in ordinary content.",
+      "qa": [
+        "resize",
+        "font-fallback",
+        "cleanup",
+        "reduced-motion",
+        "focus"
+      ],
+      "avoid": [
+        "drafting grid",
+        "original dashboard artwork",
+        "manufactured loading wait"
+      ],
+      "rejectWhen": [
+        "The animation delays access or the measured targets are not stable."
+      ]
+    },
+    {
+      "id": "interruptible-phase-machine",
+      "studyId": "pencil-sketch",
+      "family": "state",
+      "problem": "A multi-stage reveal must have explicit phases, cancellation and completion guarantees.",
+      "jobTags": [
+        "demonstrate-making",
+        "coordinate-ui-state"
+      ],
+      "requiredEvidenceTags": [
+        "verified-artifact"
+      ],
+      "complexity": "high",
+      "motion": "optional",
+      "recipe": [
+        "Specify named phases and legal transitions before animation.",
+        "Use monotonic elapsed time or explicit events instead of chained arbitrary delays.",
+        "Permit skip, abort and direct completion without losing content.",
+        "Clean up timers/listeners, support repeated mounts and reduced motion."
+      ],
+      "fallback": "Start in the completed content state; reveal is never a loading dependency.",
+      "qa": [
+        "cleanup",
+        "interruption",
+        "reduced-motion",
+        "no-js-content"
+      ],
+      "avoid": [
+        "original spinner choreography",
+        "artificial waits",
+        "dashboard wireframe"
+      ],
+      "rejectWhen": [
+        "It extends a wait for content already available."
+      ]
+    },
+    {
+      "id": "chronology-state",
+      "studyId": "orbit-timeline",
+      "family": "state",
+      "problem": "Dates and milestones must remain consistent across multiple navigation representations.",
+      "jobTags": [
+        "show-chronology",
+        "show-journey",
+        "coordinate-ui-state"
+      ],
+      "requiredEvidenceTags": [
+        "verified-chronology"
+      ],
+      "complexity": "medium",
+      "motion": "optional",
+      "recipe": [
+        "Store sourced milestones in one sorted canonical array.",
+        "Map scroll and direct selection to one active index.",
+        "Keep details and active semantics synchronized with that index.",
+        "Use a semantic linear timeline for screen readers, reduced motion and no JS."
+      ],
+      "fallback": "Show the full chronology as an ordered list of dated items and source links.",
+      "qa": [
+        "chronology-order",
+        "keyboard",
+        "state-sync",
+        "reduced-motion"
+      ],
+      "avoid": [
+        "indigo orbit nodes",
+        "circular timeline shape",
+        "fictional sample biographies"
+      ],
+      "rejectWhen": [
+        "The chronology is too short or too dense to justify a spatial navigator."
+      ]
+    }
+  ]
+}

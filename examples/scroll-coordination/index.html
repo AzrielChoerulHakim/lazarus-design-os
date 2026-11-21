@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>One sequence · Scroll Coordination Lab</title>
+<meta name="description" content="Original reference engineering exercise: a canonical process sequence coordinates an optional progress readout without hiding any static content.">
+<link rel="stylesheet" href="./style.css"><script type="module" src="./enhance.mjs"></script>
+</head>
+<body>
+<main>
+<header class="opening">
+  <p>Engineering exercise / 02</p>
+  <h1>Read the method, not the motion.</h1>
+  <p>Scroll can coordinate context, but all four fictional stages remain in a normal, accessible document. No invented metrics, scroll lock or mandatory animation.</p>
+</header>
+<section id="journey" class="journey" aria-labelledby="journey-heading">
+  <div class="steps">
+    <h2 id="journey-heading">A documented process</h2>
+    <ol id="process-steps">
+      <li data-phase="0"><span class="phase">01 / Intake</span><h3>Collect</h3><p>Identify real source materials before introducing visual interpretation. Mark missing documents instead of completing the story with invention.</p></li>
+      <li data-phase="1"><span class="phase">02 / Qualification</span><h3>Verify</h3><p>Separate sourced claims from hypotheses. A compelling visual sequence cannot upgrade an uncertain claim into evidence.</p></li>
+      <li data-phase="2"><span class="phase">03 / Composition</span><h3>Arrange</h3><p>Set the reading order based on what the audience needs to understand, not on the chronology of the animation.</p></li>
+      <li data-phase="3"><span class="phase">04 / Delivery</span><h3>Explain</h3><p>Show what changed, what remains uncertain, and where the visitor can inspect the underlying material.</p></li>
+    </ol>
+  </div>
+  <aside class="visual" aria-label="Optional process progress readout">
+    <span class="small">CURRENT PHASE</span>
+    <p class="current" id="current-phase">All four stages are described in order.</p>
+    <div class="meter" aria-hidden="true"><div id="progress-fill" class="fill"></div></div>
+    <p class="hint">The left-hand sequence is always the primary reading experience.</p>
+  </aside>
+</section>
+<footer><p>Original teaching example. The phase content is fictional; adapt mechanics only after validating the client's process.</p></footer>
+</main>
+</body>
+</html>

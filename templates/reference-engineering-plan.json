@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "project": {
+    "name": "",
+    "audience": "",
+    "goal": "",
+    "readerJobs": [],
+    "constraints": ""
+  },
+  "evidence": [],
+  "selections": [],
+  "noMechanismReason": "",
+  "rejectedAlternatives": [],
+  "qa": {
+    "reviewedCommit": "",
+    "environment": "",
+    "checks": []
+  }
+}

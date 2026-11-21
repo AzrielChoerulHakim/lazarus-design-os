@@ -1,0 +1,48 @@
+name: Verify Reference Engineering
+
+on:
+  push:
+    paths:
+      - '.github/skills/lazarus-reference-atlas/**'
+      - '.github/workflows/reference-engineering.yml'
+      - 'data/reference-mechanisms.json'
+      - 'docs/REFERENCE_ENGINEERING.md'
+      - 'docs/reference-engineering/**'
+      - 'examples/synchronized-evidence/**'
+      - 'examples/scroll-coordination/**'
+      - 'lib/reference-engineering.mjs'
+      - 'lib/scroll-progress.mjs'
+      - 'scripts/reference-engineering.mjs'
+      - 'templates/reference-engineering-plan.json'
+      - 'tests/reference-engineering.test.mjs'
+  pull_request:
+    paths:
+      - '.github/skills/lazarus-reference-atlas/**'
+      - '.github/workflows/reference-engineering.yml'
+      - 'data/reference-mechanisms.json'
+      - 'docs/REFERENCE_ENGINEERING.md'
+      - 'docs/reference-engineering/**'
+      - 'examples/synchronized-evidence/**'
+      - 'examples/scroll-coordination/**'
+      - 'lib/reference-engineering.mjs'
+      - 'lib/scroll-progress.mjs'
+      - 'scripts/reference-engineering.mjs'
+      - 'templates/reference-engineering-plan.json'
+      - 'tests/reference-engineering.test.mjs'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  reference-engineering:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate mechanism registry
+        run: node scripts/reference-engineering.mjs registry-check
+      - name: Run reference-engineering regressions
+        run: node --test tests/reference-engineering.test.mjs

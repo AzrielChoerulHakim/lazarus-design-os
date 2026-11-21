@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Evidence State · Reference Engineering Lab</title>
+  <meta name="description" content="An original, fictional reference-engineering exercise: one selected record, shared text state, usable no-script fallback.">
+  <link rel="stylesheet" href="./style.css">
+  <script src="./enhance.mjs" type="module"></script>
+</head>
+<body>
+  <main class="page">
+    <header class="intro">
+      <p class="kicker">Engineering exercise / 01</p>
+      <h1>One record. One explanation.</h1>
+      <p>Fictional entries demonstrate state consistency. This is not a client portfolio, historical record, or visual template.</p>
+    </header>
+    <div class="layout">
+      <nav aria-label="Evidence records" class="index">
+        <h2>Record index</h2>
+        <ol>
+          <li><a href="#record-a" data-entry-link="record-a"><span class="order">A</span><span>Intake</span></a></li>
+          <li><a href="#record-b" data-entry-link="record-b"><span class="order">B</span><span>Verification</span></a></li>
+          <li><a href="#record-c" data-entry-link="record-c"><span class="order">C</span><span>Decision</span></a></li>
+        </ol>
+      </nav>
+      <section class="records" aria-labelledby="records-heading">
+        <h2 id="records-heading">Documented sequence</h2>
+        <p id="record-status" aria-live="polite" class="status">All three training records are available below.</p>
+        <article id="record-a" data-entry="record-a" tabindex="-1">
+          <p class="entry-meta">Fictional example · Record A</p>
+          <h3>Start with the source</h3>
+          <p>Before choosing an interface, establish where every claim came from. An uncertain line stays uncertain, even if the layout looks convincing.</p>
+          <dl><div><dt>Source</dt><dd>Illustrative training dataset</dd></div><div><dt>Confidence</dt><dd>Not an actual client fact</dd></div></dl>
+        </article>
+        <article id="record-b" data-entry="record-b" tabindex="-1">
+          <p class="entry-meta">Fictional example · Record B</p>
+          <h3>Compare the evidence</h3>
+          <p>Choose a record and change one canonical selection state. The index, explanation and active marker must always refer to the same item.</p>
+          <dl><div><dt>Source</dt><dd>Illustrative training dataset</dd></div><div><dt>Confidence</dt><dd>Not an actual client fact</dd></div></dl>
+        </article>
+        <article id="record-c" data-entry="record-c" tabindex="-1">
+          <p class="entry-meta">Fictional example · Record C</p>
+          <h3>Keep the conclusion inspectable</h3>
+          <p>With JavaScript disabled, all three records remain readable. Enhancement changes presentation, never the existence of the evidence.</p>
+          <dl><div><dt>Source</dt><dd>Illustrative training dataset</dd></div><div><dt>Confidence</dt><dd>Not an actual client fact</dd></div></dl>
+        </article>
+      </section>
+    </div>
+    <footer><p>Mechanism only: shared selection, semantic links, deep-link state, no-script access and reduced-motion-safe content.</p></footer>
+  </main>
+</body>
+</html>
